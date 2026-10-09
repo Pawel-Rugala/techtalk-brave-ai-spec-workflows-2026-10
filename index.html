@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Koniec klepania kodu?</title>
-    <meta name="description" content="Kod jest tani. Spec-driven development i AI Factories w nowoczesnych zespołach — tech talk" />
+    <meta name="description" content="Spec-driven development i AI Factories w nowoczesnych zespołach — tech talk" />
   </head>
   <body>
     <div class="reveal">
@@ -17,10 +17,11 @@
           <span class="tag">Brave AI Szczecin Oct'26</span>
           <div class="deco"><span></span><span></span><span></span><span></span><span></span><span></span></div>
           <h1 class="enter slam-e">Koniec<br /><span class="mark">klepania</span><br />kodu?<span class="caret"></span></h1>
-          <p class="sub enter" style="--i: 4">Od spec-driven development do AI Factory</p>
+          <p class="sub enter" style="--i: 4">Spec-driven development w nowoczesnych zespołach</p>
           <div class="speaker enter" style="--i: 6"><span class="avatar"></span> Paul Rugała</div>
           <aside class="notes">
-            [0:00–0:30] Cześć! Dziś o tym, co się dzieje z naszą pracą, kiedy pisanie kodu stało się tanie.
+            [0:00–0:30] Cześć! Dziś o tym, co się dzieje z naszą pracą, kiedy AI pisze coraz więcej kodu.
+            Trzy tematy: mindset, spec-driven development i skalowanie tego do „AI Factory”.
           </aside>
         </section>
 
@@ -42,175 +43,145 @@
         </section>
 
         <!-- ============================================================
-             02 · AGENDA — two statements, three acts
-             ============================================================ -->
-        <section>
-          <p class="agenda-line">AI zmienia, <span class="mark">jak budujemy.</span></p>
-          <p class="agenda-line">AI zmienia <span class="mark pink">dynamikę zespołu.</span></p>
-          <div class="acts">
-            <span class="chip yellow"><b>01</b>Kod jest tani</span>
-            <span class="chip blue"><b>02</b>Spec-driven development</span>
-            <span class="chip green"><b>03</b>AI Factory</span>
-          </div>
-          <aside class="notes">
-            [1:30–2:00] Dwie zmiany naraz. Pierwsza — jak budujemy: od promptów do specyfikacji i fabryk agentów.
-            Druga — kto co robi w zespole: developer przesuwa się w stronę biznesu i weryfikacji.
-            Plan: trzy części. Kod jest tani — co z tego wynika. Spec-driven development. I jak to przeskalować do AI Factory.
-          </aside>
-        </section>
-
-        <!-- ============================================================
-             03 · WHERE THE EFFORT GOES (before AI vs today)
+             02 · WHERE THE EFFORT GOES (before AI vs today)
              ============================================================ -->
         <section class="top">
-          <span class="tag yellow">01 · Kod jest tani</span>
+          <span class="tag">00 · Punkt wyjścia</span>
           <h2>Gdzie idzie <span class="mark">nasz wysiłek?</span></h2>
           <div class="effort">
             <div class="effort-row">
               <span class="effort-label">Przed AI</span>
               <div class="effort-bar">
-                <div class="eseg intent" style="--w: 10%; --i: 0"><b>Problem</b></div>
+                <div class="eseg intent" style="--w: 10%; --i: 0"><b>Ticket</b></div>
                 <div class="eseg " style="--w: 10%; --i: 1"><b>Design</b></div>
-                <div class="eseg code" style="--w: 50%; --i: 2"><b>Implementacja</b></div>
+                <div class="eseg code" style="--w: 55%; --i: 2"><b>Kodowanie</b></div>
                 <div class="eseg " style="--w: 12%; --i: 3"><b>Review</b></div>
-                <div class="eseg verify" style="--w: 18%; --i: 4"><b>Testy</b></div>
+                <div class="eseg verify" style="--w: 13%; --i: 4"><b>Testy</b></div>
               </div>
             </div>
             <div class="effort-row morph fragment rise">
               <span class="effort-label">Dziś</span>
               <div class="effort-bar">
-                <div class="eseg intent" style="--b: 10%; --t: 35%; --i: 0"><b>Problem &amp; spec</b></div>
-                <div class="eseg " style="--b: 10%; --t: 15%; --i: 1"><b>Architektura</b></div>
-                <div class="eseg code" style="--b: 50%; --t: 10%; --i: 2"><b>Impl.</b></div>
-                <div class="eseg " style="--b: 12%; --t: 18%; --i: 3"><b>Review</b></div>
-                <div class="eseg verify" style="--b: 18%; --t: 22%; --i: 4"><b>Weryfikacja</b></div>
+                <div class="eseg intent" style="--b: 10%; --t: 40%; --i: 0"><b>Intencja &amp; spec</b></div>
+                <div class="eseg " style="--b: 10%; --t: 18%; --i: 1"><b>Architektura</b></div>
+                <div class="eseg code" style="--b: 55%; --t: 7%; --i: 2"><b>Kod</b></div>
+                <div class="eseg " style="--b: 12%; --t: 15%; --i: 3"><b>Review</b></div>
+                <div class="eseg verify" style="--b: 13%; --t: 20%; --i: 4"><b>Weryfikacja</b></div>
               </div>
               <div class="effort-brackets fragment rise">
-                <div style="--w: 50%"><span>przed kodem · <strong>zrozumienie</strong></span></div>
-                <div class="gap" style="--w: 10%"></div>
-                <div style="--w: 40%"><span>po kodzie · <strong>sprawdzanie</strong></span></div>
+                <div style="--w: 58%"><span>przed kodem · <strong>myślenie</strong></span></div>
+                <div class="gap" style="--w: 7%"></div>
+                <div style="--w: 35%"><span>po kodzie · <strong>sprawdzanie</strong></span></div>
               </div>
             </div>
           </div>
-          <p class="small muted">Proporcje ilustracyjne — chodzi o kierunek, nie o procenty.</p>
+          <p class="huge fragment slam" style="font-size: 64px; line-height: 1.15">
+            Wysiłek przeniósł się z <span class="strike-line late">pisania kodu</span><br />
+            na <span class="mark">pisanie intencji</span> i <span class="mark green">weryfikację</span>.
+          </p>
           <aside class="notes">
-            [2:00–3:30] Pasek to cały wysiłek zespołu przy jednym feature. Uczciwie: to ilustracja, nie badanie —
-            nigdy nie spędzaliśmy 100% czasu na pisaniu. Ale implementacja (pisanie, debugowanie, klejenie) była
-            największym kawałkiem i tam płaciliśmy seniorom.
-            Dziś ten kawałek się kurczy — robi go agent. Wysiłek ucieka w dwie strony:
-            PRZED kodem — zrozumienie problemu, spec, architektura. PO kodzie — review i weryfikacja.
+            [1:30–3:00] Pasek to cały wysiłek zespołu przy jednym feature.
+            Przed AI: lwia część szła w kodowanie — tam płaciliśmy seniorom.
+            ▸ dziś: ten sam pasek. Patrzcie, jak kodowanie się kurczy, a reszta rośnie. Kod robi agent.
+            ▸ wysiłek uciekł w dwie strony: PRZED kodem — intencja, spec, architektura, czyli myślenie —
+            i PO kodzie — review i weryfikacja, czyli sprawdzanie.
+            ▸ puenta: wysiłek przeniósł się z pisania kodu na pisanie intencji i weryfikację.
           </aside>
         </section>
 
         <!-- ============================================================
-             04 · WHAT GOT CHEAP, WHAT DIDN'T
+             03 · BUT NOT CHEAPER...
              ============================================================ -->
         <section class="top">
-          <span class="tag yellow">01 · Kod jest tani</span>
-          <h2>Co potaniało, a co <span class="mark pink">nie?</span></h2>
-          <div class="split2">
-            <div class="card">
-              <span class="kicker muted">TANIE</span>
-              <h3>Produkcja kodu</h3>
-              <ul class="list ok">
-                <li>pisanie implementacji</li>
-                <li>boilerplate, CRUD, migracje</li>
-                <li>refaktor i przepisywanie</li>
-                <li>prototyp w godzinę</li>
-              </ul>
-            </div>
-            <div class="card yellow">
-              <span class="kicker">DROGIE — JAK ZAWSZE</span>
-              <h3>Wszystko wokół</h3>
-              <ul class="list x">
-                <li>złe zrozumienie problemu</li>
-                <li>pominięte reguły i edge case'y</li>
-                <li>zła architektura</li>
-                <li>brak sposobu, by sprawdzić, że działa</li>
-              </ul>
-            </div>
+          <span class="tag">00 · Punkt wyjścia</span>
+          <h2>AI obniżyło koszt implementacji.</h2>
+          <p class="lead">Ale <strong>nie</strong> obniżyło kosztu:</p>
+          <div class="chips" style="gap: 26px">
+            <span class="chip fragment pop">złych wymagań</span>
+            <span class="chip fragment pop">złej architektury</span>
+            <span class="chip fragment pop">złych decyzji</span>
+            <span class="chip fragment pop">źle zdefiniowanych edge case'ów</span>
+            <span class="chip fragment pop">braku testów</span>
           </div>
-          <div class="card ink" style="align-self: flex-start; padding: 22px 34px">
-            <p style="font-family: var(--font-head); font-size: 44px; line-height: 1.15">
-              Potaniało pisanie.<br /><span style="color: var(--yellow)">Myślenie i sprawdzanie — nie.</span>
+          <div class="card ink fragment glitch" style="margin-top: 30px; align-self: flex-start">
+            <p style="font-family: var(--font-head); font-size: 58px; line-height: 1.1">
+              Wręcz przeciwnie — AI pozwala produkować<br />
+              <span class="glitch-text" data-text="błędny kod szybciej" style="color: var(--pink)">błędny kod szybciej</span>
+              niż kiedykolwiek.
             </p>
           </div>
           <aside class="notes">
-            [3:30–4:30] Lewa strona: to, co AI robi świetnie i tanio. Prawa: to, co kosztowało nas zawsze najwięcej —
-            źle zrozumiany problem, brakująca reguła, zła architektura, brak testów. AI tego nie potaniło.
-            Wręcz przeciwnie: błąd w zrozumieniu problemu agent zaimplementuje szybko i pewnie siebie.
-            Skoro pisanie jest tanie, to wartość developera musi być gdzie indziej.
+            [3:00–4:00] Każdy ▸ kolejny koszt, który NIE spadł. Na koniec puenta:
+            AI pozwala produkować błędny kod szybciej niż kiedykolwiek wcześniej.
           </aside>
         </section>
 
         <!-- ============================================================
-             05 · THE NEW DEVELOPER — business + verification
+             04 · AI IS NOT AUTOCOMPLETE
              ============================================================ -->
         <section class="top">
-          <span class="tag yellow">01 · Kod jest tani</span>
-          <h2>Nowy developer: <span class="mark">dwa mięśnie</span></h2>
-          <div class="split2">
-            <div class="card yellow">
-              <span class="kicker">PRZED KODEM</span>
-              <h3>Biznes &amp; domena</h3>
-              <ul class="list">
-                <li>rozumie, <strong>po co</strong> powstaje feature</li>
-                <li>rozmawia z biznesem, nie z ticketem</li>
-                <li>zamienia „mniej więcej” w reguły</li>
-                <li>ma zdanie o produkcie</li>
-              </ul>
+          <span class="tag yellow">01 · Mindset</span>
+          <h2>AI ≠ autocomplete</h2>
+          <div class="row" style="gap: 90px; align-items: flex-start; margin-top: 10px">
+            <div class="col center" style="width: 560px">
+              <div class="flow">
+                <div class="node">Developer</div><div class="arrow"></div>
+                <div class="node ghost">"write this function"</div><div class="arrow"></div>
+                <div class="node">AI</div><div class="arrow"></div>
+                <div class="node">code</div>
+              </div>
+              <span class="stamp ink" style="--rot: -4deg; transform: rotate(-4deg); margin-top: 20px">= faster typing</span>
             </div>
-            <div class="card green">
-              <span class="kicker">PO KODZIE</span>
-              <h3>Weryfikacja</h3>
-              <ul class="list">
-                <li>definiuje, co znaczy <strong>„działa”</strong></li>
-                <li>projektuje testy i bramki</li>
-                <li>czyta kod krytycznie, nie „na oko”</li>
-                <li>nie ufa <code>"Looks good ✅"</code></li>
-              </ul>
+            <div class="col fragment rise" style="flex: 1">
+              <div class="flow" style="align-items: flex-start">
+                <div class="node">Developer</div><div class="arrow" style="margin-left: 90px"></div>
+                <div class="node yellow">defines intent</div><div class="arrow" style="margin-left: 90px"></div>
+                <div class="node blue">AI agent</div><div class="arrow" style="margin-left: 90px"></div>
+              </div>
+              <div class="chips">
+                <span class="chip">plans</span><span class="chip">implements</span><span class="chip">tests</span>
+                <span class="chip">reviews</span><span class="chip">fixes</span><span class="chip pink">↻ loop</span>
+              </div>
             </div>
           </div>
-          <p class="lead" style="max-width: none">
-            Kod pisze agent. <strong>Ty odpowiadasz za to, CO powstaje i CZY działa.</strong>
-          </p>
+          <div class="card yellow fragment slam" style="padding: 22px 32px">
+            <p style="font-size: 34px">
+              Developer przestaje być <strong>operatorem klawiatury</strong>. Zaczyna być:
+              <strong>architect · product engineer · reviewer · constraint designer · system orchestrator</strong>
+            </p>
+          </div>
           <aside class="notes">
-            [4:30–6:00] To jest teza całej prezentacji. Developer nie jest już operatorem klawiatury.
-            Potrzebuje dwóch mięśni. Pierwszy — biznes i domena: rozumiesz, po co to budujemy, potrafisz
-            z niejasnego „user ma móc zapłacić” wyciągnąć konkretne reguły. Drugi — weryfikacja: wiesz, co znaczy
-            „działa”, i potrafisz to sprawdzić systemowo, a nie wzrokiem.
-            Środek — samo pisanie kodu — przejmuje agent.
+            [4:00–5:30] Wiele zespołów nadal używa AI jak autocomplete: „napisz tę funkcję”.
+            To tylko szybsze pisanie. Prawdziwa zmiana: developer definiuje intencję, agent planuje,
+            implementuje, testuje, reviewuje i poprawia — w pętli. Rola developera się zmienia.
           </aside>
         </section>
 
         <!-- ============================================================
-             06 · TEAM DYNAMICS
+             05 · OLD VS NEW MINDSET
              ============================================================ -->
         <section class="top">
-          <span class="tag yellow">01 · Kod jest tani</span>
-          <h2 style="font-size: 80px">Co się zmienia w <span class="mark pink">zespole?</span></h2>
+          <span class="tag yellow">01 · Mindset</span>
+          <h2 style="font-size: 68px">Od pisania kodu → do <span class="mark">projektowania intencji</span></h2>
           <div class="vs" style="margin-top: 10px">
-            <div class="vsrow"><div class="head muted">BYŁO</div><div></div><div class="head">JEST</div></div>
-            <div class="vsrow"><div class="old">PO pisze ticket, dev implementuje</div><div class="to">→</div><div class="new">PO i dev piszą spec razem</div></div>
-            <div class="vsrow"><div class="old">Senior = najszybciej koduje</div><div class="to">→</div><div class="new">Senior = zadaje najlepsze pytania</div></div>
-            <div class="vsrow"><div class="old">Wąskie gardło: implementacja</div><div class="to">→</div><div class="new">Wąskie gardło: decyzje i review</div></div>
-            <div class="vsrow"><div class="old">Junior uczy się, pisząc CRUD-y</div><div class="to">→</div><div class="new">Junior uczy się, weryfikując?</div></div>
+            <div class="vsrow"><div class="head muted">STARY MINDSET</div><div></div><div class="head">NOWY MINDSET</div></div>
+            <div class="vsrow fragment rise"><div class="old">Jak to zakodować?</div><div class="to">→</div><div class="new">Co dokładnie chcemy osiągnąć?</div></div>
+            <div class="vsrow fragment rise"><div class="old">Jak napisać tę klasę?</div><div class="to">→</div><div class="new">Jaki powinien być kontrakt?</div></div>
+            <div class="vsrow fragment rise"><div class="old">Jak zrobić endpoint?</div><div class="to">→</div><div class="new">Jakich reguł nie wolno złamać?</div></div>
+            <div class="vsrow fragment rise"><div class="old">Czy kod wygląda dobrze?</div><div class="to">→</div><div class="new">Czy rozwiązanie spełnia spec?</div></div>
+            <div class="vsrow fragment rise"><div class="old">Ile kodu napisałem?</div><div class="to">→</div><div class="new">Jak szybko dostarczyliśmy poprawny system?</div></div>
           </div>
-          <p style="font-family: var(--font-head); font-size: 50px; margin-top: 10px">
-            Jednostka pracy: <span class="strike-line auto">kod</span> → <span class="mark pink">specyfikacja</span>
+          <p class="fragment slam" style="font-family: var(--font-head); font-size: 50px; margin-top: 10px">
+            Jednostka pracy: <span class="strike-line late">kod</span> → <span class="mark pink">specyfikacja</span>
           </p>
           <aside class="notes">
-            [6:00–7:30] Druga zmiana: dynamika zespołu.
-            Granica między PO a developerem się rozmywa — spec powstaje razem.
-            Senior to już nie ten, kto najszybciej koduje, tylko ten, kto zada pytanie, o którym nikt nie pomyślał.
-            Wąskie gardło przesuwa się z implementacji na decyzje i review — do tego wrócimy przy fabrykach.
-            Ostatni wiersz celowo ze znakiem zapytania: jak junior ma się nauczyć, skoro CRUD-y pisze agent? Nie mam pełnej odpowiedzi — warto o tym rozmawiać.
-            Puenta, która otwiera część drugą: jednostką pracy przestaje być kod. Staje się nią specyfikacja.
+            [5:30–7:00] Przejdź przez wiersze. Przy „regułach” daj przykład: płatność nigdy nie może przekroczyć kwoty do zapłaty na fakturze. Kluczowe zdanie na koniec:
+            „Jednostką pracy przestaje być kod. Staje się nią specyfikacja.”
           </aside>
         </section>
 
         <!-- ============================================================
-             07 · RUNNING EXAMPLE — the vague ticket (PAY-123)
+             06 · RUNNING EXAMPLE, ACT 1 — the vague ticket
              ============================================================ -->
         <section class="top">
           <span class="tag blue">02 · Spec-driven development</span>
@@ -222,7 +193,7 @@
               <p class="small" style="margin-top: 24px">Priority: High · Estimate: 1 SP 🙂</p>
             </div>
             <div style="position: relative; flex: 1">
-              <div class="term"><span class="title">agent · payments.ts</span><span class="c">// 🤖 agent: "Done! Endpoint ready ✅"</span>
+              <div class="term type" data-speed="10"><span class="title">agent · payments.ts</span><span class="c">// 🤖 agent: "Done! Endpoint ready ✅"</span>
 <span class="n">router</span>.<span class="f">post</span>(<span class="s">'/payments'</span>, <span class="k">async</span> (req, res) =&gt; {
   <span class="k">const</span> invoice = <span class="k">await</span> db.invoices.<span class="f">find</span>(req.body.invoiceId);
   <span class="k">const</span> payment = <span class="k">await</span> db.payments.<span class="f">create</span>({
@@ -240,109 +211,129 @@
               </div>
             </div>
           </div>
-          <p class="lead"><strong>Kod jest sensowny.</strong> Problem w tym, że nikt nie wie, czy jest <span class="mark pink">poprawny</span>.</p>
+          <p class="lead fragment rise"><strong>Kod jest sensowny.</strong> Problem w tym, że nikt nie wie, czy jest <span class="mark pink">poprawny</span>.</p>
           <aside class="notes">
-            [7:30–9:00] Nasz przykład na całą resztę prezentacji — PAY-123. Typowy ticket, agent coś generuje, wygląda OK.
-            Stemple wpadają: brak klucza idempotencji (retry = podwójna płatność), dwie równoległe płatności,
-            już opłacona faktura, brak eventu PaymentCreated, co gdy coś się wywali w połowie.
-            Agent nie zgadł, bo NIKT mu nie powiedział. To nie jest problem modelu — to problem wejścia.
+            [7:00–9:00] Nasz przykład na całą prezentację. Typowy ticket, agent coś generuje — wygląda OK.
+            Stemple wpadają jeden po drugim: brak klucza idempotencji (retry = podwójna płatność),
+            co przy dwóch równoległych płatnościach, co z już opłaconą fakturą, brak eventu PaymentCreated,
+            co gdy coś się wywali w połowie. Agent nie zgadł, bo NIKT mu nie powiedział. To nie jest problem modelu.
           </aside>
         </section>
 
         <!-- ============================================================
-             08 · THE SPEC — every section closes a stamp
+             07 · WHAT IS A SPEC
              ============================================================ -->
         <section class="top">
           <span class="tag blue">02 · Spec-driven development</span>
-          <div class="row" style="gap: 64px; align-items: flex-start">
-            <div class="term light" style="flex: 1; font-size: 25px; line-height: 1.45"><span class="title">specs/PAY-123-create-payment.md</span><span class="h1md"># Create Payment</span>
+          <div class="row" style="gap: 70px; align-items: flex-start">
+            <div class="col" style="width: 700px; flex: none; gap: 36px">
+              <h2 style="font-size: 84px">Co to właściwie jest spec?</h2>
+              <p style="font-size: 44px; font-family: var(--font-head)">Spec ≠ <span class="strike-line auto">40-stronicowy Word</span></p>
+              <div class="card yellow fragment rise">
+                <p style="font-size: 36px">
+                  Spec jest wystarczająco konkretny, żeby <strong>inny developer albo agent</strong>
+                  zaimplementował feature <strong>bez zadawania 20 pytań.</strong>
+                </p>
+              </div>
+            </div>
+            <div class="term light type" data-speed="4" style="flex: 1; font-size: 25px; line-height: 1.42"><span class="title">specs/create-payment.md</span><span class="h1md"># Create Payment</span>
 
 <span class="h2md">## Goal</span>
-User pays an open invoice, fully or partially.
+User can create a payment for an existing invoice.
 
 <span class="h2md">## API</span>
-POST /payments { invoiceId, amount, clientRequestId }
+POST /payments  { invoiceId, amount, clientRequestId }
 
-<span class="h2md">## Rules</span>
-- invoice exists and status = OPEN<span class="fix">✓ already paid</span>
-- amount ≤ invoice.remainingAmount
-- idempotent by clientRequestId<span class="fix">✓ idempotency</span>
-- optimistic lock on invoice<span class="fix">✓ concurrency</span>
+<span class="h2md">## Business rules</span>
+- invoice must exist
+- invoice cannot already be paid
+- amount must equal outstanding balance
+- operation must be idempotent
 
 <span class="h2md">## Events</span>
-PaymentCreated · PaymentFailed<span class="fix">✓ event</span>
+PaymentCreated · PaymentFailed
 
-<span class="h2md">## Errors</span>
-404 · 409 ALREADY_PAID · 422 · retry only 5xx<span class="fix">✓ failures</span>
+<span class="h2md">## Error cases</span>
+404 INVOICE_NOT_FOUND · 409 PAYMENT_ALREADY_EXISTS
 
-<span class="h2md">## Acceptance</span>
-- [ ] same clientRequestId → same payment
-- [ ] 2 parallel payments → exactly 1 succeeds</div>
-            <div class="col" style="width: 640px; flex: none; gap: 40px">
-              <h2 style="font-size: 76px">Co to jest spec?</h2>
-              <p style="font-size: 40px; font-family: var(--font-head)">Spec ≠ <span class="strike-line auto">40-stronicowy Word</span></p>
-              <div class="card yellow">
-                <p style="font-size: 33px">
-                  Markdown w repo. Na tyle konkretny, żeby <strong>inny developer albo agent</strong>
-                  zrobił feature <strong>bez zadawania 20 pytań.</strong>
-                </p>
-              </div>
-              <div class="card ink">
-                <p style="font-family: var(--font-head); font-size: 38px; line-height: 1.15">
-                  AI nie potrzebuje lepszych promptów.<br />Potrzebuje <span style="color: var(--pink)">mniej zgadywania.</span>
-                </p>
-              </div>
-            </div>
+<span class="h2md">## Acceptance criteria</span>
+- [ ] duplicate clientRequestId → same payment</div>
           </div>
           <aside class="notes">
-            [9:00–11:00] To samo PAY-123, ale ze specem. Zielone znaczniki: każdy stempel z poprzedniego slajdu
-            jest teraz zamknięty jedną linijką. Opłacona faktura → status OPEN. Retry → clientRequestId.
-            Równoległe płatności → optimistic lock. Event → PaymentCreated. Błędy → lista kodów i co retryować.
-            Spec to nie 40 stron w Wordzie. To markdown w repo, obok kodu, review jak kod.
-            Test: czy inny developer albo agent zrobi to bez 20 pytań?
-            Każda luka w specu to miejsce, w którym agent zgaduje — i zgaduje pewnie siebie.
+            [9:00–11:00] Od razu zaznacz: spec to NIE 40 stron w Wordzie. To markdown w repo, obok kodu.
+            Test: czy inny developer albo agent zaimplementuje to bez zadawania 20 pytań?
+            Pokaż sekcje: goal, API, reguły biznesowe, eventy, błędy, acceptance criteria.
           </aside>
         </section>
 
         <!-- ============================================================
-             09 · WHO WRITES THE SPEC — business + dev + agent
+             08 · PROMPT VS SPEC
              ============================================================ -->
         <section class="top">
           <span class="tag blue">02 · Spec-driven development</span>
-          <h2>Kto pisze spec? <span class="mark">Nikt sam.</span></h2>
-          <div class="voices" style="margin-top: 20px">
-            <div class="card yellow">
-              <span class="label">BIZNES / PO</span>
-              <h3>Po co?</h3>
-              <p>cel, wartość, priorytety</p>
-              <p class="q">„Klienci płacą w ratach.”</p>
+          <h2>Dobry spec vs zły prompt</h2>
+          <div class="row" style="gap: 60px; align-items: flex-start">
+            <div class="col" style="width: 560px; flex: none">
+              <div class="card">
+                <span class="label">PROMPT</span>
+                <p style="font-family: var(--font-mono); font-size: 38px; font-weight: 700; margin-top: 8px; white-space: nowrap">
+                  <span class="strike-line fragment" data-fragment-index="1">Add payment endpoint.</span>
+                </p>
+              </div>
+              <p class="muted small fragment" data-fragment-index="1">…i agent zgaduje resztę.</p>
             </div>
-            <div class="card">
-              <span class="label">DEVELOPER</span>
-              <h3>Jakie reguły?</h3>
-              <p>kontrakt, invarianty, ryzyka</p>
-              <p class="q">„Czyli amount ≤ remaining.”</p>
-            </div>
-            <div class="card blue">
-              <span class="label">AGENT</span>
-              <h3>Czego brakuje?</h3>
-              <p>pyta, wykrywa luki, pisze draft</p>
-              <p class="q">„A jeśli faktura jest już opłacona?”</p>
+            <div class="card blue grow" style="font-family: var(--font-mono); font-size: 30px; line-height: 1.45">
+              <span class="label">SPEC</span>
+              <div class="fragment rise" data-fragment-index="2"><strong>POST /payments</strong></div>
+              <div class="fragment rise" data-fragment-index="2" style="margin-top: 10px"><strong>Preconditions:</strong> invoice exists · status = OPEN</div>
+              <div class="fragment rise" data-fragment-index="3"><strong>Invariant:</strong> payment.amount ≤ invoice.remainingAmount</div>
+              <div class="fragment rise" data-fragment-index="4"><strong>Idempotency:</strong> clientRequestId</div>
+              <div class="fragment rise" data-fragment-index="5"><strong>Concurrency:</strong> optimistic lock on invoice</div>
+              <div class="fragment rise" data-fragment-index="6"><strong>Side effects:</strong> PaymentCreated event</div>
+              <div class="fragment rise" data-fragment-index="7"><strong>Failure modes:</strong> 404 · 409 · 422 → retry only 5xx</div>
             </div>
           </div>
-          <div class="funnel">
-            <span class="arrow-down">↓</span>
-            <span class="chip yellow" style="font-size: 40px; padding: 14px 30px">spec.md — w repo, review jak kod</span>
+          <div class="card yellow fragment slam" data-fragment-index="8" style="align-self: flex-start">
+            <p style="font-family: var(--font-head); font-size: 48px; line-height: 1.15">
+              AI nie potrzebuje bardziej kreatywnych promptów.<br />AI potrzebuje <span class="mark pink">mniej zgadywania.</span>
+            </p>
           </div>
-          <p class="small muted" style="text-align: center">
-            Narzędzia: GitHub Spec Kit · Kiro · BMAD · własne komendy i skille — wybór narzędzia jest wtórny.
-          </p>
           <aside class="notes">
-            [11:00–12:30] Tu widać przesunięcie w stronę biznesu. Spec nie spada z nieba i nie pisze go PO sam.
-            Biznes mówi, PO CO. Developer zamienia to w reguły — tu jest jego nowa wartość.
-            A agent jest świetny w zadawaniu niewygodnych pytań: zamiast kazać mu zgadywać,
-            każ mu najpierw wypisać wszystko, czego nie wie. To odwraca proces: agent nie zgaduje — agent pyta.
-            Narzędzia: Spec Kit, Kiro, BMAD albo własne komendy. Narzędzie jest wtórne, nawyk jest kluczowy.
+            [11:00–12:30] Lewa strona — to, co dziś wrzucamy agentowi. Prawa — to samo, ale bez niedomówień.
+            Każdy wiersz spec zamyka jeden stempel z poprzedniego przykładu. Puenta: nie potrzebujemy lepszych promptów,
+            potrzebujemy mniej zgadywania. Każda luka w specu to miejsce, w którym agent zgaduje — i zgaduje pewnie siebie.
+          </aside>
+        </section>
+
+        <!-- ============================================================
+             09 · SPEC IS A CONTRACT
+             ============================================================ -->
+        <section class="top">
+          <span class="tag blue">02 · Spec-driven development</span>
+          <h2>Spec to <span class="mark">kontrakt</span></h2>
+          <p class="lead" style="margin-top: -14px; max-width: none">Product ↔ Developer ↔ AI ↔ Tests ↔ QA — <strong>jedno źródło dla wszystkiego:</strong></p>
+          <div class="radial" style="align-self: center">
+            <svg viewBox="0 0 1660 520" class="draw" fill="none" stroke="#111" stroke-width="5">
+              <line x1="830" y1="260" x2="250" y2="70" style="--i: 0; --len: 640" />
+              <line x1="830" y1="260" x2="1410" y2="70" style="--i: 1; --len: 640" />
+              <line x1="830" y1="260" x2="190" y2="420" style="--i: 2; --len: 670" />
+              <line x1="830" y1="260" x2="1470" y2="420" style="--i: 3; --len: 670" />
+              <line x1="830" y1="260" x2="830" y2="490" style="--i: 4; --len: 280" />
+            </svg>
+            <div class="hub card yellow">spec.md</div>
+            <div class="sat chip enter" style="left: 250px; top: 70px; --i: 3">implementacja</div>
+            <div class="sat chip enter" style="left: 1410px; top: 70px; --i: 4">code review</div>
+            <div class="sat chip enter green" style="left: 190px; top: 420px; --i: 5">testy</div>
+            <div class="sat chip enter green" style="left: 1470px; top: 420px; --i: 6">QA</div>
+            <div class="sat chip enter blue" style="left: 830px; top: 490px; --i: 7">dokumentacja</div>
+          </div>
+          <div style="position: absolute; right: 130px; bottom: 80px">
+            <span class="stamp ink fragment stamp-in" style="font-size: 30px; --rot: -3deg">Nie „więcej dokumentacji”. Spec = input do maszyny.</span>
+          </div>
+          <aside class="notes">
+            [12:30–14:00] To jest ciekawsze niż „piszmy lepsze prompty”. Ten sam spec jest źródłem dla implementacji,
+            review, testów, QA i dokumentacji. UWAGA: nie sprzedawaj tego jako „więcej dokumentacji” — dev się wyłączą.
+            Wcześniej dokumentacja była efektem ubocznym. Teraz spec jest executable artifact — inputem do maszyny produkującej software.
           </aside>
         </section>
 
@@ -385,19 +376,22 @@ PaymentCreated · PaymentFailed<span class="fix">✓ event</span>
               <div class="sdd-bot gate" style="--up: 64px"><span>✋ człowiek<br />decyduje</span></div>
             </div>
           </div>
-          <div class="sdd-rail">SPEC = źródło prawdy dla kodu, testów, review i QA</div>
+          <div class="sdd-rail">SPEC = źródło prawdy dla każdego kroku</div>
           <div class="card ink" style="align-self: flex-start; padding: 22px 34px">
             <p style="font-family: var(--font-head); font-size: 42px">
               Człowiek nie wykonuje każdego kroku.<br /><span style="color: var(--yellow)">Człowiek pilnuje bramek.</span>
             </p>
           </div>
           <aside class="notes">
-            [12:30–14:00] Tak wygląda spec-driven workflow. Dwie bramki, gdzie decyduje człowiek.
-            Pierwsza: SPEC. Zanim powstanie linijka kodu, człowiek zatwierdza, CO budujemy. Błąd złapany tu kosztuje minuty, a nie dni.
-            Druga: PR. Człowiek decyduje, czy to wchodzi.
-            Pomiędzy: build loop. Agent planuje, koduje, pisze testy, robi review, poprawia — aż spec jest spełniony.
-            Spec to szyna: z tego samego pliku powstają kod, testy (z acceptance criteria), review i scenariusze QA.
-            To nie „więcej dokumentacji” — to input do maszyny.
+            [14:00–15:30] Tak wygląda spec-driven workflow. Problem → spec → plan → agenci → review → PR.
+            Ważne są dwie bramki, gdzie decyduje człowiek.
+            Pierwsza: SPEC. Zanim powstanie jakakolwiek linijka kodu, człowiek zatwierdza, CO budujemy.
+            Błąd złapany tu kosztuje minuty, a nie dni.
+            Druga: PR. Na końcu człowiek decyduje, czy to wchodzi.
+            Pomiędzy bramkami jest build loop: agent sam robi plan, rozbija go na taski, koduje, pisze testy,
+            robi review i poprawia — w pętli, aż spec jest spełniony. Nikt nie prowadzi go za rękę krok po kroku.
+            Spec to szyna, po której jedzie cały proces — pętla sprawdza się względem specu, nie względem własnego zdania.
+            ▸ Człowiek nie wykonuje każdego kroku. Człowiek pilnuje bramek. To prowadzi prosto do AI Factory.
           </aside>
         </section>
 
@@ -437,7 +431,7 @@ PaymentCreated · PaymentFailed<span class="fix">✓ event</span>
         </section>
 
         <!-- ============================================================
-             12 · LEVELS
+             11 · LEVELS
              ============================================================ -->
         <section class="top">
           <span class="tag green">03 · AI Factory</span>
@@ -447,13 +441,13 @@ PaymentCreated · PaymentFailed<span class="fix">✓ event</span>
               <div class="lvl">LVL 1 <span class="hp"><b></b><b class="off"></b><b class="off"></b></span></div>
               <h3>AI Assistant</h3>
               <div class="mono">Developer → AI → Developer</div>
-              <p class="small muted">chat · autocomplete w IDE</p>
-              <p class="who">Developer prowadzi każdy krok.</p>
+              <p class="small muted">ChatGPT · Claude · Copilot</p>
+              <p class="who">Developer prowadzi cały proces.</p>
             </div>
-            <div class="card level">
+            <div class="card level fragment pop">
               <div class="lvl">LVL 2 <span class="hp"><b></b><b></b><b class="off"></b></span></div>
               <h3>AI Agent</h3>
-              <div class="mono">Spec → Agent
+              <div class="mono">Task → Agent
   ├─ reads repository
   ├─ changes code
   ├─ runs tests
@@ -461,46 +455,23 @@ PaymentCreated · PaymentFailed<span class="fix">✓ event</span>
   └─ creates PR</div>
               <p class="who">Developer deleguje całe zadanie.</p>
             </div>
-            <div class="card level yellow">
+            <div class="card level yellow fragment pop">
               <div class="lvl">LVL 3 <span class="hp"><b></b><b></b><b></b></span></div>
               <h3>AI Factory</h3>
-              <div class="mono">N × ticket → Spec Agent
+              <div class="mono">Jira → Spec Agent
      → Architect Agent
      → BE ∥ FE Agents
      → Testing Agent
      → Review Agent
-     → Human gate</div>
+     → Human approval</div>
               <p class="who">Developer projektuje system, który dostarcza.</p>
             </div>
           </div>
           <aside class="notes">
-            [15:30–16:30] Trzy poziomy. 1: asystent — prowadzisz każdy krok, AI podpowiada.
-            2: agent — dajesz mu spec i delegujesz całe zadanie. Tu jest dziś większość z nas, którzy używają Claude Code, Codexa czy Cursora w trybie agenta.
-            3: fabryka — wiele ticketów naraz, wyspecjalizowane agenty, separacja odpowiedzialności, bramki.
-            Nie projektujesz już kodu — projektujesz system, który produkuje kod. Zobaczmy, jak przez taki system przechodzi PAY-123.
-          </aside>
-        </section>
-
-        <!-- ============================================================
-             13 · PIXEL AI FACTORY (autoplay)
-             ============================================================ -->
-        <section class="factory-slide autoplay" data-background-color="#1a1433">
-          <div class="factory" data-factory data-autoplay data-step="0">
-            <div class="factory-hud"><h2>AI FACTORY</h2><span class="insert">▶ PAY-123</span></div>
-            <div class="factory-caption"></div>
-          </div>
-          <div class="factory-final-wrap">
-            <div class="card yellow factory-final-card">
-              <h2>AI Factory = workflow, nie model.</h2>
-              <p>Modele będą się zmieniać. <strong>Workflow jest twoją przewagą.</strong></p>
-            </div>
-          </div>
-          <aside class="notes">
-            [16:30–18:30] Animacja leci sama (~20 s). Komentuj na bieżąco: ticket wpada, Spec Agent robi z niego spec
-            (to, co widzieliśmy przed chwilą), Architect decyduje o kontraktach, BE i FE implementują równolegle.
-            Testing Agent — tu łapiemy buga i go wyrzucamy, bo test wynika ze specu, a nie z kodu.
-            Review względem specu, PR, człowiek zatwierdza.
-            Na końcu: AI Factory = workflow, nie model. Claude, Codex, Gemini — modele się zmieniają. Workflow zostaje.
+            [15:30–17:00] Trzy poziomy. 1: asystent — ty prowadzisz każdy krok. 2: agent — delegujesz całe zadanie.
+            3: factory — projektujesz system wielu wyspecjalizowanych agentów z separacją odpowiedzialności.
+            Ważne: AI Factory = workflow, nie model. Claude, Codex, Cursor, Gemini — modele będą się zmieniać.
+            Workflow jest twoją przewagą. (To prowadzi do następnego slajdu.)
           </aside>
         </section>
 
@@ -539,6 +510,68 @@ PaymentCreated · PaymentFailed<span class="fix">✓ event</span>
             03: kiedy agent robi ten sam błąd po raz trzeci, nie poprawiasz PR-a — poprawiasz fabrykę: skill, regułę, checklistę.
             04: fabrykę się mierzy jak linię produkcyjną. Jeśli nie wiesz, ile PR-ów wraca do poprawek, nie wiesz, czy fabryka działa.
             [Tu najlepiej pasuje twój własny przykład / liczby z projektu.]
+          </aside>
+        </section>
+
+        <!-- ============================================================
+             AI FACTORY IN PRACTICE — GitHub as source of truth + other models
+             ============================================================ -->
+        <section class="top">
+          <span class="tag green">03 · AI Factory</span>
+          <h2 style="font-size: 76px">Jak zbudować fabrykę? <span class="mark green">Przykłady</span></h2>
+          <div class="gh">
+            <span class="label">GitHub = źródło prawdy · Actions reagują na zdarzenia</span>
+            <div class="gh-flow">
+              <div class="gh-step spec">
+                <span class="ev">issue</span>
+                <b>Issue = spec</b>
+                <small>PO + dev dopracowują</small>
+              </div>
+              <i class="gh-arr">→</i>
+              <div class="gh-step agent">
+                <span class="ev">label: spec-ready</span>
+                <b>🤖 Implementer</b>
+                <small>kod + testy → PR</small>
+              </div>
+              <i class="gh-arr">→</i>
+              <div class="gh-step agent">
+                <span class="ev">pull_request: opened</span>
+                <b>🤖 Reviewer</b>
+                <small>review vs spec z issue</small>
+              </div>
+              <i class="gh-arr">→</i>
+              <div class="gh-step agent">
+                <span class="ev">label: ready-for-qa</span>
+                <b>🤖 QA agent</b>
+                <small>e2e, screenshoty, raport</small>
+              </div>
+              <i class="gh-arr">→</i>
+              <div class="gh-step human">
+                <span class="ev">review: approved</span>
+                <b>✋ Merge</b>
+                <small>człowiek decyduje</small>
+              </div>
+            </div>
+          </div>
+          <div class="models">
+            <div class="card"><h3>Plugin zespołowy</h3><code>/implement PAY-123</code><p>Dev wywołuje, konwencje wspólne dla zespołu. Najbezpieczniejszy start.</p></div>
+            <div class="card"><h3>Chat-ops (Slack)</h3><code>PO pisze → issue → 👍</code><p>PO i QA w pętli bez wchodzenia do GitHuba. Emoji = akceptacja.</p></div>
+            <div class="card"><h3>Agenci cykliczni</h3><code>cron · co noc</code><p>Zależności, flaky testy, drift dokumentacji, nocne QA.</p></div>
+            <div class="card"><h3>Pętla z produkcji</h3><code>Sentry alert → issue → PR</code><p>Agent reaguje na sygnał z produkcji, nie tylko na ticket.</p></div>
+            <div class="card"><h3>Własny orkiestrator</h3><code>kolejka → agenci</code><p>Agenci łączą się, nasłuchują i biorą zadania z kolejki.</p></div>
+            <div class="card ink"><h3>…i dalej?</h3><code>zdarzenie → agent → bramka</code><p>Limit to wyobraźnia. Wzorzec jest zawsze ten sam.</p></div>
+          </div>
+          <aside class="notes">
+            [~2 min] Jak to wygląda w praktyce? Najprostsza fabryka, jaką można postawić jutro: GitHub jako źródło prawdy.
+            Issue to spec — PO i dev dopracowują go w issue. Kiedy człowiek nada label spec-ready, to jest bramka:
+            GitHub Action odpala agenta-implementera, który pisze kod z testami i otwiera PR.
+            Otwarcie PR to kolejne zdarzenie — odpala się reviewer, który sprawdza kod względem specu z issue, nie względem własnych założeń.
+            Label ready-for-qa — agent QA puszcza e2e, robi screenshoty i wrzuca raport. Merge zawsze robi człowiek.
+            Nie ma tu żadnej magii: zdarzenia, labele i joby, które już znacie.
+            Na dole inne modele: plugin zespołowy, gdzie dev sam wywołuje /implement — najbezpieczniejszy pierwszy krok.
+            Chat-ops — PO pisze w Slacku, agent zakłada issue, emoji to akceptacja. Agenci z crona do utrzymania.
+            Pętla z produkcji — alert z Sentry tworzy issue i PR z fixem. Albo własny orkiestrator z kolejką zadań.
+            Granica to wyobraźnia, ale wzorzec jest zawsze ten sam: zdarzenie → agent → bramka.
           </aside>
         </section>
 
@@ -603,53 +636,65 @@ PaymentCreated · PaymentFailed<span class="fix">✓ event</span>
         </section>
 
         <!-- ============================================================
-             17 · RECAP + MONDAY ACTIONS
+             18 · THE ARC (recap)
              ============================================================ -->
-        <section class="top">
+        <section>
           <span class="tag">Podsumowanie</span>
-          <div class="arc three" style="margin-top: 50px">
-            <div class="card yellow"><span class="k2">01</span><h3>Kod jest tani</h3><p>wartość to biznes i weryfikacja</p></div>
-            <span class="arr">→</span>
-            <div class="card blue"><span class="k2">02</span><h3>Spec</h3><p>kończy zgadywanie</p></div>
-            <span class="arr">→</span>
-            <div class="card green"><span class="k2">03</span><h3>Factory</h3><p>skaluje to, co zdefiniujesz i sprawdzisz</p></div>
+          <div class="arc">
+            <div class="card enter" style="--i: 0"><span class="k2">01</span><h3>AI</h3><p>zwiększa tempo</p></div>
+            <span class="arr enter" style="--i: 1">→</span>
+            <div class="card yellow enter" style="--i: 2"><span class="k2">02</span><h3>Spec</h3><p>kończy zgadywanie</p></div>
+            <span class="arr enter" style="--i: 3">→</span>
+            <div class="card blue enter" style="--i: 4"><span class="k2">03</span><h3>Agenci</h3><p>przejmują wykonanie</p></div>
+            <span class="arr enter" style="--i: 5">→</span>
+            <div class="card green enter" style="--i: 6"><span class="k2">04</span><h3>Weryfikacja</h3><p>daje nam zaufanie</p></div>
           </div>
-          <h2 style="font-size: 72px; margin-top: 30px">W poniedziałek:</h2>
-          <div class="monday">
-            <div class="card">Weź następny ryzykowny ticket i <strong>napisz spec</strong>, zanim odpalisz agenta.</div>
-            <div class="card">Każ agentowi najpierw <strong>wypisać pytania</strong>, a dopiero potem kodować.</div>
-            <div class="card">Dodaj jedną <strong>bramkę deterministyczną</strong>, zanim zaufasz AI review.</div>
-          </div>
+          <p class="huge fragment slam" data-fragment-index="1" style="font-size: 120px; margin-top: 40px">Nie optymalizuj<br /><span class="strike-line fragment" data-fragment-index="2">szybkości pisania.</span></p>
           <aside class="notes">
-            [22:45–24:00] Cała prezentacja w jednym zdaniu: kod jest tani, więc wartość przesuwa się w biznes i weryfikację;
-            spec kończy zgadywanie; fabryka skaluje to, co zdefiniujesz i sprawdzisz — także twoje błędy.
-            Trzy rzeczy na poniedziałek — małe, do zrobienia bez zgody szefa.
+            [24:30] Cała prezentacja w jednym zdaniu: AI zwiększa tempo → spec kończy zgadywanie →
+            agenci przejmują wykonanie → weryfikacja daje nam zaufanie. ▸ przestańmy optymalizować szybkość pisania.
           </aside>
         </section>
 
         <!-- ============================================================
-             18 · FINALE
+             19 · OPTIMIZE
+             ============================================================ -->
+        <section>
+          <h2 style="font-size: 110px">Optymalizuj:</h2>
+          <div class="optimize">
+            <div class="card yellow fragment pop"><span class="ico">&gt;_</span><h3>Intent</h3></div>
+            <div class="card pink fragment pop"><span class="ico">[#]</span><h3>Constraints</h3></div>
+            <div class="card blue fragment pop"><span class="ico">↻</span><h3>Feedback loops</h3></div>
+            <div class="card green fragment pop"><span class="ico">✓</span><h3>Verification</h3></div>
+          </div>
+          <aside class="notes">
+            Cztery rzeczy, które warto optymalizować zamiast szybkości pisania: intencja, constraints,
+            pętle feedbacku, weryfikacja.
+          </aside>
+        </section>
+
+        <!-- ============================================================
+             20 · FINALE
              ============================================================ -->
         <section class="dark" data-background-color="#111111" data-state="no-floaters">
           <p class="huge" style="font-size: 84px; color: var(--cream)">
-            Przyszłość software developmentu<br />to nie <span class="strike-line auto">AI piszące kod.</span>
+            Przyszłość software developmentu<br />to nie <span class="strike-line fragment" data-fragment-index="1">AI piszące kod.</span>
           </p>
-          <p class="huge" style="font-size: 84px; color: var(--yellow)">
+          <p class="huge fragment slam" data-fragment-index="2" style="font-size: 84px; color: var(--yellow)">
             To ludzie projektujący systemy, które niezawodnie produkują software.
           </p>
           <aside class="notes">
-            [24:00–24:30] Ostatnie zdanie — powiedz powoli. Pauza. Dziękuję.
+            [25:00] Ostatnie zdanie — powiedz powoli. Druga część pojawi się sama. Pauza. Dziękuję.
           </aside>
         </section>
 
         <!-- ============================================================
-             19 · THANKS
+             21 · THANKS
              ============================================================ -->
         <section class="title-slide" data-state="title">
           <div class="deco"><span></span><span></span><span></span><span></span><span></span><span></span></div>
           <h1 class="enter slam-e">Dzięki!<br /><span class="mark pink">Pytania?</span></h1>
           <div class="speaker enter" style="--i: 4"><span class="avatar"></span> Paul Rugała</div>
-          <!-- TODO: contact + QR / link to slides -->
           <aside class="notes">Q&amp;A.</aside>
         </section>
 

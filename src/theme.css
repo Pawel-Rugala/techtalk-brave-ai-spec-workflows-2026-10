@@ -1114,3 +1114,35 @@ html.static-build .reveal .slides section .stamp-layer .fragment.stamp-in.visibl
   font-family: var(--font-pixel); font-size: 28px;
   background: var(--yellow); border: 3px solid var(--ink); padding: 2px 14px 0;
 }
+
+/* --- AI factory in practice: GitHub event flow + other models --- */
+.gh { position: relative; border: var(--border); box-shadow: var(--shadow-sm); background: var(--paper); padding: 40px 26px 24px; margin-top: 14px; }
+.gh .label {
+  position: absolute; top: -22px; left: 24px;
+  font-family: var(--font-pixel); font-size: 22px; background: var(--ink); color: var(--cream); padding: 6px 12px 4px;
+}
+.gh-flow { display: flex; align-items: stretch; gap: 10px; }
+.gh-step {
+  flex: 1; display: flex; flex-direction: column; gap: 6px;
+  border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); padding: 12px 14px; background: var(--paper);
+}
+.gh-step.spec { background: var(--yellow); }
+.gh-step.agent { background: var(--blue); color: #fff; }
+.gh-step.human { background: var(--green); }
+.gh-step .ev {
+  align-self: flex-start; font-family: var(--font-mono); font-size: 19px; font-weight: 700;
+  background: var(--ink); color: var(--cream); padding: 2px 8px; white-space: nowrap;
+}
+.gh-step b { font-family: var(--font-head); font-weight: 400; font-size: 26px; line-height: 1.1; white-space: nowrap; }
+.gh-step small { font-size: 22px; }
+.gh-arr { align-self: center; font-style: normal; font-family: var(--font-head); font-size: 34px; }
+.models { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 30px; }
+.models .card { padding: 18px 24px; box-shadow: var(--shadow-sm); }
+.models h3 { font-size: 32px; }
+.models code {
+  display: inline-block; margin: 6px 0 6px; font-size: 21px; font-weight: 700;
+  background: #15121f; color: #f1fa8c; padding: 3px 10px;
+}
+.models .card.ink code { background: var(--yellow); color: var(--ink); }
+.models p { font-size: 23px; line-height: 1.3; }
+.reveal .models .card.ink h3 { color: var(--cream); }
