@@ -659,17 +659,47 @@ PaymentCreated · PaymentFailed
         <!-- ============================================================
              19 · OPTIMIZE
              ============================================================ -->
-        <section>
-          <h2 style="font-size: 110px">Optymalizuj:</h2>
-          <div class="optimize">
-            <div class="card yellow fragment pop"><span class="ico">&gt;_</span><h3>Intent</h3></div>
-            <div class="card pink fragment pop"><span class="ico">[#]</span><h3>Constraints</h3></div>
-            <div class="card blue fragment pop"><span class="ico">↻</span><h3>Feedback loops</h3></div>
-            <div class="card green fragment pop"><span class="ico">✓</span><h3>Verification</h3></div>
+        <section class="top">
+          <span class="tag">Podsumowanie</span>
+          <h2>Zamiast tego <span class="mark">optymalizuj:</span></h2>
+          <div class="optimize v2">
+            <div class="card yellow">
+              <span class="ico">&gt;_</span>
+              <h3>Intencję</h3>
+              <p class="q">Co i po co budujemy?</p>
+              <p class="ex">„Add payment endpoint” → spec PAY-123 z celem, regułami i AC</p>
+            </div>
+            <div class="card pink">
+              <span class="ico">[#]</span>
+              <h3>Ograniczenia</h3>
+              <p class="q">Czego nie wolno złamać?</p>
+              <p class="ex">amount ≤ remainingAmount · idempotencja · jedna płatność naraz</p>
+            </div>
+            <div class="card blue">
+              <span class="ico">↻</span>
+              <h3>Pętle feedbacku</h3>
+              <p class="q">Jak szybko agent wie, że się myli?</p>
+              <p class="ex">testy i typy w minutach, nie komentarz w review po dwóch dniach</p>
+            </div>
+            <div class="card green">
+              <span class="ico">✓</span>
+              <h3>Weryfikację</h3>
+              <p class="q">Skąd wiemy, że działa?</p>
+              <p class="ex">typy → testy → AI review vs spec → człowiek</p>
+            </div>
+          </div>
+          <div class="card ink" style="align-self: flex-start; padding: 22px 34px">
+            <p style="font-family: var(--font-head); font-size: 44px; line-height: 1.15">
+              Pisanie kodu jest już prawie darmowe.<br /><span style="color: var(--yellow)">Te cztery rzeczy — nie. Tu jest twoja wartość.</span>
+            </p>
           </div>
           <aside class="notes">
-            Cztery rzeczy, które warto optymalizować zamiast szybkości pisania: intencja, constraints,
-            pętle feedbacku, weryfikacja.
+            [~1:30] Skoro nie szybkość pisania, to co? Cztery rzeczy.
+            Intencja — co i po co budujemy. Różnica między „add payment endpoint” a specem PAY-123.
+            Ograniczenia — czego nie wolno złamać: kwota nie większa niż do zapłaty, idempotencja, jedna płatność naraz.
+            Pętle feedbacku — jak szybko agent dowiaduje się, że się myli. Test, który pada po minucie, jest wart więcej niż komentarz w review po dwóch dniach.
+            Weryfikacja — skąd wiemy, że działa: od typów, przez testy, po AI review względem specu i człowieka na końcu.
+            Puenta: pisanie kodu jest już prawie darmowe. Te cztery rzeczy — nie. Tu jest wasza wartość.
           </aside>
         </section>
 
