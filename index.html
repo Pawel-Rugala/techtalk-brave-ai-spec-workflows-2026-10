@@ -13,12 +13,12 @@
         <!-- ============================================================
              00 · TITLE
              ============================================================ -->
-        <section class="title-slide">
-          <span class="tag">Tech talk · 2026</span>
+        <section class="title-slide" data-state="title">
+          <span class="tag">Brave AI Szczecin Oct'26</span>
           <div class="deco"><span></span><span></span><span></span><span></span><span></span><span></span></div>
           <h1 class="enter slam-e">Koniec<br /><span class="mark">klepania</span><br />kodu?<span class="caret"></span></h1>
-          <p class="sub enter" style="--i: 4">Spec-driven development i AI Factories w nowoczesnych zespołach</p>
-          <div class="speaker enter" style="--i: 6"><span class="avatar"></span> Paweł Rugała</div>
+          <p class="sub enter" style="--i: 4">Spec-driven development w nowoczesnych zespołach</p>
+          <div class="speaker enter" style="--i: 6"><span class="avatar"></span> Paul Rugała</div>
           <aside class="notes">
             [0:00–0:30] Cześć! Dziś o tym, co się dzieje z naszą pracą, kiedy AI pisze coraz więcej kodu.
             Trzy tematy: mindset, spec-driven development i skalowanie tego do „AI Factory”.
@@ -30,55 +30,65 @@
              ============================================================ -->
         <section class="center">
           <p class="huge fragment slam" style="font-size: 104px; text-align: center; max-width: 1560px">
-            Czy za 2–3 lata nadal będziemy płacić senior developerom
+            Czy nadal płacimy developerom
             <span class="mark pink">za pisanie kodu?</span>
           </p>
           <p class="lead fragment rise" style="text-align: center; margin-top: 30px; max-width: 1300px">
-            Kod nie zniknie. Ale ręczne pisanie większości kodu przestaje być
-            <strong>najbardziej wartościową częścią naszej pracy.</strong>
+            Kod nie zniknął. Zniknęło ręczne pisanie kodu —
+            <strong>dziś płacimy za decyzje, nie za klawiaturę.</strong>
           </p>
           <aside class="notes">
-            [0:30–1:30] Pusty slajd, klik — pytanie. Pauza. Niech sala pomyśli.
-            „Nie twierdzę, że kod zniknie. Twierdzę, że ręczne pisanie większości kodu przestaje być
-            najbardziej wartościową częścią naszej pracy.” To ustawia dyskusję.
+            [0:30–1:30] Pusty slajd, ▸ pytanie. Pauza. Niech sala pomyśli.
+            „Kto z was w ostatnim tygodniu napisał ręcznie większość swojego kodu?” (podnieście ręce)
+            „Kod nie zniknął — jest go więcej niż kiedykolwiek. Ale ręczne pisanie kodu przestało być naszą pracą.
+            Dziś płacimy za decyzje: co budujemy, jakie są reguły i skąd wiemy, że działa.” To ustawia dyskusję.
           </aside>
         </section>
 
         <!-- ============================================================
-             02 · BOTTLENECK
+             02 · WHERE THE EFFORT GOES (before AI vs today)
              ============================================================ -->
         <section class="top">
           <span class="tag">00 · Punkt wyjścia</span>
-          <h2>Bottleneck się <span class="mark">przesunął</span></h2>
-          <div class="row" style="gap: 70px; margin-top: 20px">
-            <div class="card grow">
-              <span class="label">PRZED AI</span>
-              <div class="bars">
-                <div class="bar" style="--i: 0"><span>Idea</span><div class="track"><i style="--w: 12%; --c: #d9d0bd"></i></div></div>
-                <div class="bar" style="--i: 1"><span>Design</span><div class="track"><i style="--w: 22%; --c: #d9d0bd"></i></div></div>
-                <div class="bar hot" style="--i: 2"><span>Coding</span><div class="track"><i style="--w: 94%; --c: var(--pink)"></i></div></div>
-                <div class="bar" style="--i: 3"><span>Review</span><div class="track"><i style="--w: 26%; --c: #d9d0bd"></i></div></div>
-                <div class="bar" style="--i: 4"><span>QA</span><div class="track"><i style="--w: 24%; --c: #d9d0bd"></i></div></div>
+          <h2>Gdzie idzie <span class="mark">nasz wysiłek?</span></h2>
+          <div class="effort">
+            <div class="effort-row">
+              <span class="effort-label">Przed AI</span>
+              <div class="effort-bar">
+                <div class="eseg intent" style="--w: 10%; --i: 0"><b>Ticket</b></div>
+                <div class="eseg " style="--w: 10%; --i: 1"><b>Design</b></div>
+                <div class="eseg code" style="--w: 55%; --i: 2"><b>Kodowanie</b></div>
+                <div class="eseg " style="--w: 12%; --i: 3"><b>Review</b></div>
+                <div class="eseg verify" style="--w: 13%; --i: 4"><b>Testy</b></div>
               </div>
             </div>
-            <div class="card grow">
-              <span class="label">Z AI</span>
-              <div class="bars">
-                <div class="bar" style="--i: 5"><span>Specification</span><div class="track"><i style="--w: 78%; --c: var(--yellow)"></i></div></div>
-                <div class="bar" style="--i: 6"><span>Architecture</span><div class="track"><i style="--w: 66%; --c: var(--yellow)"></i></div></div>
-                <div class="bar" style="--i: 7"><span>Implementation</span><div class="track"><i style="--w: 14%; --c: #d9d0bd"></i></div></div>
-                <div class="bar" style="--i: 8"><span>Verification</span><div class="track"><i style="--w: 74%; --c: var(--green)"></i></div></div>
-                <div class="bar" style="--i: 9"><span>QA</span><div class="track"><i style="--w: 62%; --c: var(--green)"></i></div></div>
+            <div class="effort-row morph fragment rise">
+              <span class="effort-label">Dziś</span>
+              <div class="effort-bar">
+                <div class="eseg intent" style="--b: 10%; --t: 40%; --i: 0"><b>Intencja &amp; spec</b></div>
+                <div class="eseg " style="--b: 10%; --t: 18%; --i: 1"><b>Architektura</b></div>
+                <div class="eseg code" style="--b: 55%; --t: 7%; --i: 2"><b>Kod</b></div>
+                <div class="eseg " style="--b: 12%; --t: 15%; --i: 3"><b>Review</b></div>
+                <div class="eseg verify" style="--b: 13%; --t: 20%; --i: 4"><b>Weryfikacja</b></div>
+              </div>
+              <div class="effort-brackets fragment rise">
+                <div style="--w: 58%"><span>przed kodem · <strong>myślenie</strong></span></div>
+                <div class="gap" style="--w: 7%"></div>
+                <div style="--w: 35%"><span>po kodzie · <strong>sprawdzanie</strong></span></div>
               </div>
             </div>
           </div>
-          <div style="position: absolute; right: 150px; bottom: 90px">
-            <span class="stamp fragment stamp-in" style="font-size: 44px">Implementacja ≈ tania</span>
-          </div>
+          <p class="huge fragment slam" style="font-size: 64px; line-height: 1.15">
+            Wysiłek przeniósł się z <span class="strike-line late">pisania kodu</span><br />
+            na <span class="mark">pisanie intencji</span> i <span class="mark green">weryfikację</span>.
+          </p>
           <aside class="notes">
-            [1:30–3:00] Przed AI najdroższe było kodowanie — tam szedł czas seniorów.
-            Dziś implementacja kosztuje ułamek. Czas i ryzyko przesunęły się na specyfikację,
-            architekturę i weryfikację. Klik — stempel: implementacja jest tania.
+            [1:30–3:00] Pasek to cały wysiłek zespołu przy jednym feature.
+            Przed AI: lwia część szła w kodowanie — tam płaciliśmy seniorom.
+            ▸ dziś: ten sam pasek. Patrzcie, jak kodowanie się kurczy, a reszta rośnie. Kod robi agent.
+            ▸ wysiłek uciekł w dwie strony: PRZED kodem — intencja, spec, architektura, czyli myślenie —
+            i PO kodzie — review i weryfikacja, czyli sprawdzanie.
+            ▸ puenta: wysiłek przeniósł się z pisania kodu na pisanie intencji i weryfikację.
           </aside>
         </section>
 
@@ -104,7 +114,7 @@
             </p>
           </div>
           <aside class="notes">
-            [3:00–4:00] Każdy klik — kolejny koszt, który NIE spadł. Na koniec puenta:
+            [3:00–4:00] Każdy ▸ kolejny koszt, który NIE spadł. Na koniec puenta:
             AI pozwala produkować błędny kod szybciej niż kiedykolwiek wcześniej.
           </aside>
         </section>
@@ -155,21 +165,21 @@
              ============================================================ -->
         <section class="top">
           <span class="tag yellow">01 · Mindset</span>
-          <h2 style="font-size: 80px">From writing code → <span class="mark">designing intent</span></h2>
+          <h2 style="font-size: 68px">Od pisania kodu → do <span class="mark">projektowania intencji</span></h2>
           <div class="vs" style="margin-top: 10px">
             <div class="vsrow"><div class="head muted">STARY MINDSET</div><div></div><div class="head">NOWY MINDSET</div></div>
             <div class="vsrow fragment rise"><div class="old">Jak to zakodować?</div><div class="to">→</div><div class="new">Co dokładnie chcemy osiągnąć?</div></div>
             <div class="vsrow fragment rise"><div class="old">Jak napisać tę klasę?</div><div class="to">→</div><div class="new">Jaki powinien być kontrakt?</div></div>
-            <div class="vsrow fragment rise"><div class="old">Jak zrobić endpoint?</div><div class="to">→</div><div class="new">Jakie invarianty musi spełniać?</div></div>
+            <div class="vsrow fragment rise"><div class="old">Jak zrobić endpoint?</div><div class="to">→</div><div class="new">Jakich reguł nie wolno złamać?</div></div>
             <div class="vsrow fragment rise"><div class="old">Czy kod wygląda dobrze?</div><div class="to">→</div><div class="new">Czy rozwiązanie spełnia spec?</div></div>
             <div class="vsrow fragment rise"><div class="old">Ile kodu napisałem?</div><div class="to">→</div><div class="new">Jak szybko dostarczyliśmy poprawny system?</div></div>
           </div>
           <p class="fragment slam" style="font-family: var(--font-head); font-size: 50px; margin-top: 10px">
-            The unit of work: <span class="strike-line late">code</span> → <span class="mark pink">specification</span>
+            Jednostka pracy: <span class="strike-line late">kod</span> → <span class="mark pink">specyfikacja</span>
           </p>
           <aside class="notes">
-            [5:30–7:00] Przejdź przez wiersze. Kluczowe zdanie na koniec:
-            „The unit of work is moving from code to specification.” Jednostką pracy przestaje być kod.
+            [5:30–7:00] Przejdź przez wiersze. Przy „regułach” daj przykład: płatność nigdy nie może przekroczyć kwoty do zapłaty na fakturze. Kluczowe zdanie na koniec:
+            „Jednostką pracy przestaje być kod. Staje się nią specyfikacja.”
           </aside>
         </section>
 
@@ -182,7 +192,7 @@
           <div class="row" style="gap: 60px; align-items: flex-start">
             <div class="card yellow" style="width: 520px; flex: none">
               <span class="label">JIRA · PAY-123</span>
-              <p style="font-size: 40px; font-weight: 700; margin-top: 10px">Add endpoint allowing a user to pay invoice.</p>
+              <p style="font-size: 40px; font-weight: 700; margin-top: 10px">Add endpoint allowing a user to pay an invoice.</p>
               <p class="small" style="margin-top: 24px">Priority: High · Estimate: 1 SP 🙂</p>
             </div>
             <div style="position: relative; flex: 1">
@@ -196,19 +206,20 @@
   res.<span class="f">status</span>(<span class="n">201</span>).<span class="f">json</span>(payment);
 });</div>
               <div class="stamp-layer">
-                <span class="stamp fragment stamp-in" style="right: -36px; top: 44px; --rot: 5deg">brak idempotency</span>
-                <span class="stamp fragment stamp-in" style="left: 480px; top: 222px; --rot: -4deg">concurrent payments?</span>
-                <span class="stamp fragment stamp-in" style="left: 560px; top: 300px; --rot: 3deg">already paid invoice?</span>
-                <span class="stamp fragment stamp-in" style="left: 620px; top: 378px; --rot: -5deg">jaki event?</span>
-                <span class="stamp fragment stamp-in" style="left: 130px; top: 420px; --rot: 4deg">co retryować?</span>
+                <span class="stamp fragment stamp-in" style="right: -36px; top: 44px; --rot: 5deg; --i: 0">no idempotency key</span>
+                <span class="stamp fragment stamp-in" style="left: 480px; top: 222px; --rot: -4deg; --i: 1">concurrent payments?</span>
+                <span class="stamp fragment stamp-in" style="left: 560px; top: 300px; --rot: 3deg; --i: 2">invoice already paid?</span>
+                <span class="stamp fragment stamp-in" style="left: 620px; top: 378px; --rot: -5deg; --i: 3">no event emitted</span>
+                <span class="stamp fragment stamp-in" style="left: 130px; top: 420px; --rot: 4deg; --i: 4">what if it fails?</span>
               </div>
             </div>
           </div>
           <p class="lead fragment rise"><strong>Kod jest sensowny.</strong> Problem w tym, że nikt nie wie, czy jest <span class="mark pink">poprawny</span>.</p>
           <aside class="notes">
             [7:00–9:00] Nasz przykład na całą prezentację. Typowy ticket, agent coś generuje — wygląda OK.
-            Klikaj stemple: brak idempotency, co przy równoległych płatnościach, co z opłaconą fakturą,
-            jaki event, co retryować. Agent nie zgadł, bo NIKT mu nie powiedział. To nie jest problem modelu.
+            Stemple wpadają jeden po drugim: brak klucza idempotencji (retry = podwójna płatność),
+            co przy dwóch równoległych płatnościach, co z już opłaconą fakturą, brak eventu PaymentCreated,
+            co gdy coś się wywali w połowie. Agent nie zgadł, bo NIKT mu nie powiedział. To nie jest problem modelu.
           </aside>
         </section>
 
@@ -287,13 +298,13 @@ PaymentCreated · PaymentFailed
           </div>
           <div class="card yellow fragment slam" data-fragment-index="8" style="align-self: flex-start">
             <p style="font-family: var(--font-head); font-size: 48px; line-height: 1.15">
-              AI nie potrzebuje bardziej kreatywnych promptów.<br />AI potrzebuje <span class="mark pink">mniej ambiguity.</span>
+              AI nie potrzebuje bardziej kreatywnych promptów.<br />AI potrzebuje <span class="mark pink">mniej zgadywania.</span>
             </p>
           </div>
           <aside class="notes">
             [11:00–12:30] Lewa strona — to, co dziś wrzucamy agentowi. Prawa — to samo, ale bez niedomówień.
             Każdy wiersz spec zamyka jeden stempel z poprzedniego przykładu. Puenta: nie potrzebujemy lepszych promptów,
-            potrzebujemy mniej niejednoznaczności.
+            potrzebujemy mniej zgadywania. Każda luka w specu to miejsce, w którym agent zgaduje — i zgaduje pewnie siebie.
           </aside>
         </section>
 
@@ -330,45 +341,60 @@ PaymentCreated · PaymentFailed
         </section>
 
         <!-- ============================================================
-             10 · SPEC-DRIVEN WORKFLOW
+             10 · SPEC-DRIVEN WORKFLOW — human gates + spec as the rail
              ============================================================ -->
         <section class="top">
           <span class="tag blue">02 · Spec-driven development</span>
           <h2>Spec-driven workflow</h2>
-          <div class="col" style="gap: 64px; margin-top: 20px">
-            <div class="pipe-row">
-              <div class="pipe-node enter" style="--i: 0">Problem<small>Jira / idea</small></div>
-              <div class="pipe-arrow" style="--i: 1"></div>
-              <div class="pipe-node spec enter" style="--i: 1">SPEC</div>
-              <div class="pipe-arrow" style="--i: 2"></div>
-              <div class="pipe-node enter" style="--i: 2">Architecture<small>ADR, kontrakty</small></div>
-              <div class="pipe-arrow" style="--i: 3"></div>
-              <div class="pipe-node enter" style="--i: 3">Plan<small>taski dla agentów</small></div>
-              <div class="pipe-arrow" style="--i: 4"></div>
-              <div class="pipe-fork enter" style="--i: 4">
-                <div class="pipe-node agent">Agent A<small>Backend</small></div>
-                <div class="pipe-node agent">Agent B<small>Frontend</small></div>
-              </div>
+          <div class="sdd">
+            <div class="sdd-col">
+              <div class="sdd-top"><div class="pipe-node">Problem<small>ticket / pomysł</small></div></div>
+              <div class="sdd-bot"></div>
             </div>
-            <div class="pipe-row reverse">
-              <div class="pipe-node enter" style="--i: 5">Tests<small>vs spec</small></div>
-              <div class="pipe-arrow" style="--i: 6"></div>
-              <div class="pipe-node agent enter" style="--i: 6">Review Agent<small>vs spec</small></div>
-              <div class="pipe-arrow" style="--i: 7"></div>
-              <div class="pipe-node enter" style="--i: 7">PR</div>
-              <div class="pipe-arrow" style="--i: 8"></div>
-              <div class="pipe-node human enter" style="--i: 8">Human review<small>decyzja</small></div>
+            <div class="sdd-arrow"><i class="pipe-arrow"></i></div>
+            <div class="sdd-col">
+              <div class="sdd-top"><div class="pipe-node spec">SPEC</div></div>
+              <div class="sdd-bot gate" style="--up: 56px"><span>✋ człowiek<br />zatwierdza</span></div>
+            </div>
+            <div class="sdd-arrow"><i class="pipe-arrow"></i></div>
+            <div class="sdd-col">
+              <div class="sdd-top">
+                <div class="build-loop">
+                  <span class="label"><i class="spin">↻</i> Build loop · agent</span>
+                  <div class="loop-steps">
+                    <span class="chip">plan</span><i>→</i>
+                    <span class="chip">kod</span><i>→</i>
+                    <span class="chip">testy</span><i>→</i>
+                    <span class="chip">review</span><i>→</i>
+                    <span class="chip">poprawki</span>
+                  </div>
+                  <div class="loop-back"><span>powtarza, aż spec jest spełniony</span></div>
+                </div>
+              </div>
+              <div class="sdd-bot link" style="--up: 24px"><span>vs spec</span></div>
+            </div>
+            <div class="sdd-arrow"><i class="pipe-arrow"></i></div>
+            <div class="sdd-col">
+              <div class="sdd-top"><div class="pipe-node">PR</div></div>
+              <div class="sdd-bot gate" style="--up: 64px"><span>✋ człowiek<br />decyduje</span></div>
             </div>
           </div>
-          <div class="card ink fragment slam" style="align-self: flex-start; margin-top: 10px">
-            <p style="font-family: var(--font-head); font-size: 46px">
-              Developer nie wykonuje każdego kroku.<br /><span style="color: var(--yellow)">Developer kontroluje pipeline.</span>
+          <div class="sdd-rail">SPEC = źródło prawdy dla każdego kroku</div>
+          <div class="card ink" style="align-self: flex-start; padding: 22px 34px">
+            <p style="font-family: var(--font-head); font-size: 42px">
+              Człowiek nie wykonuje każdego kroku.<br /><span style="color: var(--yellow)">Człowiek pilnuje bramek.</span>
             </p>
           </div>
           <aside class="notes">
-            [14:00–15:30] Prawdziwy workflow, podobny do tego, którego sam używam. Problem → SPEC → architektura →
-            plan → agenci równolegle → testy → review agent → PR → człowiek. Developer nie jest już osobą,
-            która wykonuje każdy krok. Kontroluje pipeline. To prowadzi prosto do AI Factory.
+            [14:00–15:30] Tak wygląda spec-driven workflow. Problem → spec → plan → agenci → review → PR.
+            Ważne są dwie bramki, gdzie decyduje człowiek.
+            Pierwsza: SPEC. Zanim powstanie jakakolwiek linijka kodu, człowiek zatwierdza, CO budujemy.
+            Błąd złapany tu kosztuje minuty, a nie dni.
+            Druga: PR. Na końcu człowiek decyduje, czy to wchodzi.
+            Pomiędzy bramkami jest build loop: agent sam robi plan, rozbija go na taski, koduje, pisze testy,
+            robi review i poprawia — w pętli, aż spec jest spełniony. Nikt nie prowadzi go za rękę krok po kroku.
+            Spec to szyna, po której jedzie cały proces — pętla sprawdza się względem specu, nie względem własnego zdania.
+            ▸ Człowiek nie wykonuje każdego kroku. Człowiek pilnuje bramek. To prowadzi prosto do AI Factory.
           </aside>
         </section>
 
@@ -412,36 +438,8 @@ PaymentCreated · PaymentFailed
           <aside class="notes">
             [15:30–17:00] Trzy poziomy. 1: asystent — ty prowadzisz każdy krok. 2: agent — delegujesz całe zadanie.
             3: factory — projektujesz system wielu wyspecjalizowanych agentów z separacją odpowiedzialności.
-            Zobaczmy, jak to wygląda.
-          </aside>
-        </section>
-
-        <!-- ============================================================
-             12 · PIXEL AI FACTORY
-             ============================================================ -->
-        <section class="factory-slide" data-background-color="#1a1433">
-          <div class="factory" data-factory data-step="0">
-            <div class="factory-hud"><h2>AI FACTORY</h2><span class="insert">▶ PRESS NEXT</span></div>
-            <div class="factory-caption"></div>
-          </div>
-          <span class="fragment factory-step" data-fragment-index="0"></span>
-          <span class="fragment factory-step" data-fragment-index="1"></span>
-          <span class="fragment factory-step" data-fragment-index="2"></span>
-          <span class="fragment factory-step" data-fragment-index="3"></span>
-          <span class="fragment factory-step" data-fragment-index="4"></span>
-          <span class="fragment factory-step" data-fragment-index="5"></span>
-          <span class="fragment factory-step" data-fragment-index="6"></span>
-          <div class="factory-final-wrap">
-            <div class="card yellow fragment slam factory-final-card" data-fragment-index="6">
-              <h2>AI Factory = workflow, nie model.</h2>
-              <p>Claude · Codex · Cursor · Gemini · … — modele będą się zmieniać.<br /><strong>Workflow jest twoją przewagą.</strong></p>
-            </div>
-          </div>
-          <aside class="notes">
-            [17:00–19:30] Klikaj krok po kroku: ticket wpada do fabryki, Spec Agent robi z niego spec,
-            Architect podejmuje decyzje, BE i FE implementują równolegle. Testing Agent — tu łapiemy buga i go wyrzucamy
-            (bo weryfikujemy względem spec!). Review, PR, człowiek zatwierdza.
-            Ostatni klik: AI Factory = workflow, nie model. Nie chodzi o to, czy używasz Claude, Codex, Cursor czy Gemini.
+            Ważne: AI Factory = workflow, nie model. Claude, Codex, Cursor, Gemini — modele będą się zmieniać.
+            Workflow jest twoją przewagą. (To prowadzi do następnego slajdu.)
           </aside>
         </section>
 
@@ -452,27 +450,27 @@ PaymentCreated · PaymentFailed
           <span class="tag green">03 · AI Factory</span>
           <div class="row" style="gap: 80px; align-items: flex-start">
             <div class="col grow">
-              <p class="huge" style="font-size: 110px">Agents are<br /><span class="mark pink">disposable.</span></p>
+              <p class="huge" style="font-size: 110px">Agent jest<br /><span class="mark pink">wymienny.</span></p>
               <p style="font-size: 40px; font-weight: 700">
                 Dzisiaj implementuje
                 <span class="slot"><span>Claude</span><span>Codex</span><span>Gemini</span><span>???</span></span>
               </p>
             </div>
             <div class="col grow fragment rise">
-              <p class="huge" style="font-size: 110px">Specs are<br /><span class="mark green">durable.</span></p>
+              <p class="huge" style="font-size: 110px">Spec jest<br /><span class="mark green">trwały.</span></p>
               <div class="chips durable-stack">
                 <span class="chip yellow">spec</span>
-                <span class="chip">architecture decisions</span>
-                <span class="chip green">tests</span>
-                <span class="chip">constraints</span>
-                <span class="chip blue">acceptance criteria</span>
+                <span class="chip">decyzje architektoniczne</span>
+                <span class="chip green">testy</span>
+                <span class="chip">ograniczenia</span>
+                <span class="chip blue">kryteria akceptacji</span>
               </div>
               <p class="lead">…pozostają.</p>
             </div>
           </div>
           <aside class="notes">
             [19:30–20:30] Bardzo mocna idea. Dzisiaj implementuje Claude, jutro Codex, pojutrze inny model.
-            Ale spec, decyzje architektoniczne, testy, constraints, acceptance criteria — zostają.
+            Ale spec, decyzje architektoniczne, testy, ograniczenia, kryteria akceptacji — zostają.
             Inwestuj w to, co trwałe.
           </aside>
         </section>
@@ -604,20 +602,20 @@ PaymentCreated · PaymentFailed
              18 · THE ARC (recap)
              ============================================================ -->
         <section>
-          <span class="tag">Recap</span>
+          <span class="tag">Podsumowanie</span>
           <div class="arc">
-            <div class="card enter" style="--i: 0"><span class="k2">01</span><h3>AI</h3><p>zwiększa throughput</p></div>
+            <div class="card enter" style="--i: 0"><span class="k2">01</span><h3>AI</h3><p>zwiększa tempo</p></div>
             <span class="arr enter" style="--i: 1">→</span>
-            <div class="card yellow enter" style="--i: 2"><span class="k2">02</span><h3>Spec</h3><p>usuwa ambiguity</p></div>
+            <div class="card yellow enter" style="--i: 2"><span class="k2">02</span><h3>Spec</h3><p>kończy zgadywanie</p></div>
             <span class="arr enter" style="--i: 3">→</span>
-            <div class="card blue enter" style="--i: 4"><span class="k2">03</span><h3>Agenci</h3><p>automatyzują delivery</p></div>
+            <div class="card blue enter" style="--i: 4"><span class="k2">03</span><h3>Agenci</h3><p>przejmują wykonanie</p></div>
             <span class="arr enter" style="--i: 5">→</span>
-            <div class="card green enter" style="--i: 6"><span class="k2">04</span><h3>Verification</h3><p>daje nam trust</p></div>
+            <div class="card green enter" style="--i: 6"><span class="k2">04</span><h3>Weryfikacja</h3><p>daje nam zaufanie</p></div>
           </div>
-          <p class="huge fragment slam" data-fragment-index="1" style="font-size: 120px; margin-top: 40px">Stop optimizing<br /><span class="strike-line fragment" data-fragment-index="2">typing speed.</span></p>
+          <p class="huge fragment slam" data-fragment-index="1" style="font-size: 120px; margin-top: 40px">Nie optymalizuj<br /><span class="strike-line fragment" data-fragment-index="2">szybkości pisania.</span></p>
           <aside class="notes">
-            [24:30] Cała prezentacja w jednym zdaniu: AI zwiększa throughput → spec usuwa ambiguity →
-            agenci automatyzują delivery → verification daje nam trust. Klik: przestańmy optymalizować szybkość pisania.
+            [24:30] Cała prezentacja w jednym zdaniu: AI zwiększa tempo → spec kończy zgadywanie →
+            agenci przejmują wykonanie → weryfikacja daje nam zaufanie. ▸ przestańmy optymalizować szybkość pisania.
           </aside>
         </section>
 
@@ -641,7 +639,7 @@ PaymentCreated · PaymentFailed
         <!-- ============================================================
              20 · FINALE
              ============================================================ -->
-        <section class="dark" data-background-color="#111111">
+        <section class="dark" data-background-color="#111111" data-state="no-floaters">
           <p class="huge" style="font-size: 84px; color: var(--cream)">
             Przyszłość software developmentu<br />to nie <span class="strike-line fragment" data-fragment-index="1">AI piszące kod.</span>
           </p>
@@ -649,17 +647,17 @@ PaymentCreated · PaymentFailed
             To ludzie projektujący systemy, które niezawodnie produkują software.
           </p>
           <aside class="notes">
-            [25:00] Ostatnie zdanie — powiedz powoli. Klik na drugą część. Pauza. Dziękuję.
+            [25:00] Ostatnie zdanie — powiedz powoli. Druga część pojawi się sama. Pauza. Dziękuję.
           </aside>
         </section>
 
         <!-- ============================================================
              21 · THANKS
              ============================================================ -->
-        <section class="title-slide">
+        <section class="title-slide" data-state="title">
           <div class="deco"><span></span><span></span><span></span><span></span><span></span><span></span></div>
           <h1 class="enter slam-e">Dzięki!<br /><span class="mark pink">Pytania?</span></h1>
-          <div class="speaker enter" style="--i: 4"><span class="avatar"></span> Paweł Rugała</div>
+          <div class="speaker enter" style="--i: 4"><span class="avatar"></span> Paul Rugała</div>
           <aside class="notes">Q&amp;A.</aside>
         </section>
 
