@@ -162,3 +162,8 @@
 .factory-final-card { text-align: center; padding: 40px 70px; }
 .factory-final-card h2 { font-size: 92px !important; color: var(--ink) !important; }
 .factory-final-card p { font-size: 38px; margin-top: 16px !important; }
+
+/* autoplay: the final card lands only once the scene has finished */
+.factory-slide.autoplay .factory-final-wrap { opacity: 0; pointer-events: none; }
+.factory-slide.autoplay.factory-done .factory-final-wrap { opacity: 1; }
+.factory-slide.autoplay.factory-done .factory-final-card { animation: slam 0.5s cubic-bezier(0.3, 0, 0.2, 1) both; }

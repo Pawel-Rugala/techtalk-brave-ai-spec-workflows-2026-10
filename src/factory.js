@@ -17,7 +17,7 @@ const STATIONS = [
 // Caption shown in the HUD for each step, per <html lang>
 const CAPTIONS_BY_LANG = {
   pl: [
-    'INPUT: „Add endpoint allowing a user to pay invoice”',
+    'INPUT: PAY-123 „Add endpoint allowing a user to pay an invoice”',
     'SPEC AGENT → ticket staje się specyfikacją',
     'ARCHITECT AGENT → decyzje, kontrakty, plan',
     'BACKEND + FRONTEND AGENT → implementacja równolegle',
@@ -239,16 +239,38 @@ export function initFactory(deck) {
     }
   };
 
+  // PDF export: show the finished factory instead of the empty belt
+  if (/print-pdf/i.test(window.location.search)) {
+    setStep(CAPTIONS.length - 1);
+    slide.classList.add('factory-done');
+    return;
+  }
+
+  // Autoplay (data-autoplay): the scene runs by itself while the slide is shown.
+  // Otherwise hidden `.factory-step` fragments drive it.
+  if (root.hasAttribute('data-autoplay')) {
+    const STEP_MS = [2600, 2600, 2600, 2600, 3600, 2600, 2600];
+    let timer = null;
+    const stop = () => { clearTimeout(timer); timer = null; };
+    const run = (step) => {
+      setStep(step);
+      slide.classList.toggle('factory-done', step >= CAPTIONS.length - 1);
+      if (step < CAPTIONS.length - 1) timer = setTimeout(() => run(step + 1), STEP_MS[step] ?? 2600);
+    };
+    const onSlide = () => {
+      stop();
+      if (deck.getCurrentSlide() === slide) run(0);
+    };
+    setStep(0);
+    onSlide();
+    deck.on('slidechanged', onSlide);
+    return;
+  }
+
   const currentStep = () => slide.querySelectorAll('.factory-step.visible').length;
   const sync = () => {
     if (deck.getCurrentSlide() === slide) setStep(currentStep());
   };
-
-  // PDF export: show the finished factory instead of the empty belt
-  if (/print-pdf/i.test(window.location.search)) {
-    setStep(CAPTIONS.length - 1);
-    return;
-  }
 
   setStep(0);
   sync();
