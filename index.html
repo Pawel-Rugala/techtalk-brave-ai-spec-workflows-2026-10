@@ -20,8 +20,9 @@
           <p class="sub enter" style="--i: 4">Spec-driven development w nowoczesnych zespołach</p>
           <div class="speaker enter" style="--i: 6"><span class="avatar"></span> Paul Rugała</div>
           <aside class="notes">
-            [0:00–0:30] Cześć! Dziś o tym, co się dzieje z naszą pracą, kiedy AI pisze coraz więcej kodu.
-            Trzy tematy: mindset, spec-driven development i skalowanie tego do „AI Factory”.
+            <p><b>[0:00–0:30]</b></p>
+            <p>Cześć, jestem Paul. Przez ostatni rok sporo kodu w moich projektach napisały agenty AI, a nie ja. Dziś opowiem, co to zmienia w naszej pracy.</p>
+            <p>Plan na 25 minut: najpierw punkt wyjścia i zmiana myślenia, potem spec-driven development, a na koniec — jak to przeskalować do „AI Factory”.</p>
           </aside>
         </section>
 
@@ -34,11 +35,10 @@
             <span class="mark pink">za pisanie kodu?</span>
           </p>
           <aside class="notes">
-            [0:30–1:30] Pytanie. Pauza — niech sala pomyśli.
-            „Kto w ostatnim tygodniu napisał ręcznie większość swojego kodu?” (ręce w górę)
-            Odpowiedź mówisz, nie pokazujesz: „Kod nie zniknął — jest go więcej niż kiedykolwiek.
-            Ale ręczne pisanie przestało być tym, za co nam płacą. Płacą nam za decyzje: co budujemy,
-            jakie są reguły i skąd wiemy, że działa.”
+            <p><b>[0:30–1:30]</b> Przeczytaj pytanie i zrób pauzę. Niech sala pomyśli.</p>
+            <p>Zapytaj: „Kto w ostatnim tygodniu napisał ręcznie większość swojego kodu? Ręce w górę.” Skomentuj wynik.</p>
+            <p>Odpowiedź mówisz, slajd jej nie pokazuje: „Kod nie zniknął — jest go więcej niż kiedykolwiek. Ale ręczne pisanie przestało być tym, za co nam płacą. Płacą nam za decyzje: co budujemy, jakie są reguły i skąd wiemy, że działa.”</p>
+            <p>→ Przejście: „Zobaczmy, gdzie w takim razie idzie nasz czas.”</p>
           </aside>
         </section>
 
@@ -80,12 +80,11 @@
             na <span class="mark">pisanie intencji</span> i <span class="mark green">weryfikację</span>.
           </p>
           <aside class="notes">
-            [1:30–3:00] Pasek to cały wysiłek zespołu przy jednym feature.
-            Przed AI: lwia część szła w kodowanie — tam płaciliśmy seniorom.
-            ▸ dziś: ten sam pasek. Patrzcie, jak kodowanie się kurczy, a reszta rośnie. Kod robi agent.
-            ▸ wysiłek uciekł w dwie strony: PRZED kodem — intencja, spec, architektura, czyli myślenie —
-            i PO kodzie — review i weryfikacja, czyli sprawdzanie.
-            ▸ puenta: wysiłek przeniósł się z pisania kodu na pisanie intencji i weryfikację.
+            <p><b>[1:30–2:45]</b></p>
+            <p>Każdy pasek to cały wysiłek zespołu przy jednym feature. Proporcje są ilustracyjne — chodzi o kierunek, nie o procenty.</p>
+            <p>Przed AI: największy kawałek to kodowanie. Tam szedł czas i tam płaciliśmy seniorom.</p>
+            <p>Dziś: kod robi agent, więc ten kawałek się kurczy. Wysiłek ucieka w dwie strony — PRZED kod: intencja, spec, architektura, czyli myślenie. I PO kodzie: review i weryfikacja, czyli sprawdzanie.</p>
+            <p>Puenta z dołu slajdu: wysiłek przeniósł się z pisania kodu na pisanie intencji i weryfikację.</p>
           </aside>
         </section>
 
@@ -111,8 +110,10 @@
             </p>
           </div>
           <aside class="notes">
-            [3:00–4:00] Każdy ▸ kolejny koszt, który NIE spadł. Na koniec puenta:
-            AI pozwala produkować błędny kod szybciej niż kiedykolwiek wcześniej.
+            <p><b>[2:45–3:30]</b></p>
+            <p>AI obniżyło koszt implementacji. Ale przejdź po kolei przez chipy — to koszty, które NIE spadły: złe wymagania, zła architektura, złe decyzje, źle zdefiniowane edge case'y, brak testów.</p>
+            <p>Puenta z czarnej karty: „Wręcz przeciwnie — AI pozwala produkować błędny kod szybciej niż kiedykolwiek.” Agent zaimplementuje źle zrozumiany wymóg szybko i bardzo pewnie siebie.</p>
+            <p>→ Przejście: „Więc problem nie leży w pisaniu. Leży w tym, jak z AI pracujemy.”</p>
           </aside>
         </section>
 
@@ -151,9 +152,10 @@
             </p>
           </div>
           <aside class="notes">
-            [4:00–5:30] Wiele zespołów nadal używa AI jak autocomplete: „napisz tę funkcję”.
-            To tylko szybsze pisanie. Prawdziwa zmiana: developer definiuje intencję, agent planuje,
-            implementuje, testuje, reviewuje i poprawia — w pętli. Rola developera się zmienia.
+            <p><b>[3:30–4:45]</b></p>
+            <p>Lewa strona: tak wiele zespołów nadal używa AI — „napisz tę funkcję”. To jest autocomplete. Po prostu szybsze pisanie.</p>
+            <p>Prawa strona: developer definiuje intencję, a agent sam planuje, implementuje, testuje, reviewuje i poprawia — w pętli.</p>
+            <p>Żółta karta: developer przestaje być operatorem klawiatury. Nie czytaj całej listy ról — wybierz dwie, które są sednem: bliżej biznesu (product engineer) i bliżej weryfikacji (reviewer, constraint designer).</p>
           </aside>
         </section>
 
@@ -175,8 +177,11 @@
             Jednostka pracy: <span class="strike-line late">kod</span> → <span class="mark pink">specyfikacja</span>
           </p>
           <aside class="notes">
-            [5:30–7:00] Przejdź przez wiersze. Przy „regułach” daj przykład: płatność nigdy nie może przekroczyć kwoty do zapłaty na fakturze. Kluczowe zdanie na koniec:
-            „Jednostką pracy przestaje być kod. Staje się nią specyfikacja.”
+            <p><b>[4:45–6:00]</b></p>
+            <p>Przejdź przez wiersze — lewa kolumna to pytania, które zadawaliśmy sobie do tej pory, prawa to pytania, które zadajemy dziś.</p>
+            <p>Przy „Jakich reguł nie wolno złamać?” daj przykład: płatność nigdy nie może przekroczyć kwoty, która została do zapłaty na fakturze.</p>
+            <p>Kluczowe zdanie na koniec: „Jednostką pracy przestaje być kod. Staje się nią specyfikacja.”</p>
+            <p>→ Przejście: „Pokażę to na przykładzie, który będzie nam towarzyszył do końca.”</p>
           </aside>
         </section>
 
@@ -213,10 +218,11 @@
           </div>
           <p class="lead fragment rise"><strong>Kod jest sensowny.</strong> Problem w tym, że nikt nie wie, czy jest <span class="mark pink">poprawny</span>.</p>
           <aside class="notes">
-            [7:00–9:00] Nasz przykład na całą prezentację. Typowy ticket, agent coś generuje — wygląda OK.
-            Stemple wpadają jeden po drugim: brak klucza idempotencji (retry = podwójna płatność),
-            co przy dwóch równoległych płatnościach, co z już opłaconą fakturą, brak eventu PaymentCreated,
-            co gdy coś się wywali w połowie. Agent nie zgadł, bo NIKT mu nie powiedział. To nie jest problem modelu.
+            <p><b>[6:00–7:30]</b> To jest nasz przykład na resztę prezentacji: PAY-123.</p>
+            <p>Typowy ticket — jedno zdanie, estymata 1 SP. Agent generuje endpoint i melduje „Done ✅”. Kod wygląda sensownie.</p>
+            <p>Stemple wpadają same, po kolei. Skomentuj każdy:</p>
+            <p>• no idempotency key — klient zrobi retry i zapłaci dwa razy.<br />• concurrent payments — dwie płatności naraz na tę samą fakturę.<br />• invoice already paid — nic nie blokuje płacenia opłaconej faktury.<br />• no event emitted — reszta systemu nie wie, że była płatność.<br />• what if it fails — co retryować, co zwrócić klientowi?</p>
+            <p>Agent nie zgadł, bo NIKT mu tego nie powiedział. To nie jest problem modelu — to problem wejścia.</p>
           </aside>
         </section>
 
@@ -260,9 +266,10 @@ PaymentCreated · PaymentFailed
 - [ ] duplicate clientRequestId → same payment</div>
           </div>
           <aside class="notes">
-            [9:00–11:00] Od razu zaznacz: spec to NIE 40 stron w Wordzie. To markdown w repo, obok kodu.
-            Test: czy inny developer albo agent zaimplementuje to bez zadawania 20 pytań?
-            Pokaż sekcje: goal, API, reguły biznesowe, eventy, błędy, acceptance criteria.
+            <p><b>[7:30–8:45]</b></p>
+            <p>Od razu zaznacz: spec to NIE 40-stronicowy dokument w Wordzie. To krótki markdown w repo, obok kodu, z review jak kod.</p>
+            <p>Test z żółtej karty: czy inny developer albo agent zrobi to bez zadawania 20 pytań?</p>
+            <p>Pokaż sekcje po prawej: Goal, API, reguły biznesowe, eventy, przypadki błędów, acceptance criteria. Zwróć uwagę na clientRequestId w API — to jest odpowiedź na pierwszy stempel.</p>
           </aside>
         </section>
 
@@ -299,9 +306,11 @@ PaymentCreated · PaymentFailed
             </p>
           </div>
           <aside class="notes">
-            [11:00–12:30] Lewa strona — to, co dziś wrzucamy agentowi. Prawa — to samo, ale bez niedomówień.
-            Każdy wiersz spec zamyka jeden stempel z poprzedniego przykładu. Puenta: nie potrzebujemy lepszych promptów,
-            potrzebujemy mniej zgadywania. Każda luka w specu to miejsce, w którym agent zgaduje — i zgaduje pewnie siebie.
+            <p><b>[8:45–9:45]</b></p>
+            <p>Lewa strona: to, co dziś zwykle wrzucamy agentowi — „Add payment endpoint.” I agent zgaduje resztę.</p>
+            <p>Prawa strona: to samo, ale bez niedomówień. Każdy wiersz zamyka jeden stempel z przykładu:</p>
+            <p>• Preconditions (status OPEN) → opłacona faktura.<br />• Idempotency (clientRequestId) → podwójna płatność.<br />• Concurrency (optimistic lock) → równoległe płatności.<br />• Side effects (PaymentCreated) → brak eventu.<br />• Failure modes → co gdy się wywali.</p>
+            <p>Puenta z żółtej karty: AI nie potrzebuje bardziej kreatywnych promptów. Potrzebuje mniej zgadywania. Każda luka w specu to miejsce, w którym agent zgaduje — i zgaduje pewnie siebie.</p>
           </aside>
         </section>
 
@@ -331,9 +340,9 @@ PaymentCreated · PaymentFailed
             <span class="stamp ink fragment stamp-in" style="font-size: 30px; --rot: -3deg">Nie „więcej dokumentacji”. Spec = input do maszyny.</span>
           </div>
           <aside class="notes">
-            [12:30–14:00] To jest ciekawsze niż „piszmy lepsze prompty”. Ten sam spec jest źródłem dla implementacji,
-            review, testów, QA i dokumentacji. UWAGA: nie sprzedawaj tego jako „więcej dokumentacji” — dev się wyłączą.
-            Wcześniej dokumentacja była efektem ubocznym. Teraz spec jest executable artifact — inputem do maszyny produkującej software.
+            <p><b>[9:45–10:45]</b></p>
+            <p>To jest ciekawsze niż „piszmy lepsze prompty”. Jeden spec.md jest źródłem dla wszystkiego wokół: implementacji, code review, testów, QA i dokumentacji. Product, developer, AI, testy i QA patrzą na ten sam plik.</p>
+            <p>Stempel w rogu: to NIE jest „więcej dokumentacji”. Wcześniej dokumentacja była efektem ubocznym, którego nikt nie czytał. Teraz spec jest inputem do maszyny, która produkuje software — jak źle go napiszesz, maszyna wyprodukuje źle.</p>
           </aside>
         </section>
 
@@ -383,15 +392,12 @@ PaymentCreated · PaymentFailed
             </p>
           </div>
           <aside class="notes">
-            [14:00–15:30] Tak wygląda spec-driven workflow. Problem → spec → plan → agenci → review → PR.
-            Ważne są dwie bramki, gdzie decyduje człowiek.
-            Pierwsza: SPEC. Zanim powstanie jakakolwiek linijka kodu, człowiek zatwierdza, CO budujemy.
-            Błąd złapany tu kosztuje minuty, a nie dni.
-            Druga: PR. Na końcu człowiek decyduje, czy to wchodzi.
-            Pomiędzy bramkami jest build loop: agent sam robi plan, rozbija go na taski, koduje, pisze testy,
-            robi review i poprawia — w pętli, aż spec jest spełniony. Nikt nie prowadzi go za rękę krok po kroku.
-            Spec to szyna, po której jedzie cały proces — pętla sprawdza się względem specu, nie względem własnego zdania.
-            ▸ Człowiek nie wykonuje każdego kroku. Człowiek pilnuje bramek. To prowadzi prosto do AI Factory.
+            <p><b>[10:45–12:15]</b> Przejdź po diagramie od lewej.</p>
+            <p>Problem — ticket albo pomysł. Z niego powstaje SPEC i tu jest pierwsza bramka: człowiek zatwierdza, CO budujemy, zanim powstanie linijka kodu. Błąd złapany tutaj kosztuje minuty, a nie dni.</p>
+            <p>Potem build loop: agent sam planuje, koduje, pisze testy, robi review i poprawia — w pętli, aż spec jest spełniony. Nikt go nie prowadzi za rękę krok po kroku.</p>
+            <p>Na końcu PR i druga bramka: człowiek decyduje, czy to wchodzi.</p>
+            <p>Żółta szyna pod spodem: spec jest źródłem prawdy dla każdego kroku. Pętla sprawdza się względem specu, a nie względem własnego zdania.</p>
+            <p>Czarna karta: człowiek nie wykonuje każdego kroku. Człowiek pilnuje bramek.</p>
           </aside>
         </section>
 
@@ -422,11 +428,12 @@ PaymentCreated · PaymentFailed
             <p style="font-family: var(--font-head); font-size: 46px">Tyle specu, ile ryzyka.</p>
           </div>
           <aside class="notes">
-            [14:00–15:30] Żeby nie brzmiało jak religia. Słyszę trzy zarzuty i są zasadne.
-            „To waterfall od nowa” — tak, jeśli piszesz 40 stron na start. Mały spec, iteracyjnie.
-            „Spec się rozjedzie z kodem” — tak, jeśli żyje poza PR-em. Spec zmieniamy w tym samym PR co kod.
-            „Spec do każdej zmiany?” — nie. Literówka nie potrzebuje specu, płatności potrzebują.
-            Zasada: tyle specu, ile ryzyka. To zamyka część drugą — teraz: co jeśli takich PAY-123 mamy pięćdziesiąt naraz?
+            <p><b>[12:15–13:30]</b> Żeby to nie zabrzmiało jak religia — trzy zarzuty, które słyszę, i wszystkie są zasadne.</p>
+            <p>Spec-waterfall: „to waterfall od nowa”. Tak — jeśli przez tydzień piszesz spec, zanim ktoś zobaczy działający kod. Rozwiązanie: mały spec per feature, iteracyjnie. Prototyp też może być inputem.</p>
+            <p>Spec drift: „spec się rozjedzie z kodem”. Tak — jeśli żyje poza PR-em. Spec zmieniamy w tym samym PR co kod, a review sprawdza oba.</p>
+            <p>Spec na wszystko: literówka w labelu nie potrzebuje specu. Płatności — tak. Spec tam, gdzie są reguły biznesowe albo ryzyko.</p>
+            <p>Zasada: tyle specu, ile ryzyka.</p>
+            <p>→ Przejście: „To była jedna funkcja. A co, jeśli takich PAY-123 mamy pięćdziesiąt naraz?”</p>
           </aside>
         </section>
 
@@ -468,10 +475,11 @@ PaymentCreated · PaymentFailed
             </div>
           </div>
           <aside class="notes">
-            [15:30–17:00] Trzy poziomy. 1: asystent — ty prowadzisz każdy krok. 2: agent — delegujesz całe zadanie.
-            3: factory — projektujesz system wielu wyspecjalizowanych agentów z separacją odpowiedzialności.
-            Ważne: AI Factory = workflow, nie model. Claude, Codex, Cursor, Gemini — modele będą się zmieniać.
-            Workflow jest twoją przewagą. (To prowadzi do następnego slajdu.)
+            <p><b>[13:30–14:45]</b> Trzy poziomy pracy z AI.</p>
+            <p>LVL 1, asystent: ChatGPT, Claude, Copilot w IDE. Ty prowadzisz cały proces, AI podpowiada.</p>
+            <p>LVL 2, agent: dajesz mu całe zadanie. Sam czyta repo, zmienia kod, puszcza testy, poprawia błędy i otwiera PR. Tu jest dziś większość zespołów, które na serio używają AI.</p>
+            <p>LVL 3, fabryka: ticket przechodzi przez wyspecjalizowanych agentów — spec, architekt, backend i frontend równolegle, testy, review — a na końcu człowiek zatwierdza. Developer nie pisze już kodu, tylko projektuje system, który go dostarcza.</p>
+            <p>Ważne: AI Factory to workflow, nie model. Modele będą się zmieniać, workflow zostaje.</p>
           </aside>
         </section>
 
@@ -504,12 +512,12 @@ PaymentCreated · PaymentFailed
             </div>
           </div>
           <aside class="notes">
-            [18:30–20:30] Cztery rzeczy, których nie widać na poziomie jednego agenta.
-            01: kod przestaje być limitem. Limitem jest to, ile specu zespół zatwierdzi i ile PR-ów przeczyta. Dlatego bramki muszą być mniej liczne, ale mocniejsze.
-            02: jeden gigantyczny agent, który pisze i sam siebie reviewuje, zawsze powie „looks good”. Rozdziel role i konteksty.
-            03: kiedy agent robi ten sam błąd po raz trzeci, nie poprawiasz PR-a — poprawiasz fabrykę: skill, regułę, checklistę.
-            04: fabrykę się mierzy jak linię produkcyjną. Jeśli nie wiesz, ile PR-ów wraca do poprawek, nie wiesz, czy fabryka działa.
-            [Tu najlepiej pasuje twój własny przykład / liczby z projektu.]
+            <p><b>[14:45–16:30]</b> Cztery rzeczy, których nie widać, dopóki pracujesz z jednym agentem.</p>
+            <p>01 — wąskim gardłem jest człowiek. Agenci produkują więcej PR-ów, niż zespół jest w stanie przeczytać. Limitem są spec i review, nie kod. Dlatego bramki mają być nieliczne, ale mocne.</p>
+            <p>02 — separacja ról. Agent, który pisze kod i sam go reviewuje, zawsze powie „looks good”. Reviewer to osobny agent z osobnym kontekstem i sprawdza względem specu.</p>
+            <p>03 — fabryka to też kod. Prompty, skille, CLAUDE.md, checklisty — w repo, wersjonowane, z review. Kiedy agent trzeci raz robi ten sam błąd, nie poprawiasz PR-a, tylko fabrykę.</p>
+            <p>04 — mierzysz linię produkcyjną: ile PR-ów przechodzi bez poprawek, ile jest reworku, ile bugów na produkcji, ile trwa droga od ticketu do merge'a i ile kosztuje feature. Jeśli tego nie wiesz, nie wiesz, czy fabryka działa.</p>
+            <p>[Jeśli masz — tu wstaw własny przykład albo liczby z projektu.]</p>
           </aside>
         </section>
 
@@ -562,16 +570,11 @@ PaymentCreated · PaymentFailed
             <div class="card ink"><h3>…i dalej?</h3><code>zdarzenie → agent → bramka</code><p>Limit to wyobraźnia. Wzorzec jest zawsze ten sam.</p></div>
           </div>
           <aside class="notes">
-            [~2 min] Jak to wygląda w praktyce? Najprostsza fabryka, jaką można postawić jutro: GitHub jako źródło prawdy.
-            Issue to spec — PO i dev dopracowują go w issue. Kiedy człowiek nada label spec-ready, to jest bramka:
-            GitHub Action odpala agenta-implementera, który pisze kod z testami i otwiera PR.
-            Otwarcie PR to kolejne zdarzenie — odpala się reviewer, który sprawdza kod względem specu z issue, nie względem własnych założeń.
-            Label ready-for-qa — agent QA puszcza e2e, robi screenshoty i wrzuca raport. Merge zawsze robi człowiek.
-            Nie ma tu żadnej magii: zdarzenia, labele i joby, które już znacie.
-            Na dole inne modele: plugin zespołowy, gdzie dev sam wywołuje /implement — najbezpieczniejszy pierwszy krok.
-            Chat-ops — PO pisze w Slacku, agent zakłada issue, emoji to akceptacja. Agenci z crona do utrzymania.
-            Pętla z produkcji — alert z Sentry tworzy issue i PR z fixem. Albo własny orkiestrator z kolejką zadań.
-            Granica to wyobraźnia, ale wzorzec jest zawsze ten sam: zdarzenie → agent → bramka.
+            <p><b>[16:30–18:30]</b> Jak to wygląda w praktyce? Najprostsza fabryka, którą można postawić jutro: GitHub jako źródło prawdy, a GitHub Actions reagują na zdarzenia.</p>
+            <p>Przejdź po górnym pasku: issue to spec — PO i dev dopracowują go w issue. Label spec-ready to bramka: człowiek mówi „spec gotowy” i Action odpala implementera, który pisze kod z testami i otwiera PR. Otwarcie PR to kolejne zdarzenie — startuje reviewer i sprawdza kod względem specu z issue. Label ready-for-qa — agent QA puszcza testy e2e, robi screenshoty i wrzuca raport. Merge zawsze robi człowiek.</p>
+            <p>Nie ma tu żadnej magii: zdarzenia, labele i joby, które wszyscy znacie.</p>
+            <p>Dolne karty, krótko, po jednym zdaniu:<br />• Plugin zespołowy — dev sam wywołuje /implement; najbezpieczniejszy pierwszy krok.<br />• Chat-ops — PO pisze w Slacku, agent zakłada issue, emoji to akceptacja.<br />• Agenci cykliczni — cron do utrzymania: zależności, flaky testy, nocne QA.<br />• Pętla z produkcji — alert z Sentry tworzy issue i PR z poprawką.<br />• Własny orkiestrator — agenci biorą zadania z kolejki.</p>
+            <p>Ostatnia karta: granica to wyobraźnia, ale wzorzec jest zawsze ten sam — zdarzenie, agent, bramka.</p>
           </aside>
         </section>
 
@@ -595,11 +598,12 @@ PaymentCreated · PaymentFailed
             </p>
           </div>
           <aside class="notes">
-            [20:30–22:00] Fabryka skaluje kod — i skaluje bugi. Więc obok fabryki kodu potrzebujesz fabryki weryfikacji.
-            Budujemy od dołu: najpierw rzeczy deterministyczne i tanie — typy, lint, schematy. Potem testy.
-            Dopiero na górze AI review i człowiek. Po prawej: który stempel z PAY-123 łapie która warstwa.
-            Człowiek jest na samej górze i ma najmniej roboty — sprawdza sens, nie średniki.
-            Najważniejsze zdanie: nie ufamy agentowi, ufamy systemowi weryfikacji wokół agenta.
+            <p><b>[18:30–20:00]</b></p>
+            <p>Fabryka skaluje kod — i skaluje bugi. Dlatego obok fabryki kodu potrzebujesz fabryki weryfikacji.</p>
+            <p>Piramidę budujemy od dołu: najpierw rzeczy deterministyczne i tanie — typy, lint, schematy. Potem testy jednostkowe, kontraktowe i integracyjne. Dopiero na górze AI review względem specu i człowiek.</p>
+            <p>W każdej warstwie jest przykład z PAY-123 — pokaż dwa, trzy: unit test łapie kwotę większą niż do zapłaty, contract test — 409 dla opłaconej faktury, integracyjny — dwie płatności naraz.</p>
+            <p>Człowiek jest na samej górze i ma najmniej roboty: sprawdza, czy to ma sens, a nie średniki.</p>
+            <p>Najważniejsze zdanie prezentacji, powiedz powoli: nie ufamy agentowi. Ufamy systemowi weryfikacji wokół agenta.</p>
           </aside>
         </section>
 
@@ -629,9 +633,9 @@ PaymentCreated · PaymentFailed
             </div>
           </div>
           <aside class="notes">
-            [22:00–22:45] Zamknięcie części o fabrykach. Dziś implementuje Claude, jutro Codex, pojutrze coś, czego jeszcze nie ma.
-            Ale spec, decyzje, testy, ograniczenia, kryteria akceptacji — zostają. To jest prawdziwy majątek zespołu.
-            Inwestuj w to, co trwałe.
+            <p><b>[20:00–20:45]</b> Zamknięcie części o fabrykach.</p>
+            <p>Agent jest wymienny: dziś implementuje Claude, jutro Codex, pojutrze coś, czego jeszcze nie ma.</p>
+            <p>Spec jest trwały: spec, decyzje architektoniczne, testy, ograniczenia i kryteria akceptacji zostają, niezależnie od modelu. To jest prawdziwy majątek zespołu. Inwestuj w to, co trwałe.</p>
           </aside>
         </section>
 
@@ -651,8 +655,10 @@ PaymentCreated · PaymentFailed
           </div>
           <p class="huge fragment slam" data-fragment-index="1" style="font-size: 120px; margin-top: 40px">Nie optymalizuj<br /><span class="strike-line fragment" data-fragment-index="2">szybkości pisania.</span></p>
           <aside class="notes">
-            [24:30] Cała prezentacja w jednym zdaniu: AI zwiększa tempo → spec kończy zgadywanie →
-            agenci przejmują wykonanie → weryfikacja daje nam zaufanie. ▸ przestańmy optymalizować szybkość pisania.
+            <p><b>[20:45–21:30]</b> Cała prezentacja w jednym zdaniu — przeczytaj karty od lewej:</p>
+            <p>AI zwiększa tempo → spec kończy zgadywanie → agenci przejmują wykonanie → weryfikacja daje nam zaufanie.</p>
+            <p>Wniosek: nie optymalizuj szybkości pisania. To już nie jest wąskie gardło.</p>
+            <p>→ Przejście: „To co w takim razie optymalizować?”</p>
           </aside>
         </section>
 
@@ -694,12 +700,12 @@ PaymentCreated · PaymentFailed
             </p>
           </div>
           <aside class="notes">
-            [~1:30] Skoro nie szybkość pisania, to co? Cztery rzeczy.
-            Intencja — co i po co budujemy. Różnica między „add payment endpoint” a specem PAY-123.
-            Ograniczenia — czego nie wolno złamać: kwota nie większa niż do zapłaty, idempotencja, jedna płatność naraz.
-            Pętle feedbacku — jak szybko agent dowiaduje się, że się myli. Test, który pada po minucie, jest wart więcej niż komentarz w review po dwóch dniach.
-            Weryfikacja — skąd wiemy, że działa: od typów, przez testy, po AI review względem specu i człowieka na końcu.
-            Puenta: pisanie kodu jest już prawie darmowe. Te cztery rzeczy — nie. Tu jest wasza wartość.
+            <p><b>[21:30–23:00]</b> Cztery rzeczy zamiast szybkości pisania — każda z pytaniem i przykładem z PAY-123.</p>
+            <p>Intencja — co i po co budujemy? Różnica między „add payment endpoint” a specem PAY-123.</p>
+            <p>Ograniczenia — czego nie wolno złamać? Kwota nie większa niż do zapłaty, idempotencja, jedna płatność naraz.</p>
+            <p>Pętle feedbacku — jak szybko agent wie, że się myli? Test, który pada po minucie, jest wart więcej niż komentarz w review po dwóch dniach.</p>
+            <p>Weryfikacja — skąd wiemy, że działa? Od typów, przez testy, po AI review względem specu i człowieka na końcu.</p>
+            <p>Puenta: pisanie kodu jest już prawie darmowe. Te cztery rzeczy — nie. Tu jest wasza wartość.</p>
           </aside>
         </section>
 
@@ -714,7 +720,10 @@ PaymentCreated · PaymentFailed
             To ludzie projektujący systemy, które niezawodnie produkują software.
           </p>
           <aside class="notes">
-            [25:00] Ostatnie zdanie — powiedz powoli. Druga część pojawi się sama. Pauza. Dziękuję.
+            <p><b>[23:00–23:30]</b> Ostatni slajd treści. Przeczytaj powoli, oba zdania naraz są na ekranie.</p>
+            <p>„Przyszłość software developmentu to nie AI piszące kod. To ludzie projektujący systemy, które niezawodnie produkują software.”</p>
+            <p>Pauza. Dziękuję.</p>
+            <p>(Zostaje ok. 1,5 min zapasu do 25:00 — na reakcje sali albo pierwsze pytanie.)</p>
           </aside>
         </section>
 
@@ -725,7 +734,14 @@ PaymentCreated · PaymentFailed
           <div class="deco"><span></span><span></span><span></span><span></span><span></span><span></span></div>
           <h1 class="enter slam-e">Dzięki!<br /><span class="mark pink">Pytania?</span></h1>
           <div class="speaker enter" style="--i: 4"><span class="avatar"></span> Paul Rugała</div>
-          <aside class="notes">Q&amp;A.</aside>
+          <aside class="notes">
+            <p><b>Q&amp;A</b> — możliwe pytania i krótkie odpowiedzi:</p>
+            <p>• „Jakie narzędzia?” — Claude Code, Codex, Cursor; do specu: Spec Kit, Kiro, BMAD albo własne komendy. Narzędzie jest wtórne, nawyk pisania specu jest kluczowy.<br />
+            • „A juniorzy? Jak mają się uczyć?” — Czytając i weryfikując kod agenta, pisząc specy i testy. To otwarty problem — warto o nim rozmawiać w zespole.<br />
+            • „Ile to kosztuje?” — Tokeny są tanie w porównaniu z godziną developera. Drogie są rework i bugi na produkcji, dlatego mierzymy linię.<br />
+            • „Czy to nie waterfall?” — Nie, jeśli spec jest mały i iteracyjny. Tyle specu, ile ryzyka.<br />
+            • „Bezpieczeństwo?” — Agent ma uprawnienia jak junior: brak dostępu do produkcji, sekrety poza repo, merge zawsze robi człowiek.</p>
+          </aside>
         </section>
 
       </div>
