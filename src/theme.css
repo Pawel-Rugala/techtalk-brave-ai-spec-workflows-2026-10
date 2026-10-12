@@ -1166,7 +1166,7 @@ html.static-build .reveal .slides section .stamp-layer .fragment.stamp-in.visibl
 .bun-bar.est { background: var(--pink); padding: 0 30px; }
 .bun-bar b, .bun-real-label { font-family: var(--font-mono); font-size: 32px; }
 .bun-track { position: relative; display: flex; align-items: center; gap: 24px; height: 96px; }
-.bun-bar.real { width: 18px; background: var(--green); flex: none; }
+.bun-bar.real { width: 25px; background: var(--green); flex: none; }
 .bun-stamp { position: absolute; right: 40px; top: 4px; font-size: 44px; --rot: -4deg; transform: rotate(-4deg); }
 
 /* --- Harvest: productivity chart + tool illustrations --- */
