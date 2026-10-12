@@ -464,6 +464,44 @@ body,
   gap: 24px;
   font-size: 34px;
 }
+/* --- Thanks: repo link + LinkedIn QR --- */
+.thanks-slide .repo-link {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 30px;
+}
+.thanks-slide .repo-label { font-weight: 700; }
+.thanks-slide .repo-link code {
+  align-self: flex-start;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  padding: 10px 18px;
+  background: var(--yellow);
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.thanks-slide .qr-card {
+  position: absolute;
+  right: 130px;
+  top: 150px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.thanks-slide .qr-card img {
+  width: 380px;
+  height: 380px;
+  display: block;
+  margin: 0;
+}
+.thanks-slide .qr-caption {
+  font-size: 28px;
+  font-weight: 700;
+}
 .speaker .avatar {
   width: 22px; height: 22px;
   background: var(--green);
@@ -1185,3 +1223,40 @@ html.static-build .reveal .slides section .stamp-layer .fragment.stamp-in.visibl
 .hv-here { transform: rotate(-4deg); }
 .hv-goal { transform: rotate(3deg); }
 .hv-note { position: absolute; right: 0; bottom: 74px; font-size: 20px; color: var(--muted); }
+.hv-photo {
+  position: absolute;
+  margin: 0;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  background: var(--ink);
+}
+.hv-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  filter: contrast(1.08) saturate(1.1);
+}
+.hv-photo figcaption {
+  position: absolute;
+  left: -14px;
+  bottom: -22px;
+  padding: 6px 14px;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-family: var(--font-head);
+  font-size: 26px;
+  white-space: nowrap;
+}
+.hv-fleet { box-shadow: 10px 10px 0 var(--green); }
+.hv-fleet figcaption { background: var(--green); }
+.hv-credit {
+  position: absolute;
+  right: 0;
+  bottom: -34px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  opacity: 0.75;
+}
