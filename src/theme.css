@@ -1169,19 +1169,19 @@ html.static-build .reveal .slides section .stamp-layer .fragment.stamp-in.visibl
 .bun-bar.real { width: 25px; background: var(--green); flex: none; }
 .bun-stamp { position: absolute; right: 40px; top: 4px; font-size: 44px; --rot: -4deg; transform: rotate(-4deg); }
 
-/* --- Harvest: productivity chart + tool illustrations --- */
-.hv-chart { position: relative; width: 1660px; height: 330px; margin-top: -10px; }
-.hv-chart svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.hv-chart .ylab, .hv-chart .val { font-family: var(--font-mono); font-weight: 700; font-size: 24px; }
-.hv-chart .val { font-size: 30px; }
-.hv-chart .yaxis { font-family: var(--font-pixel); font-size: 20px; }
-.hv-chart .stamp { position: absolute; font-size: 24px; white-space: nowrap; }
+/* --- Harvest: one chart, tools as the data points (bigger = more productive) --- */
+.hv { position: relative; width: 1660px; height: 760px; margin-top: -10px; }
+.hv-axes { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.hv-axes .ylab { font-family: var(--font-mono); font-weight: 700; font-size: 24px; }
+.hv-axes .axis { font-family: var(--font-pixel); font-size: 22px; }
+.hv-item { position: absolute; }
+.hv-item .ill { display: block; width: 100%; height: 100%; overflow: visible; }
+.hv-lab { position: absolute; top: calc(100% + 10px); left: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; white-space: nowrap; }
+.hv-lab.above { top: auto; bottom: calc(100% + 14px); }
+.hv-lab h3 { font-size: 30px; line-height: 1.05; }
+.hv-lab .era { font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: var(--ink-soft); }
+.hv-lab .chip { font-size: 22px; padding: 4px 12px; margin-top: 2px; }
+.hv .stamp { position: absolute; font-size: 24px; white-space: nowrap; }
 .hv-here { transform: rotate(-4deg); }
 .hv-goal { transform: rotate(3deg); }
-.harvest { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-left: 120px; }
-.harvest .card { padding: 16px 20px 18px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; box-shadow: var(--shadow-sm); }
-.harvest svg { width: 100%; height: 118px; }
-.harvest h3 { font-size: 30px; line-height: 1.05; }
-.harvest .era { font-size: 22px; color: var(--ink-soft); }
-.harvest .chip { font-size: 22px; padding: 4px 12px; margin-top: 4px; }
-.reveal .hv-note { margin-top: -18px; padding-left: 120px; font-size: 22px; }
+.hv-note { position: absolute; right: 0; bottom: 74px; font-size: 20px; color: var(--muted); }
