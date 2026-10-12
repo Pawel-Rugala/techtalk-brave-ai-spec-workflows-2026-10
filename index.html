@@ -27,18 +27,155 @@
         </section>
 
         <!-- ============================================================
-             01 · THE QUESTION (no answer on the slide — say it)
+             01 · HOOK — Bun rewritten in Rust: 3 person-years → 11 days
              ============================================================ -->
-        <section class="center">
-          <p class="huge" style="font-size: 112px; text-align: center; max-width: 1600px">
-            Czy nadal płacimy developerom
-            <span class="mark pink">za pisanie kodu?</span>
-          </p>
+        <section class="top">
+          <span class="tag">00 · Punkt wyjścia</span>
+          <h2>Bun przepisany na <span class="mark">Rusta</span></h2>
+          <p class="lead" style="margin-top: -20px">Jarred Sumner, twórca Bun (dziś w Anthropic)</p>
+          <div class="bun">
+            <div class="bun-row">
+              <span class="bun-label">Szacunek w Anthropic</span>
+              <div class="bun-bar est"><b>3 senior engineerów × 1 rok ≈ 1 100 osobodni</b></div>
+            </div>
+            <div class="bun-row">
+              <span class="bun-label">Rzeczywistość</span>
+              <div class="bun-track">
+                <div class="bun-bar real"></div>
+                <b class="bun-real-label">1 inżynier + AI × 11 dni</b>
+                <span class="stamp bun-stamp">≈ 100× mniej</span>
+              </div>
+            </div>
+          </div>
+          <div class="card ink" style="padding: 24px 34px">
+            <p style="font-family: var(--font-head); font-size: 40px; line-height: 1.2">
+              Możemy to ignorować. Możemy szukać dziury w całym.<br />
+              <span style="color: var(--yellow)">Ignorowanie wygląda tak: bawisz się AI, zamiast o to walczyć.</span>
+            </p>
+          </div>
           <aside class="notes">
-            <p><b>[0:30–1:30]</b> Przeczytaj pytanie i zrób pauzę. Niech sala pomyśli.</p>
-            <p>Zapytaj: „Kto w ostatnim tygodniu napisał ręcznie większość swojego kodu? Ręce w górę.” Skomentuj wynik.</p>
-            <p>Odpowiedź mówisz, slajd jej nie pokazuje: „Kod nie zniknął — jest go więcej niż kiedykolwiek. Ale ręczne pisanie przestało być tym, za co nam płacą. Płacą nam za decyzje: co budujemy, jakie są reguły i skąd wiemy, że działa.”</p>
-            <p>→ Przejście: „Zobaczmy, gdzie w takim razie idzie nasz czas.”</p>
+            <p><b>[0:30–1:30]</b> Zacznij od historii, nie od tezy.</p>
+            <p>„Kilka dni temu Jarred Sumner, twórca Bun — dziś pracuje w Anthropic — ogłosił, że przepisał cały Bun na Rusta. Sam. W 11 dni.”</p>
+            <p>„Wewnętrzny szacunek w Anthropic: zespół trzech senior engineerów, jeden rok.” Pokaż paski: górny to trzy osobolata, dolny — 11 dni. Ten dolny prawie nie istnieje.</p>
+            <p>„Możemy to ignorować, możemy szukać dziury w całym. Ale najlepsze zespoły na świecie mówią: to, co zajmowało trzy osobolata, dziś zajmuje jednej osobie 11 dni. Ignorowanie wygląda tak: bawimy się AI, zamiast o to walczyć.”</p>
+            <p>→ Przejście: „Takie skoki już kiedyś widzieliśmy. Nie w IT.”</p>
+            <p>[Przed występem: sprawdź źródło i datę ogłoszenia, żeby móc odpowiedzieć na pytanie „skąd to wiesz?”.]</p>
+          </aside>
+        </section>
+
+        <!-- ============================================================
+             02 · HARVEST — productivity leaps: sickle → fleet of combines
+             ============================================================ -->
+        <section class="top">
+          <span class="tag">00 · Punkt wyjścia</span>
+          <h2 style="font-size: 72px">Od sierpa do <span class="mark green">floty kombajnów</span></h2>
+          <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+            <defs>
+              <symbol id="hv-combine" viewBox="0 0 200 124">
+                <line x1="0" y1="120" x2="200" y2="120" stroke="#111" stroke-width="4" />
+                <rect x="8" y="74" width="62" height="22" fill="#ffd23f" stroke="#111" stroke-width="4" />
+                <circle cx="38" cy="62" r="15" fill="#fff6e5" stroke="#111" stroke-width="4" />
+                <path d="M38 47 V77 M23 62 H53 M27 51 L49 73 M49 51 L27 73" stroke="#111" stroke-width="3" />
+                <rect x="62" y="46" width="98" height="50" fill="#06d6a0" stroke="#111" stroke-width="4" />
+                <rect x="118" y="30" width="40" height="18" fill="#06d6a0" stroke="#111" stroke-width="4" />
+                <rect x="72" y="16" width="40" height="32" fill="#3a86ff" stroke="#111" stroke-width="4" />
+                <rect x="67" y="9" width="50" height="8" fill="#111" />
+                <path d="M152 36 L194 18" stroke="#111" stroke-width="7" stroke-linecap="square" />
+                <circle cx="88" cy="98" r="20" fill="#111" /><circle cx="88" cy="98" r="8" fill="#ffd23f" />
+                <circle cx="146" cy="104" r="14" fill="#111" /><circle cx="146" cy="104" r="6" fill="#ffd23f" />
+              </symbol>
+            </defs>
+          </svg>
+          <div class="hv-chart">
+            <svg viewBox="0 0 1660 330" fill="none">
+              <g class="grid" stroke="#111" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="6 8">
+                <line x1="120" y1="20" x2="1660" y2="20" /><line x1="120" y1="95" x2="1660" y2="95" />
+                <line x1="120" y1="170" x2="1660" y2="170" /><line x1="120" y1="245" x2="1660" y2="245" />
+              </g>
+              <line x1="120" y1="320" x2="1660" y2="320" stroke="#111" stroke-width="4" />
+              <line x1="120" y1="10" x2="120" y2="320" stroke="#111" stroke-width="4" />
+              <g class="ylab" fill="#111" text-anchor="end">
+                <text x="104" y="28">1000</text><text x="104" y="103">100</text><text x="104" y="178">10</text>
+                <text x="104" y="253">1</text><text x="104" y="328">0,1</text>
+              </g>
+              <text class="yaxis" transform="translate(30 170) rotate(-90)" text-anchor="middle" fill="#111">ha / osobę / dzień</text>
+              <path class="hv-line" d="M312 284 L697 209 L1082 134 L1467 72" stroke="#111" stroke-width="6" />
+              <g stroke="#111" stroke-width="4">
+                <circle cx="312" cy="284" r="16" fill="#fff6e5" />
+                <circle cx="697" cy="209" r="16" fill="#ff5ca8" />
+                <circle cx="1082" cy="134" r="16" fill="#3a86ff" />
+                <circle cx="1467" cy="72" r="20" fill="#06d6a0" />
+              </g>
+              <g class="val" fill="#111">
+                <text x="288" y="260" text-anchor="end">~0,3</text><text x="673" y="185" text-anchor="end">~3</text>
+                <text x="1058" y="110" text-anchor="end">~30</text><text x="1500" y="64">100+</text>
+              </g>
+            </svg>
+            <span class="stamp hv-here" style="left: 560px; top: 250px">większość zespołów: tu</span>
+            <span class="stamp green hv-goal" style="left: 1240px; top: -6px">tu zmierzamy</span>
+          </div>
+          <div class="harvest">
+            <div class="card">
+              <svg viewBox="0 0 200 124">
+                <line x1="0" y1="120" x2="200" y2="120" stroke="#111" stroke-width="4" />
+                <path d="M48 118 L118 14" stroke="#111" stroke-width="8" stroke-linecap="round" />
+                <path d="M68 92 L80 98 M92 56 L104 62" stroke="#111" stroke-width="6" stroke-linecap="round" />
+                <path d="M118 14 Q70 4 18 36 Q68 20 114 26 Z" fill="#fff6e5" stroke="#111" stroke-width="4" stroke-linejoin="round" />
+                <path d="M124 116 L134 104" stroke="#111" stroke-width="8" stroke-linecap="round" />
+                <path d="M134 104 Q166 92 158 62 Q150 40 126 46 Q146 54 146 72 Q146 90 130 98 Z" fill="#fff6e5" stroke="#111" stroke-width="4" stroke-linejoin="round" />
+                <g stroke="#111" stroke-width="3" fill="#ffd23f">
+                  <path d="M176 118 V56 M190 118 V64" fill="none" />
+                  <ellipse cx="176" cy="50" rx="5" ry="10" /><ellipse cx="190" cy="58" rx="5" ry="10" />
+                </g>
+              </svg>
+              <h3>Sierp i kosa</h3>
+              <p class="era">do XIX w.</p>
+              <span class="chip">ręczne kodowanie</span>
+            </div>
+            <div class="card">
+              <svg viewBox="0 0 200 124">
+                <line x1="0" y1="120" x2="200" y2="120" stroke="#111" stroke-width="4" />
+                <rect x="50" y="42" width="104" height="50" fill="#ff5ca8" stroke="#111" stroke-width="4" />
+                <path d="M50 42 L102 22 L154 42 Z" fill="#ff5ca8" stroke="#111" stroke-width="4" stroke-linejoin="round" />
+                <rect x="66" y="56" width="24" height="18" fill="#fff6e5" stroke="#111" stroke-width="3" />
+                <path d="M146 40 L182 16 L190 26 L154 50" fill="#ffd23f" stroke="#111" stroke-width="4" stroke-linejoin="round" />
+                <circle cx="30" cy="66" r="22" fill="#ffd23f" stroke="#111" stroke-width="4" />
+                <path d="M30 44 V88 M8 66 H52 M14 50 L46 82 M46 50 L14 82" stroke="#111" stroke-width="3" />
+                <circle cx="74" cy="100" r="18" fill="#111" /><circle cx="74" cy="100" r="7" fill="#ffd23f" />
+                <circle cx="134" cy="100" r="18" fill="#111" /><circle cx="134" cy="100" r="7" fill="#ffd23f" />
+                <path d="M170 118 L182 98 L196 118 Z" fill="#ffd23f" stroke="#111" stroke-width="3" />
+              </svg>
+              <h3>Żniwiarka i młockarnia</h3>
+              <p class="era">XIX w.</p>
+              <span class="chip pink">AI assistant</span>
+            </div>
+            <div class="card">
+              <svg viewBox="0 0 200 124"><use href="#hv-combine" /></svg>
+              <h3>Kombajn</h3>
+              <p class="era">XX w.</p>
+              <span class="chip blue">AI agent</span>
+            </div>
+            <div class="card yellow">
+              <svg viewBox="0 0 200 124">
+                <path d="M150 20 Q164 6 178 20 M144 12 Q164 -8 184 12" stroke="#ff5ca8" stroke-width="4" fill="none" stroke-linecap="round" />
+                <use href="#hv-combine" x="0" y="8" width="96" height="60" />
+                <use href="#hv-combine" x="100" y="30" width="96" height="60" />
+                <use href="#hv-combine" x="40" y="62" width="96" height="60" />
+              </svg>
+              <h3>Flota kombajnów</h3>
+              <p class="era">dziś · 1 operator, wiele maszyn</p>
+              <span class="chip green">AI factory</span>
+            </div>
+          </div>
+          <p class="small muted hv-note">Wartości orientacyjne — każdy krok to mniej więcej rząd wielkości.</p>
+          <aside class="notes">
+            <p><b>[1:30–3:00]</b> Taki skok produktywności to nie pierwszy raz w historii. Weźmy żniwa.</p>
+            <p>Sierp i kosa: jeden człowiek, ułamek hektara dziennie. Każde źdźbło przechodzi przez jego ręce. Tak wyglądało ręczne pisanie kodu.</p>
+            <p>Żniwiarka i młockarnia: maszyna robi najcięższą część, ale człowiek prowadzi każdy krok. Rząd wielkości więcej. To jest AI assistant — i tu jest dziś większość zespołów.</p>
+            <p>Kombajn: jedna maszyna kosi, młóci i czyści. Człowiek steruje, nie wykonuje. Kolejny rząd wielkości. To AI agent.</p>
+            <p>Flota kombajnów: jeden operator nadzoruje kilka maszyn naraz, które same jadą po zaplanowanych ścieżkach. To jest AI factory — i tam zmierzamy.</p>
+            <p>Ważne: żaden z tych skoków nie polegał na tym, że rolnik szybciej machał kosą. Za każdym razem zmieniał się sposób pracy.</p>
+            <p>→ Przejście: „Jak w takim razie wygląda ta zmiana w naszej pracy? Zobaczmy, gdzie dziś idzie nasz wysiłek.”</p>
           </aside>
         </section>
 
@@ -80,7 +217,7 @@
             na <span class="mark">pisanie intencji</span> i <span class="mark green">weryfikację</span>.
           </p>
           <aside class="notes">
-            <p><b>[1:30–2:45]</b></p>
+            <p><b>[3:00–4:15]</b></p>
             <p>Każdy pasek to cały wysiłek zespołu przy jednym feature. Proporcje są ilustracyjne — chodzi o kierunek, nie o procenty.</p>
             <p>Przed AI: największy kawałek to kodowanie. Tam szedł czas i tam płaciliśmy seniorom.</p>
             <p>Dziś: kod robi agent, więc ten kawałek się kurczy. Wysiłek ucieka w dwie strony — PRZED kod: intencja, spec, architektura, czyli myślenie. I PO kodzie: review i weryfikacja, czyli sprawdzanie.</p>
@@ -110,7 +247,7 @@
             </p>
           </div>
           <aside class="notes">
-            <p><b>[2:45–3:30]</b></p>
+            <p><b>[4:15–5:00]</b></p>
             <p>AI obniżyło koszt implementacji. Ale przejdź po kolei przez chipy — to koszty, które NIE spadły: złe wymagania, zła architektura, złe decyzje, źle zdefiniowane edge case'y, brak testów.</p>
             <p>Puenta z czarnej karty: „Wręcz przeciwnie — AI pozwala produkować błędny kod szybciej niż kiedykolwiek.” Agent zaimplementuje źle zrozumiany wymóg szybko i bardzo pewnie siebie.</p>
             <p>→ Przejście: „Więc problem nie leży w pisaniu. Leży w tym, jak z AI pracujemy.”</p>
@@ -152,7 +289,7 @@
             </p>
           </div>
           <aside class="notes">
-            <p><b>[3:30–4:45]</b></p>
+            <p><b>[5:00–6:15]</b></p>
             <p>Lewa strona: tak wiele zespołów nadal używa AI — „napisz tę funkcję”. To jest autocomplete. Po prostu szybsze pisanie.</p>
             <p>Prawa strona: developer definiuje intencję, a agent sam planuje, implementuje, testuje, reviewuje i poprawia — w pętli.</p>
             <p>Żółta karta: developer przestaje być operatorem klawiatury. Nie czytaj całej listy ról — wybierz dwie, które są sednem: bliżej biznesu (product engineer) i bliżej weryfikacji (reviewer, constraint designer).</p>
@@ -177,7 +314,7 @@
             Jednostka pracy: <span class="strike-line late">kod</span> → <span class="mark pink">specyfikacja</span>
           </p>
           <aside class="notes">
-            <p><b>[4:45–6:00]</b></p>
+            <p><b>[6:15–7:30]</b></p>
             <p>Przejdź przez wiersze — lewa kolumna to pytania, które zadawaliśmy sobie do tej pory, prawa to pytania, które zadajemy dziś.</p>
             <p>Przy „Jakich reguł nie wolno złamać?” daj przykład: płatność nigdy nie może przekroczyć kwoty, która została do zapłaty na fakturze.</p>
             <p>Kluczowe zdanie na koniec: „Jednostką pracy przestaje być kod. Staje się nią specyfikacja.”</p>
@@ -218,7 +355,7 @@
           </div>
           <p class="lead fragment rise"><strong>Kod jest sensowny.</strong> Problem w tym, że nikt nie wie, czy jest <span class="mark pink">poprawny</span>.</p>
           <aside class="notes">
-            <p><b>[6:00–7:30]</b> To jest nasz przykład na resztę prezentacji: PAY-123.</p>
+            <p><b>[7:30–9:00]</b> To jest nasz przykład na resztę prezentacji: PAY-123.</p>
             <p>Typowy ticket — jedno zdanie, estymata 1 SP. Agent generuje endpoint i melduje „Done ✅”. Kod wygląda sensownie.</p>
             <p>Stemple wpadają same, po kolei. Skomentuj każdy:</p>
             <p>• no idempotency key — klient zrobi retry i zapłaci dwa razy.<br />• concurrent payments — dwie płatności naraz na tę samą fakturę.<br />• invoice already paid — nic nie blokuje płacenia opłaconej faktury.<br />• no event emitted — reszta systemu nie wie, że była płatność.<br />• what if it fails — co retryować, co zwrócić klientowi?</p>
@@ -266,7 +403,7 @@ PaymentCreated · PaymentFailed
 - [ ] duplicate clientRequestId → same payment</div>
           </div>
           <aside class="notes">
-            <p><b>[7:30–8:45]</b></p>
+            <p><b>[9:00–10:15]</b></p>
             <p>Od razu zaznacz: spec to NIE 40-stronicowy dokument w Wordzie. To krótki markdown w repo, obok kodu, z review jak kod.</p>
             <p>Test z żółtej karty: czy inny developer albo agent zrobi to bez zadawania 20 pytań?</p>
             <p>Pokaż sekcje po prawej: Goal, API, reguły biznesowe, eventy, przypadki błędów, acceptance criteria. Zwróć uwagę na clientRequestId w API — to jest odpowiedź na pierwszy stempel.</p>
@@ -306,7 +443,7 @@ PaymentCreated · PaymentFailed
             </p>
           </div>
           <aside class="notes">
-            <p><b>[8:45–9:45]</b></p>
+            <p><b>[10:15–11:15]</b></p>
             <p>Lewa strona: to, co dziś zwykle wrzucamy agentowi — „Add payment endpoint.” I agent zgaduje resztę.</p>
             <p>Prawa strona: to samo, ale bez niedomówień. Każdy wiersz zamyka jeden stempel z przykładu:</p>
             <p>• Preconditions (status OPEN) → opłacona faktura.<br />• Idempotency (clientRequestId) → podwójna płatność.<br />• Concurrency (optimistic lock) → równoległe płatności.<br />• Side effects (PaymentCreated) → brak eventu.<br />• Failure modes → co gdy się wywali.</p>
@@ -340,7 +477,7 @@ PaymentCreated · PaymentFailed
             <span class="stamp ink fragment stamp-in" style="font-size: 30px; --rot: -3deg">Nie „więcej dokumentacji”. Spec = input do maszyny.</span>
           </div>
           <aside class="notes">
-            <p><b>[9:45–10:45]</b></p>
+            <p><b>[11:15–12:15]</b></p>
             <p>To jest ciekawsze niż „piszmy lepsze prompty”. Jeden spec.md jest źródłem dla wszystkiego wokół: implementacji, code review, testów, QA i dokumentacji. Product, developer, AI, testy i QA patrzą na ten sam plik.</p>
             <p>Stempel w rogu: to NIE jest „więcej dokumentacji”. Wcześniej dokumentacja była efektem ubocznym, którego nikt nie czytał. Teraz spec jest inputem do maszyny, która produkuje software — jak źle go napiszesz, maszyna wyprodukuje źle.</p>
           </aside>
@@ -392,7 +529,7 @@ PaymentCreated · PaymentFailed
             </p>
           </div>
           <aside class="notes">
-            <p><b>[10:45–12:15]</b> Przejdź po diagramie od lewej.</p>
+            <p><b>[12:15–13:45]</b> Przejdź po diagramie od lewej.</p>
             <p>Problem — ticket albo pomysł. Z niego powstaje SPEC i tu jest pierwsza bramka: człowiek zatwierdza, CO budujemy, zanim powstanie linijka kodu. Błąd złapany tutaj kosztuje minuty, a nie dni.</p>
             <p>Potem build loop: agent sam planuje, koduje, pisze testy, robi review i poprawia — w pętli, aż spec jest spełniony. Nikt go nie prowadzi za rękę krok po kroku.</p>
             <p>Na końcu PR i druga bramka: człowiek decyduje, czy to wchodzi.</p>
@@ -428,7 +565,7 @@ PaymentCreated · PaymentFailed
             <p style="font-family: var(--font-head); font-size: 46px">Tyle specu, ile ryzyka.</p>
           </div>
           <aside class="notes">
-            <p><b>[12:15–13:30]</b> Żeby to nie zabrzmiało jak religia — trzy zarzuty, które słyszę, i wszystkie są zasadne.</p>
+            <p><b>[13:45–15:00]</b> Żeby to nie zabrzmiało jak religia — trzy zarzuty, które słyszę, i wszystkie są zasadne.</p>
             <p>Spec-waterfall: „to waterfall od nowa”. Tak — jeśli przez tydzień piszesz spec, zanim ktoś zobaczy działający kod. Rozwiązanie: mały spec per feature, iteracyjnie. Prototyp też może być inputem.</p>
             <p>Spec drift: „spec się rozjedzie z kodem”. Tak — jeśli żyje poza PR-em. Spec zmieniamy w tym samym PR co kod, a review sprawdza oba.</p>
             <p>Spec na wszystko: literówka w labelu nie potrzebuje specu. Płatności — tak. Spec tam, gdzie są reguły biznesowe albo ryzyko.</p>
@@ -475,7 +612,7 @@ PaymentCreated · PaymentFailed
             </div>
           </div>
           <aside class="notes">
-            <p><b>[13:30–14:45]</b> Trzy poziomy pracy z AI.</p>
+            <p><b>[15:00–16:15]</b> Trzy poziomy pracy z AI.</p>
             <p>LVL 1, asystent: ChatGPT, Claude, Copilot w IDE. Ty prowadzisz cały proces, AI podpowiada.</p>
             <p>LVL 2, agent: dajesz mu całe zadanie. Sam czyta repo, zmienia kod, puszcza testy, poprawia błędy i otwiera PR. Tu jest dziś większość zespołów, które na serio używają AI.</p>
             <p>LVL 3, fabryka: ticket przechodzi przez wyspecjalizowanych agentów — spec, architekt, backend i frontend równolegle, testy, review — a na końcu człowiek zatwierdza. Developer nie pisze już kodu, tylko projektuje system, który go dostarcza.</p>
@@ -512,7 +649,7 @@ PaymentCreated · PaymentFailed
             </div>
           </div>
           <aside class="notes">
-            <p><b>[14:45–16:30]</b> Cztery rzeczy, których nie widać, dopóki pracujesz z jednym agentem.</p>
+            <p><b>[16:15–18:00]</b> Cztery rzeczy, których nie widać, dopóki pracujesz z jednym agentem.</p>
             <p>01 — wąskim gardłem jest człowiek. Agenci produkują więcej PR-ów, niż zespół jest w stanie przeczytać. Limitem są spec i review, nie kod. Dlatego bramki mają być nieliczne, ale mocne.</p>
             <p>02 — separacja ról. Agent, który pisze kod i sam go reviewuje, zawsze powie „looks good”. Reviewer to osobny agent z osobnym kontekstem i sprawdza względem specu.</p>
             <p>03 — fabryka to też kod. Prompty, skille, CLAUDE.md, checklisty — w repo, wersjonowane, z review. Kiedy agent trzeci raz robi ten sam błąd, nie poprawiasz PR-a, tylko fabrykę.</p>
@@ -570,7 +707,7 @@ PaymentCreated · PaymentFailed
             <div class="card ink"><h3>…i dalej?</h3><code>zdarzenie → agent → bramka</code><p>Limit to wyobraźnia. Wzorzec jest zawsze ten sam.</p></div>
           </div>
           <aside class="notes">
-            <p><b>[16:30–18:30]</b> Jak to wygląda w praktyce? Najprostsza fabryka, którą można postawić jutro: GitHub jako źródło prawdy, a GitHub Actions reagują na zdarzenia.</p>
+            <p><b>[18:00–20:00]</b> Jak to wygląda w praktyce? Najprostsza fabryka, którą można postawić jutro: GitHub jako źródło prawdy, a GitHub Actions reagują na zdarzenia.</p>
             <p>Przejdź po górnym pasku: issue to spec — PO i dev dopracowują go w issue. Label spec-ready to bramka: człowiek mówi „spec gotowy” i Action odpala implementera, który pisze kod z testami i otwiera PR. Otwarcie PR to kolejne zdarzenie — startuje reviewer i sprawdza kod względem specu z issue. Label ready-for-qa — agent QA puszcza testy e2e, robi screenshoty i wrzuca raport. Merge zawsze robi człowiek.</p>
             <p>Nie ma tu żadnej magii: zdarzenia, labele i joby, które wszyscy znacie.</p>
             <p>Dolne karty, krótko, po jednym zdaniu:<br />• Plugin zespołowy — dev sam wywołuje /implement; najbezpieczniejszy pierwszy krok.<br />• Chat-ops — PO pisze w Slacku, agent zakłada issue, emoji to akceptacja.<br />• Agenci cykliczni — cron do utrzymania: zależności, flaky testy, nocne QA.<br />• Pętla z produkcji — alert z Sentry tworzy issue i PR z poprawką.<br />• Własny orkiestrator — agenci biorą zadania z kolejki.</p>
@@ -598,7 +735,7 @@ PaymentCreated · PaymentFailed
             </p>
           </div>
           <aside class="notes">
-            <p><b>[18:30–20:00]</b></p>
+            <p><b>[20:00–21:30]</b></p>
             <p>Fabryka skaluje kod — i skaluje bugi. Dlatego obok fabryki kodu potrzebujesz fabryki weryfikacji.</p>
             <p>Piramidę budujemy od dołu: najpierw rzeczy deterministyczne i tanie — typy, lint, schematy. Potem testy jednostkowe, kontraktowe i integracyjne. Dopiero na górze AI review względem specu i człowiek.</p>
             <p>W każdej warstwie jest przykład z PAY-123 — pokaż dwa, trzy: unit test łapie kwotę większą niż do zapłaty, contract test — 409 dla opłaconej faktury, integracyjny — dwie płatności naraz.</p>
@@ -633,7 +770,7 @@ PaymentCreated · PaymentFailed
             </div>
           </div>
           <aside class="notes">
-            <p><b>[20:00–20:45]</b> Zamknięcie części o fabrykach.</p>
+            <p><b>[21:30–22:15]</b> Zamknięcie części o fabrykach.</p>
             <p>Agent jest wymienny: dziś implementuje Claude, jutro Codex, pojutrze coś, czego jeszcze nie ma.</p>
             <p>Spec jest trwały: spec, decyzje architektoniczne, testy, ograniczenia i kryteria akceptacji zostają, niezależnie od modelu. To jest prawdziwy majątek zespołu. Inwestuj w to, co trwałe.</p>
           </aside>
@@ -655,7 +792,7 @@ PaymentCreated · PaymentFailed
           </div>
           <p class="huge fragment slam" data-fragment-index="1" style="font-size: 120px; margin-top: 40px">Nie optymalizuj<br /><span class="strike-line fragment" data-fragment-index="2">szybkości pisania.</span></p>
           <aside class="notes">
-            <p><b>[20:45–21:30]</b> Cała prezentacja w jednym zdaniu — przeczytaj karty od lewej:</p>
+            <p><b>[22:15–23:00]</b> Cała prezentacja w jednym zdaniu — przeczytaj karty od lewej:</p>
             <p>AI zwiększa tempo → spec kończy zgadywanie → agenci przejmują wykonanie → weryfikacja daje nam zaufanie.</p>
             <p>Wniosek: nie optymalizuj szybkości pisania. To już nie jest wąskie gardło.</p>
             <p>→ Przejście: „To co w takim razie optymalizować?”</p>
@@ -700,7 +837,7 @@ PaymentCreated · PaymentFailed
             </p>
           </div>
           <aside class="notes">
-            <p><b>[21:30–23:00]</b> Cztery rzeczy zamiast szybkości pisania — każda z pytaniem i przykładem z PAY-123.</p>
+            <p><b>[23:00–24:30]</b> Cztery rzeczy zamiast szybkości pisania — każda z pytaniem i przykładem z PAY-123.</p>
             <p>Intencja — co i po co budujemy? Różnica między „add payment endpoint” a specem PAY-123.</p>
             <p>Ograniczenia — czego nie wolno złamać? Kwota nie większa niż do zapłaty, idempotencja, jedna płatność naraz.</p>
             <p>Pętle feedbacku — jak szybko agent wie, że się myli? Test, który pada po minucie, jest wart więcej niż komentarz w review po dwóch dniach.</p>
@@ -720,10 +857,9 @@ PaymentCreated · PaymentFailed
             To ludzie projektujący systemy, które niezawodnie produkują software.
           </p>
           <aside class="notes">
-            <p><b>[23:00–23:30]</b> Ostatni slajd treści. Przeczytaj powoli, oba zdania naraz są na ekranie.</p>
+            <p><b>[24:30–25:00]</b> Ostatni slajd treści. Przeczytaj powoli, oba zdania naraz są na ekranie.</p>
             <p>„Przyszłość software developmentu to nie AI piszące kod. To ludzie projektujący systemy, które niezawodnie produkują software.”</p>
             <p>Pauza. Dziękuję.</p>
-            <p>(Zostaje ok. 1,5 min zapasu do 25:00 — na reakcje sali albo pierwsze pytanie.)</p>
           </aside>
         </section>
 
