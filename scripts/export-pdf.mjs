@@ -10,7 +10,6 @@ const CHROME =
   process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
 const DECKS = [
-  { page: 'en.html', out: 'export/the-end-of-hand-coding-EN.pdf' },
   { page: 'index.html', out: 'export/koniec-klepania-kodu-PL.pdf' },
 ];
 

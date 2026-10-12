@@ -14,30 +14,17 @@ const STATIONS = [
   { id: 'human', x: 442, label: 'HUMAN', color: '#06d6a0', sprite: 'human' },
 ];
 
-// Caption shown in the HUD for each step, per <html lang>
-const CAPTIONS_BY_LANG = {
-  pl: [
-    'INPUT: PAY-123 „Add endpoint allowing a user to pay an invoice”',
-    'SPEC AGENT → ticket staje się specyfikacją',
-    'ARCHITECT AGENT → decyzje, kontrakty, plan',
-    'BACKEND + FRONTEND AGENT → implementacja równolegle',
-    'TESTING AGENT → BUG ODRZUCONY. Weryfikacja względem spec',
-    'REVIEW AGENT → review względem spec, nie „vibe”',
-    'PR → HUMAN APPROVAL ✓',
-    'AI FACTORY = WORKFLOW, NIE MODEL',
-  ],
-  en: [
-    'INPUT: "Add endpoint allowing a user to pay invoice"',
-    'SPEC AGENT → the ticket becomes a specification',
-    'ARCHITECT AGENT → decisions, contracts, plan',
-    'BACKEND + FRONTEND AGENT → parallel implementation',
-    'TESTING AGENT → BUG REJECTED. Verified against the spec',
-    'REVIEW AGENT → reviewed against the spec, not the "vibe"',
-    'PR → HUMAN APPROVAL ✓',
-    'AI FACTORY = WORKFLOW, NOT A MODEL',
-  ],
-};
-const CAPTIONS = CAPTIONS_BY_LANG[document.documentElement.lang] || CAPTIONS_BY_LANG.pl;
+// Caption shown in the HUD for each step
+const CAPTIONS = [
+  'INPUT: PAY-123 „Add endpoint allowing a user to pay an invoice”',
+  'SPEC AGENT → ticket staje się specyfikacją',
+  'ARCHITECT AGENT → decyzje, kontrakty, plan',
+  'BACKEND + FRONTEND AGENT → implementacja równolegle',
+  'TESTING AGENT → BUG ODRZUCONY. Weryfikacja względem spec',
+  'REVIEW AGENT → review względem spec, nie „vibe”',
+  'PR → HUMAN APPROVAL ✓',
+  'AI FACTORY = WORKFLOW, NIE MODEL',
+];
 
 const r = (x, y, w, h, fill, extra = '') =>
   `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" ${extra}/>`;
