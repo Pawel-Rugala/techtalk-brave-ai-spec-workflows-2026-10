@@ -841,10 +841,11 @@ body,
 
 /* ---------- Reduced motion ---------- */
 
+/* a slide whose motion is its content opts out with data-motion="always" */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *:not([data-motion='always'], [data-motion='always'] *),
+  *:not([data-motion='always'] *)::before,
+  *:not([data-motion='always'] *)::after {
     animation-duration: 0.001s !important;
     animation-delay: 0s !important;
     animation-iteration-count: 1 !important;

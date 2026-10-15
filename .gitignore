@@ -2,3 +2,6 @@ node_modules
 dist
 .DS_Store
 export
+demo/runs
+demo/deck/slides/*.html
+demo/shots

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <title>Slide preview</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"></div>
+    </div>
+    <script type="module">
+      // Renders a single generated slide (?id=NN) for the Playwright gate.
+      import { createDeck } from './boot.js';
+
+      const id = new URLSearchParams(location.search).get('id');
+      try {
+        const res = await fetch(`/api/slide/${id}`);
+        if (!res.ok) throw new Error(`slide ${id}: HTTP ${res.status}`);
+        document.querySelector('.reveal .slides').innerHTML = (await res.text()).trim();
+        await createDeck({ hash: false, progress: false, slideNumber: false }).initialize();
+        window.__previewReady = true;
+      } catch (e) {
+        window.__previewError = e.message;
+      }
+    </script>
+  </body>
+</html>
