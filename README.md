@@ -53,3 +53,12 @@ Każdy slajd pokazuje się od razu w całości (fragmenty są wyłączone) — s
 - `src/factory.js` / `src/factory.css` — pixel-art AI Factory (tryb sterowany fragmentami albo `data-autoplay`); obecnie nieużywana w prezentacji
 - `src/typewriter.js` — efekt pisania kodu dla elementów `.type`; obecnie niepodpięty
 - `scripts/export-pdf.mjs` — eksport PDF (puppeteer-core + lokalny Chrome)
+
+## Zdjęcia
+
+Slajd „Od sierpa do floty kombajnów” (`src/assets/harvest/`), wszystkie z Wikimedia Commons:
+
+- `sickle.jpg` — [Traditional fonio harvest with a sickle, Natitingou](https://commons.wikimedia.org/wiki/File:Traditional_fonio_harvest_with_a_sickle,_Natitingou,_northern_Benin.jpg) · Crop Trust · CC BY-SA 4.0
+- `reaper.jpg` — [Drie paarden trekken een maaimachine (zelfbinder)](https://commons.wikimedia.org/wiki/File:Drie_paarden_trekken_een_maaimachine_die_tevens_schoven_bindt_(zelfbinder),_Bestanddeelnr_190-1099.jpg) · Willem van de Poll / Nationaal Archief · CC0
+- `combine.jpg` — [Combine in wheat field](https://commons.wikimedia.org/wiki/File:Combine_in_wheat_field.jpg) · Dan Kollmann · CC BY-SA 3.0
+- `fleet.jpg` — [Комбайны в Ставропольском крае](https://commons.wikimedia.org/wiki/File:%D0%9A%D0%BE%D0%BC%D0%B1%D0%B0%D0%B9%D0%BD%D1%8B_%D0%B2_%D0%A1%D1%82%D0%B0%D0%B2%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%BC_%D0%BA%D1%80%D0%B0%D0%B5.jpg) · Press service of the Presidential Envoy to the North Caucasian Federal District · CC BY 4.0

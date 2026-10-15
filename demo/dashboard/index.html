@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <title>AI Factory · dashboard</title>
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <span class="logo">🏭</span>
+        <div>
+          <h1>AI FACTORY <span class="live"><i></i>LIVE</span></h1>
+          <div class="sub" id="run-info">brak uruchomienia</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="btn-run" class="btn yellow">▶ Start fabryki</button>
+        <button id="btn-stop" class="btn">■ Stop</button>
+        <button id="btn-reset" class="btn ghost">⟲ Reset</button>
+        <div class="clock"><b id="clock">--:--:--</b><small id="tz">CET</small></div>
+      </div>
+    </header>
+
+    <section class="kpis" id="kpis"></section>
+
+    <main>
+      <div class="table-wrap card">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th><th>Spec / slajd</th><th>Status</th><th>Pipeline</th><th>Model</th>
+              <th class="num">Tokeny in</th><th class="num">out</th><th class="num">cache</th>
+              <th class="num">Koszt*</th><th class="num">Czas</th><th>Start</th><th>Koniec</th><th class="num">Próby</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <p class="foot">* koszt w cenach API (tokeny × cennik modelu) · czasy w strefie Europe/Warsaw</p>
+      </div>
+
+      <aside class="detail card" id="detail">
+        <div class="detail-head">
+          <div>
+            <span class="label" id="d-id">—</span>
+            <h2 id="d-title">Wybierz spec z tabeli</h2>
+          </div>
+          <a id="d-open" class="btn small" target="_blank" hidden>Otwórz slajd ↗</a>
+        </div>
+        <nav class="tabs" id="tabs">
+          <button data-tab="spec" class="on">Spec</button>
+          <button data-tab="shot">Screenshot</button>
+          <button data-tab="activity">Aktywność</button>
+          <button data-tab="report">Raport</button>
+        </nav>
+        <div class="tab-body" id="tab-body"></div>
+      </aside>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
