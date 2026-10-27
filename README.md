@@ -2,6 +2,8 @@
 
 **Spec-driven development w nowoczesnych zespołach** — prezentacja z Brave AI Szczecin (październik 2026), ok. 25 minut, po polsku. Autor: Paul Rugała · [LinkedIn](https://www.linkedin.com/in/paul-rugala).
 
+> **Język:** Polski (ta gałąź, `main`) · [English — "The End of Hand-Coding?"](https://github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-10/tree/feat/eng-version) (`feat/eng-version`)
+
 Jeśli byłeś na prezentacji: to jest całe repo, łącznie z **fabryką AI**, która w trakcie wystąpienia budowała slajdy na żywo ze specyfikacji. Możesz ją uruchomić u siebie.
 
 ## Co tu jest
@@ -39,6 +41,8 @@ git clone https://github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-
 cd techtalk-brave-ai-spec-workflows-2026-10
 npm install
 ```
+
+Wersja angielska: `git clone -b feat/eng-version https://github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-10.git` (albo `git switch feat/eng-version` w już sklonowanym repo).
 
 ### 1. Pełna talia (ręcznie zrobiona)
 
