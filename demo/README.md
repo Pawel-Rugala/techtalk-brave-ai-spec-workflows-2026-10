@@ -1,7 +1,7 @@
 # AI Factory demo
 
-The same talk, but only slides 01–05 are hand-made. Slides 06–22 are built live from specs by
-headless Claude Code sessions (Opus 5.5) while the talk runs. The full deck in the repo root stays the backup.
+The same talk, but only slides 01–05 are hand-made. Slides 06–22 are built from specs by
+headless Claude Code sessions (Opus 5.5) while the talk is running. The full deck in the repo root remains the backup.
 
 ```
 demo/
@@ -24,10 +24,10 @@ demo/
 1. **HANDOVER** – the worker starts a fresh `claude -p --model claude-opus-5-5` session with the spec and the output path.
 2. **DISCOVER** – the agent reads the design system, theme and hand-made slides. It has no shell and cannot read the backup `index.html` (permission deny rules).
 3. **IMPLEMENT** – the agent writes `demo/deck/slides/NN.html`. It may only write there.
-4. **VERIFY** – the agent calls the `verify_slide` MCP tool, looks at the screenshot, and fixes until the gate passes.
-5. **REPORT** – the agent summarises. The worker then re-runs the gate itself, and the agent's word is not trusted.
+4. **VERIFY** – the agent calls the `verify_slide` MCP tool, checks the screenshot, and keeps fixing until the gate passes.
+5. **REPORT** – the agent summarizes its work. The worker then re-runs the gate itself instead of taking the agent's word for it.
    - **Gate fails:** one fix round in the same session.
-   - **Fails again:** status `fallback` and the hand-made slide from the backup deck is served. The dashboard shows it openly.
+   - **Fails again:** status `fallback`; the hand-made slide from the backup deck is served instead, and the dashboard says so openly.
 
 The gate checks:
 - one `<section class="s-NN">` root
@@ -38,7 +38,7 @@ The gate checks:
 - nothing outside 1920×1080
 - no clipped text
 - every `must_include` phrase from the spec visible
-- for `must_animate: true` specs: a looping animation runs even with reduced motion on
+- for `must_animate: true` specs: a looping animation still runs with reduced motion on
 
 ## On stage
 
@@ -76,4 +76,4 @@ Env vars:
 | `FACTORY_CONCURRENCY` | `6` |
 | `DEMO_PORT` | `5180` |
 
-Uses your logged-in Claude Code (`claude` on PATH).
+Requires a logged-in Claude Code (`claude` on PATH).

@@ -22,8 +22,8 @@
           <div class="speaker enter" style="--i: 6"><span class="avatar"></span> Paul Rugała</div>
           <aside class="notes">
             <p><b>[0:00–0:30]</b></p>
-            <p>Hi, I'm Paul. Over the past year, a lot of the code in my projects was written by AI agents, not by me. Today I'll talk about what that changes in our work.</p>
-            <p>The plan for 25 minutes: first the starting point and the shift in thinking, then spec-driven development, and finally — how to scale it up to an “AI Factory”.</p>
+            <p>Hi, I'm Paul. Over the past year, AI agents, not me, wrote a lot of the code in my projects. Today I want to talk about what that changes about our work.</p>
+            <p>Here's the plan for the next 25 minutes: first, where we're starting from and the shift in mindset; then spec-driven development; and finally, how to scale it up into an “AI Factory”.</p>
           </aside>
         </section>
 
@@ -50,18 +50,18 @@
           </div>
           <div class="card ink" style="padding: 24px 34px">
             <p style="font-family: var(--font-head); font-size: 40px; line-height: 1.2">
-              We can ignore it. We can pick holes in it.<br />
-              <span style="color: var(--yellow)">Ignoring it looks like this: playing with AI instead of fighting for it.</span>
+              We can ignore it. We can nitpick it.<br />
+              <span style="color: var(--yellow)">But ignoring it means toying with AI while others go all in.</span>
             </p>
           </div>
           <aside class="notes">
             <p><b>[0:30–1:30]</b> Open with the story, not the thesis.</p>
-            <p>“A few days ago Jarred Sumner, the creator of Bun — who now works at Anthropic — announced that he had rewritten all of Bun in Rust. On his own. In 11 days.”</p>
-            <p>“The internal estimate at Anthropic: a team of three senior engineers, one year.” Show the bars: the top one is three person-years, roughly 750 working days; the bottom one — 11 person-days. The bottom one barely exists: that's about 70× faster.</p>
-            <p>“We can ignore it, we can pick holes in it. But the best teams in the world are saying: what used to take three person-years now takes one person 11 days. Ignoring it looks like this: playing with AI instead of fighting for it.”</p>
+            <p>“A few days ago, Jarred Sumner — the creator of Bun, now at Anthropic — announced he'd rewritten all of Bun in Rust. By himself. In 11 days.”</p>
+            <p>“Anthropic's internal estimate: three senior engineers, one year.” Show the bars: the top one is three person-years, roughly 750 working days; the bottom one is 11 person-days. You can barely see it: that's about 70× faster.</p>
+            <p>“We can ignore it. We can nitpick it. But the best teams in the world are telling us: what used to take three person-years now takes one person 11 days. Ignoring that means toying with AI while others go all in.”</p>
             <p>→ Transition: “We've seen leaps like this before. Just not in IT.”</p>
-            <p>[Numbers: 3 people × ~250 working days ≈ 750 person-days; 750 / 11 ≈ 70×. If someone counts calendar days: 3 × 365 / 11 ≈ 100×. “70×” is the conservative version.]</p>
-            <p>[Before the talk: check the source and the announcement date so you can answer “how do you know?”.]</p>
+            <p>[Numbers: 3 people × ~250 working days ≈ 750 person-days; 750 / 11 ≈ 70×. If someone counts calendar days instead: 3 × 365 / 11 ≈ 100×. “70×” is the conservative figure.]</p>
+            <p>[Before the talk: double-check the source and the announcement date, so you can answer “how do you know?”]</p>
           </aside>
         </section>
 
@@ -107,12 +107,12 @@
             <div class="hv-credit">Photos: Crop Trust (CC BY-SA 4.0) · W. van de Poll / Nationaal Archief (CC0) · D. Kollmann (CC BY-SA 3.0) · skfo.gov.ru (CC BY 4.0) — Wikimedia Commons</div>
           </div>
           <aside class="notes">
-            <p><b>[1:30–3:00]</b> A productivity leap like this isn't a first in history. Take the harvest.</p>
-            <p>Sickle and scythe: one person, a fraction of a hectare a day. Every stalk passes through their hands. That's what writing code by hand looked like.</p>
-            <p>Reaper and thresher: the machine does the heaviest part, but a human guides every step. An order of magnitude more. That's an AI assistant — and that's where most teams are today.</p>
-            <p>Combine: one machine cuts, threshes and cleans. The human steers, but doesn't do the work. Another order of magnitude. That's an AI agent.</p>
-            <p>Fleet of combines: one operator supervises several machines at once, driving along planned routes on their own. That's an AI factory — and that's where we're heading.</p>
-            <p>Key point: none of these leaps came from the farmer swinging the scythe faster. Every time, the way of working changed — and every time there was more to learn. Anyone can cut grain with a scythe; running a fleet of combines takes skill. AI is the same: anyone can use an assistant, but a factory has to be designed.</p>
+            <p><b>[1:30–3:00]</b> A productivity leap like this has happened before. Take the harvest.</p>
+            <p>Sickle and scythe: one person, a fraction of a hectare a day. Every stalk goes through their hands. That's writing code by hand.</p>
+            <p>Reaper and thresher: the machine does the heavy lifting, but a human guides every step. An order of magnitude more output. That's an AI assistant — and that's where most teams are today.</p>
+            <p>Combine: one machine cuts, threshes and cleans. The human steers, but doesn't do the work anymore. Another order of magnitude. That's an AI agent.</p>
+            <p>Fleet of combines: one operator oversees several machines at once, and they follow planned routes on their own. That's an AI factory — and that's where we're heading.</p>
+            <p>Key point: none of these leaps came from the farmer swinging the scythe faster. Each time, the way of working changed — and each time there was more to learn. Anyone can swing a scythe; running a fleet of combines takes skill. Same with AI: anyone can use an assistant, but a factory has to be designed.</p>
             <p>→ Transition: “So what does this shift look like in our work? Let's see where our effort goes today.”</p>
           </aside>
         </section>
@@ -151,15 +151,15 @@
             </div>
           </div>
           <p class="huge fragment slam" style="font-size: 64px; line-height: 1.15">
-            The effort has moved from <span class="strike-line late">writing code</span><br />
+            Effort has shifted from <span class="strike-line late">writing code</span><br />
             to <span class="mark">writing intent</span> and <span class="mark green">verification</span>.
           </p>
           <aside class="notes">
             <p><b>[3:00–4:15]</b></p>
-            <p>Each bar is the team's total effort on a single feature. The proportions are illustrative — it's about the direction, not the percentages.</p>
-            <p>Before AI: the biggest chunk was coding. That's where the time went and that's what we paid seniors for.</p>
-            <p>Today: the agent writes the code, so that chunk shrinks. The effort moves in two directions — BEFORE the code: intent, spec, architecture, in other words thinking. And AFTER the code: review and verification, in other words checking.</p>
-            <p>Punchline at the bottom of the slide: the effort has moved from writing code to writing intent and verification.</p>
+            <p>Each bar is the team's total effort on a single feature. The proportions are illustrative — it's the direction that matters, not the percentages.</p>
+            <p>Before AI: coding was the biggest chunk. That's where the time went, and that's what we paid seniors for.</p>
+            <p>Today: the agent writes the code, so that chunk shrinks. The effort shifts two ways. BEFORE the code: intent, spec, architecture — in other words, thinking. And AFTER the code: review and verification — in other words, checking.</p>
+            <p>Punchline at the bottom of the slide: effort has shifted from writing code to writing intent and verification.</p>
           </aside>
         </section>
 
@@ -169,7 +169,7 @@
         <section class="top">
           <span class="tag">00 · Starting point</span>
           <h2>AI has cut the cost of implementation.</h2>
-          <p class="lead">But it has <strong>not</strong> cut the cost of:</p>
+          <p class="lead">But <strong>not</strong> the cost of:</p>
           <div class="chips" style="gap: 26px">
             <span class="chip fragment pop">bad requirements</span>
             <span class="chip fragment pop">bad architecture</span>
@@ -179,15 +179,15 @@
           </div>
           <div class="card ink fragment glitch" style="margin-top: 30px; align-self: flex-start">
             <p style="font-family: var(--font-head); font-size: 58px; line-height: 1.1">
-              Quite the opposite — AI lets you produce<br />
+              If anything, AI lets you produce<br />
               <span class="glitch-text" data-text="wrong code faster" style="color: var(--pink)">wrong code faster</span>
               than ever.
             </p>
           </div>
           <aside class="notes">
             <p><b>[4:15–5:00]</b></p>
-            <p>AI has cut the cost of implementation. But go through the chips one by one — these are the costs that did NOT go down: bad requirements, bad architecture, bad decisions, poorly defined edge cases, missing tests.</p>
-            <p>Punchline on the black card: “Quite the opposite — AI lets you produce wrong code faster than ever.” The agent will implement a misunderstood requirement quickly and with great confidence.</p>
+            <p>AI has cut the cost of implementation. But walk through the chips one by one — these are the costs that did NOT come down: bad requirements, bad architecture, bad decisions, poorly defined edge cases, missing tests.</p>
+            <p>Punchline on the black card: “If anything, AI lets you produce wrong code faster than ever.” The agent will implement a misunderstood requirement fast, and with total confidence.</p>
             <p>→ Transition: “So the problem isn't the writing. It's how we work with AI.”</p>
           </aside>
         </section>

@@ -18,12 +18,12 @@ must_include:
 # 07 · From writing code → to designing intent
 
 ## Goal
-Contrast the questions a developer used to ask "the old way" with the questions they ask today. The takeaway: code stops being the unit of work; the spec becomes the unit of work.
+Contrast the questions developers used to ask with the ones they ask today. The takeaway: code is no longer the unit of work; the spec is.
 
 ## Content
 **Tag:** `01 · Mindset` (yellow variant)
 
-**Heading (h2, slightly smaller, about 68 px):** `From writing code → to` + `designing intent` (highlighted with a marker — yellow highlight)
+**Heading (h2, slightly smaller, about 68 px):** `From writing code → to` + `designing intent` (yellow marker highlight)
 
 **"vs" table — column headers:**
 - left: `OLD MINDSET` (dimmed)
@@ -43,23 +43,26 @@ Contrast the questions a developer used to ask "the old way" with the questions 
 ## Layout
 - A "top" slide: tag, heading, vs table (~10 px below the heading), punchline (~10 px below the table).
 - The table has three columns: old (left), a narrow arrow column (middle), new (right). The left column is visually weaker (the old way), the right one stronger.
-- Each row is a separate element (in the deck they appeared one by one), but on the slide all rows are visible.
-- The punchline is left-aligned, large, in the heading font.
+- Each row is its own element (rows reveal one by one in the deck), but in the final state all rows are visible.
+- The punchline is large, left-aligned, in the heading font.
 
 ## Components
 - `section.top`, `span.tag.yellow`, `h2` with `span.mark`
-- `.vs` with `.vsrow` rows; in the header row `.head` (left one `.head.muted`), in content rows `.old`, `.to` (arrow), `.new`
-- Punchline: a paragraph in `var(--font-head)`, `span.strike-line` for "code", `span.mark.pink` for "spec"
+- `.vs` with `.vsrow` rows; the header row uses `.head` (the left one `.head.muted`), content rows use `.old`, `.to` (arrow), `.new`
+- Punchline: a paragraph in `var(--font-head)`, with `span.strike-line` on "code" and `span.mark.pink` on "spec"
 
 ## Acceptance criteria
 - [ ] Five rows in the given order, each with a `→` arrow between the columns.
-- [ ] "OLD MINDSET" dimmed, "NEW MINDSET" prominent.
-- [ ] "code" struck through, "spec" on a pink marker.
+- [ ] "OLD MINDSET" is dimmed, "NEW MINDSET" prominent.
+- [ ] "code" is struck through, "spec" sits on a pink marker.
 - [ ] Fits in 1920×1080, no overflow.
 - [ ] Speaker notes present.
 
 ## Speaker notes
 **[6:15–7:30]**
-Developers no longer have to rack their brains over how to code something and whether the code follows every SOLID principle.
+
+Developers don't have to rack their brains anymore over how to code something, or whether it follows every SOLID principle.
+
 They should focus on **what** they want to achieve and **which rules** have to hold.
-Code stops being the unit of work. **The spec becomes the unit of work.**
+
+Code is no longer the unit of work. **The spec is.**

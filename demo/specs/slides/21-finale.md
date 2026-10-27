@@ -14,30 +14,30 @@ must_include:
 # 21 · Finale
 
 ## Goal
-The last content slide — a single manifesto sentence on a black background. It should land in silence: the first part overturns the expectation (“AI writing code” struck through), the second gives the answer in yellow.
+The last content slide: one manifesto sentence on a black background. It should land in silence. The first part upends expectations (“AI writing code” struck through); the second gives the answer in yellow.
 
 ## Content
 **No tag and no heading.**
 
-Two paragraphs, heading font, ~84px:
+Two paragraphs in the heading font, ~84px:
 
-1. “The future of software development⏎isn't ~~AI writing code.~~” — cream color (`var(--cream)`), “AI writing code.” struck through with a thick line.
+1. “The future of software development⏎isn't ~~AI writing code.~~” — cream (`var(--cream)`), with “AI writing code.” struck through by a thick line.
 2. “It's people designing systems that reliably produce software.” — yellow (`var(--yellow)`).
 
 ## Layout
-- Dark slide: section with class `dark`, background `#111111` set via `data-background-color="#111111"`, plus `data-state="no-floaters"` (turns off the floating decorations in the margins).
-- Section WITHOUT `top` — content vertically centered, left-aligned.
-- Two paragraphs one below the other, huge, lots of breathing room. Nothing else on the slide.
+- Dark slide: section with class `dark`, `#111111` background set via `data-background-color="#111111"`, plus `data-state="no-floaters"` (turns off the floating margin decorations).
+- Section WITHOUT `top`: content vertically centered, left-aligned.
+- Two huge paragraphs stacked, with plenty of breathing room. Nothing else on the slide.
 
 ## Components
-- `section.dark` with the attributes `data-background-color="#111111"` and `data-state="no-floaters"`
-- `p.huge` ×2 (inline size 84px), colors via `color: var(--cream)` and `color: var(--yellow)`
+- `section.dark` with `data-background-color="#111111"` and `data-state="no-floaters"`
+- `p.huge` ×2 (inline size 84px), colored via `color: var(--cream)` and `color: var(--yellow)`
 - `span.strike-line` on “AI writing code.”
 
 ## Acceptance criteria
 - [ ] Fits in 1920×1080 with no scrolling and no clipped text.
 - [ ] Black background (#111111), no floating decorations.
-- [ ] First sentence cream with the strike-through, second in yellow.
+- [ ] First sentence in cream with the strike-through, second in yellow.
 - [ ] Speaker notes in `<aside class="notes">`.
 
 ## Speaker notes

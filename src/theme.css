@@ -230,7 +230,7 @@ body,
 }
 .term.light { background: var(--paper); color: var(--ink); }
 
-/* hand-rolled syntax colours */
+/* hand-rolled syntax colors */
 .k { color: #ff79c6; }
 .s { color: #f1fa8c; }
 .f { color: #8be9fd; }
@@ -996,7 +996,7 @@ html.print-pdf .floaters { display: none; }
   filter: drop-shadow(4px 4px 0 var(--ink));
   --r0: 8deg; --r1: -14deg; --dur: 10.5s; --del: -7s; --dx: 18px;
 }
-/* title slides have their own colour blocks top-right */
+/* title slides have their own color blocks top-right */
 .reveal-viewport.title .fl.sq { display: none; }
 
 /* slide 7: the only build-up left — review stamps slap onto the agent's code one by one */

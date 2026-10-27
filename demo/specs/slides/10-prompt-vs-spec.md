@@ -17,7 +17,7 @@ must_include:
 # 10 · Good spec vs bad prompt
 
 ## Goal
-Show the same feature twice: as a one-line prompt (the agent guesses) and as a concise spec in which every line closes one gap from the PAY-123 example. Punchline: AI doesn't need more creative prompts, it needs less guessing.
+Show the same feature twice: as a one-line prompt (the agent guesses) and as a concise spec where every line closes one gap from the PAY-123 example. Punchline: AI doesn't need more creative prompts; it needs less guessing.
 
 ## Content
 **Tag:** `02 · Spec-driven development` (blue variant)
@@ -25,10 +25,10 @@ Show the same feature twice: as a one-line prompt (the agent guesses) and as a c
 **Heading (h2):** `Good spec vs bad prompt`
 
 **Left column:**
-- A white card labelled `PROMPT`, containing (monospace, about 38 px, bold, no wrapping): `Add payment endpoint.` — struck through
+- A white card labeled `PROMPT`, containing (monospace, about 38 px, bold, no wrapping): `Add payment endpoint.` — struck through
 - Below the card, small dimmed text: `…and the agent guesses the rest.`
 
-**Right column — a blue card labelled `SPEC` (monospace, about 30 px, line height ~1.45), rows:**
+**Right column — a blue card labeled `SPEC` (monospace, about 30 px, line height ~1.45), rows:**
 1. **`POST /payments`**
 2. **`Preconditions:`** `invoice exists · status = OPEN`
 3. **`Invariant:`** `payment.amount ≤ invoice.remainingAmount`
@@ -42,8 +42,8 @@ Show the same feature twice: as a one-line prompt (the agent guesses) and as a c
 `AI doesn't need more creative prompts.` ⏎ `AI needs` `less guessing.` (pink marker)
 
 ## Layout
-- A "top" slide: tag, heading, a row of two columns (gap about 60 px, top-aligned), yellow card at the bottom, left-aligned (not full width).
-- Left column fixed width about 560 px; the blue card on the right grows to fill the remaining width.
+- A "top" slide: tag, heading, a two-column row (gap about 60 px, top-aligned), and the yellow card at the bottom, left-aligned (not full width).
+- Left column: fixed width about 560 px; the blue card on the right grows to fill the remaining width.
 - Contrast: the left side is one short, struck-through line; the right side is a dense, precise list.
 
 ## Components
@@ -51,20 +51,28 @@ Show the same feature twice: as a one-line prompt (the agent guesses) and as a c
 - `.row`, `.col`
 - `.card` with `span.label` "PROMPT", `span.strike-line` on the prompt
 - `p.muted.small`
-- `.card.blue.grow` with `span.label` "SPEC", rows as `div` with `strong`
+- `.card.blue.grow` with `span.label` "SPEC"; rows as `div` with `strong`
 - `.card.yellow` + `span.mark.pink`
 
 ## Acceptance criteria
 - [ ] The prompt is struck through and fits on one line.
 - [ ] The spec has 7 rows in the given order, all visible.
-- [ ] The symbols `≤`, `·`, `→` render correctly.
-- [ ] "less guessing." on a pink marker.
+- [ ] The symbols `≤`, `·` and `→` render correctly.
+- [ ] "less guessing." sits on a pink marker.
 - [ ] Fits in 1920×1080, no overflow.
 - [ ] Speaker notes present.
 
 ## Speaker notes
 **[10:15–11:15]**
-On the left is what we usually throw at an agent today: "Add payment endpoint". The agent has to guess the rest.
-On the right is the same ticket, with nothing left unsaid. Each line closes one specific gap:
-• **Preconditions** (status OPEN) → we won't pay an invoice that's already paid. • **Idempotency** (clientRequestId) → no double payments. • **Concurrency** (optimistic lock) → concurrent payments won't overwrite each other. • **Side effects** (PaymentCreated) → the event is guaranteed to go out. • **Failure modes** → we know what should happen when something breaks.
-*[yellow card]* AI doesn't need more creative prompts. **It needs less guessing.** Every gap in the spec is a place where the agent guesses. And it guesses with total confidence.
+
+On the left is what we usually throw at an agent today: “Add payment endpoint”. The agent has to guess the rest.
+
+On the right, the same ticket, with nothing left unsaid. Every line closes one specific gap:
+
+• **Preconditions** (status OPEN) → we won't pay an invoice that's already paid.<br />
+• **Idempotency** (clientRequestId) → no double payments.<br />
+• **Concurrency** (optimistic lock) → concurrent payments won't overwrite each other.<br />
+• **Side effects** (PaymentCreated) → the event is guaranteed to go out.<br />
+• **Failure modes** → we know what should happen when something breaks.
+
+*[yellow card]* AI doesn't need more creative prompts. **It needs less guessing.** Every gap in the spec is a spot where the agent guesses. And it guesses with total confidence.

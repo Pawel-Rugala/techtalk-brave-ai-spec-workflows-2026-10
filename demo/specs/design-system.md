@@ -1,12 +1,12 @@
 # Design system — “The End of Hand-Coding?”
 
 The source of truth for how every slide looks. You build **one slide** for an existing
-reveal.js deck. The design must be indistinguishable from the hand-made slides.
+reveal.js deck. It must be indistinguishable from the hand-made slides.
 
 - Styles: `src/theme.css` (loaded globally — every class below is already available).
 - Language on slides: **English**. Code and API names stay as written in the spec.
 - Style: **neobrutalism** — cream dotted paper, thick ink borders, hard offset shadows,
-  flat saturated colour blocks, chunky display type.
+  flat saturated color blocks, chunky display type.
 
 ---
 
@@ -18,11 +18,11 @@ reveal.js deck. The design must be indistinguishable from the hand-made slides.
 | Section padding | `110px 130px 90px` → content box **1660 × 880 px** (x 130–1790, y 110–990) |
 | Default flow | `section` is a flex **column**, `gap: 40px`, `justify-content: center` |
 | `section.top` | same, but content starts at the top (`justify-content: flex-start`) — use for every slide with a heading + body |
-| Default (no class) | vertically centred — use for statement slides (big quote, recap) |
+| Default (no class) | vertically centered — use for statement slides (big quote, recap) |
 | `section.dark` | ink slide; also add `data-background-color="#111111"` (and `data-state="no-floaters"`). Headings turn cream; `.lead` turns `#cfc8b8`; use `var(--cream)` / `var(--yellow)` for text |
 | `section.title-slide` | title/thanks only (h1 176px) — hand-made slides, do not reuse |
 | Base font | `.reveal` = Space Grotesk 40px, `line-height: 1.35` on `p` |
-| Text alignment | left by default (`.center` to centre a block) |
+| Text alignment | left by default (`.center` to center a block) |
 
 The section tag (`.tag`) is absolutely positioned at `top: 44px; left: 130px` — it sits in
 the top padding, it does not take part in the flex flow.
@@ -40,7 +40,7 @@ Absolutely positioned decorations (stamps etc.) may go into the padding, never p
   - `.enter` (+ `style="--i: N"` stagger), `.enter.slam-e`
   - `.fragment.rise | .pop | .slam | .glitch | .stamp-in` (stamp-in uses `--rot`)
   - `.draw` on an `<svg>` whose `line/path` have `--len` and `--i`
-  - `.strike-line` (`.auto` = strikes when slide is present; `.late` inside a visible fragment)
+  - `.strike-line` (`.auto` = strikes through when the slide appears; `.late` = inside a visible fragment)
   - `.slot` (cycling words), `.caret` (blinking cursor), `.glitch-text` (needs `data-text`)
 - Ambient loops (caret, glitch, slot, spin, floaters) keep running. Never rely on motion to
   make content readable — the slide must read correctly as a still screenshot.
@@ -72,12 +72,12 @@ Absolutely positioned decorations (stamps etc.) may go into the padding, never p
 | `--font-pixel` | Silkscreen | tags, labels, kickers, HUD text (uppercase-ish, small) |
 | `--snap` | `cubic-bezier(0.2, 1.6, 0.4, 1)` | overshoot easing |
 
-Other fixed colours in use: terminal bg `#15121f`, terminal text `#e8e3f5`, old-row bg `#efe6d4`,
+Other fixed colors in use: terminal bg `#15121f`, terminal text `#e8e3f5`, old-row bg `#efe6d4`,
 effort segment `#f3ead6`, dark green text `#089e76`.
 
 There is **no radius token** — corners are square. (Only decorative floaters are round.)
 
-### Section → tag colour
+### Section → tag color
 
 | Section | Tag markup |
 |---|---|
@@ -100,7 +100,7 @@ There is **no radius token** — corners are square. (Only decorative floaters a
 | `.lead` | body, ink-soft | 46px, max-width 1400px | intro/sub line under h2 |
 | `p` | body | 40px base | 23–44px depending on density |
 | `.small` | — | 30px | metadata lines |
-| `.muted` | — | colour only | hints, sources |
+| `.muted` | — | color only | hints, sources |
 | `.card .label` | pixel 22px on ink | — | label tab on a card's top edge |
 | `code`, `.mono` | mono | inherits | API names, `POST /payments` (`font-size: 0.85em` in h2) |
 | Punchline in a card | head, inline style | 40–58px, `line-height: 1.1–1.2` | yellow/ink cards at slide bottom |
@@ -141,13 +141,13 @@ slide — reuse them **only** when your spec asks for that slide.
 </div>
 <div class="card ink" style="align-self: flex-start; padding: 22px 34px">
   <p style="font-family: var(--font-head); font-size: 44px; line-height: 1.15">
-    Punchline sentence.<br /><span style="color: var(--yellow)">Second line in the accent colour.</span>
+    Punchline sentence.<br /><span style="color: var(--yellow)">Second line in the accent color.</span>
   </p>
 </div>
 ```
 Punchline cards at the bottom of a slide use `align-self: flex-start` so they hug their text.
 
-**Layout helpers** — `.row` (flex row, gap 48px, stretch), `.row.center`, `.col` (flex column, gap 28px), `.grow` (flex: 1), `.center` (centre text + items).
+**Layout helpers** — `.row` (flex row, gap 48px, stretch), `.row.center`, `.col` (flex column, gap 28px), `.grow` (flex: 1), `.center` (center text + items).
 ```html
 <div class="row" style="gap: 60px; align-items: flex-start">
   <div class="col" style="width: 560px; flex: none">…</div>
@@ -212,7 +212,7 @@ User can create a payment for an existing invoice.</div>
 </div>
 ```
 
-**Bars** — labelled horizontal progress bars (`--w` width, `--c` colour, `--i` stagger; `.hot` = red label).
+**Bars** — labeled horizontal progress bars (`--w` width, `--c` color, `--i` stagger; `.hot` = red label).
 ```html
 <div class="bars">
   <div class="bar hot"><span>Review</span><div class="track"><i style="--w: 80%; --c: var(--pink); --i: 0"></i></div></div>
@@ -231,7 +231,7 @@ User can create a payment for an existing invoice.</div>
 </div>
 ```
 
-**`.radial` — hub and satellites** (slide “A spec is a contract”). 1660×520 box; SVG lines from centre (830,260); satellites positioned with `left/top` = line endpoints (they're centred via `translate`).
+**`.radial` — hub and satellites** (slide “A spec is a contract”). 1660×520 box; SVG lines from center (830,260); satellites positioned with `left/top` = line endpoints (they're centered via `translate`).
 ```html
 <div class="radial" style="align-self: center">
   <svg viewBox="0 0 1660 520" class="draw" fill="none" stroke="#111" stroke-width="5">
@@ -242,7 +242,7 @@ User can create a payment for an existing invoice.</div>
 </div>
 ```
 
-**`.sdd` — spec-driven workflow** (slide “Spec-driven workflow”). Columns of `.sdd-top` (node) over `.sdd-bot` (`.gate` = green “✋ human” badge on a stem, `.link` = dashed line labelled “vs spec”; `--up` extends the stem upward), separated by `.sdd-arrow > .pipe-arrow`, followed by the `.sdd-rail` yellow bar. The middle column holds a `.build-loop`.
+**`.sdd` — spec-driven workflow** (slide “Spec-driven workflow”). Columns of `.sdd-top` (node) over `.sdd-bot` (`.gate` = green “✋ human” badge on a stem, `.link` = dashed line labeled “vs spec”; `--up` extends the stem upward), separated by `.sdd-arrow > .pipe-arrow`, followed by the `.sdd-rail` yellow bar. The middle column holds a `.build-loop`.
 ```html
 <div class="sdd">
   <div class="sdd-col"><div class="sdd-top"><div class="pipe-node spec">SPEC</div></div>
@@ -284,7 +284,7 @@ User can create a payment for an existing invoice.</div>
 </div>
 ```
 
-**`.gh` + `.models` — GitHub event flow + example cards** (slide “How to build a factory?”). `.gh-step` variants `spec|agent|human`, `.ev` = ink event badge, `.gh-arr` arrows; `.models` 3-col grid of small cards with `h3`, `code`, `p`.
+**`.gh` + `.models` — GitHub event flow + example cards** (slide “Building a factory: examples”). `.gh-step` variants `spec|agent|human`, `.ev` = ink event badge, `.gh-arr` arrows; `.models` 3-col grid of small cards with `h3`, `code`, `p`.
 ```html
 <div class="gh">
   <span class="label">GitHub = source of truth · Actions react to events</span>
@@ -309,7 +309,7 @@ User can create a payment for an existing invoice.</div>
 
 **`.slot` + `.durable-stack`** (slide “The agent is replaceable / The spec is durable”). `.slot` cycles its `span`s (max 4).
 ```html
-<p style="font-size: 40px; font-weight: 700">Today it's implemented by
+<p style="font-size: 40px; font-weight: 700">Today's implementer:
   <span class="slot"><span>Claude</span><span>Codex</span><span>Gemini</span><span>???</span></span></p>
 <div class="chips durable-stack"><span class="chip yellow">spec</span><span class="chip green">tests</span></div>
 ```
@@ -317,7 +317,7 @@ User can create a payment for an existing invoice.</div>
 **`.arc` — recap chain of cards with arrows** (slide “Recap”). `.k2` pixel number; `.arc.three` = stretched variant.
 ```html
 <div class="arc">
-  <div class="card"><span class="k2">01</span><h3>AI</h3><p>raises the pace</p></div>
+  <div class="card"><span class="k2">01</span><h3>AI</h3><p>speeds things up</p></div>
   <span class="arr">→</span>
   <div class="card yellow"><span class="k2">02</span><h3>Spec</h3><p>ends the guessing</p></div>
 </div>
@@ -331,9 +331,9 @@ User can create a payment for an existing invoice.</div>
 </div>
 ```
 
-**Hand-made only (slides 1–5) — do not reuse:** `.title-slide` (+ `.deco`, `.speaker`, `.avatar`, `.thanks-slide`, `.repo-link`, `.qr-card`), `.bun*`, `.effort*` / `.eseg`, `.hv*` (harvest chart + photos), `.glitch-text` card on “AI lowered the cost…”.
+**Hand-made only (slides 1–5), do not reuse:** `.title-slide` (+ `.deco`, `.speaker`, `.avatar`, `.thanks-slide`, `.repo-link`, `.qr-card`), `.bun*`, `.effort*` / `.eseg`, `.hv*` (harvest chart + photos), `.glitch-text` card on “AI has cut the cost of implementation.”.
 
-**Not available to you:** the JS pixel factory (`.factory*`, `data-factory`) — it needs JavaScript, and slides may not contain scripts. A pixel animation must be pure SVG/CSS (see rules).
+**Not available to you:** the JS pixel factory (`.factory*`, `data-factory`) — it needs JavaScript, and slides may not contain scripts. Any pixel animation must be pure SVG/CSS (see Rules).
 
 ---
 
@@ -354,7 +354,7 @@ User can create a payment for an existing invoice.</div>
 - No gradients (except the existing `.mark`), no blur, no soft/large-radius rounded cards, no drop-shadow glow, no opacity-faded overlays as design.
 - No external URLs of any kind: no CDN, no web fonts, no remote images, no `<link>`, no `<iframe>`. The deck runs **offline**.
 - No `<script>`, no inline event handlers (`onclick` …).
-- No new fonts, no new colours outside the token list (other than the fixed ones in §2).
+- No new fonts, no new colors outside the token list (other than the fixed ones in §2).
 - Don't change or override global classes; don't target `section` / `.reveal` / `body` in your CSS.
 - Don't invent content: copy text exactly from the spec.
 
@@ -383,7 +383,7 @@ Only if existing classes are not enough:
   ```html
   <section class="top">
     <span class="tag green">03 · AI Factory</span>
-    <h2>What changes at <span class="mark green">scale?</span></h2>
+    <h2>What changes <span class="mark green">at scale?</span></h2>
     <div class="scale">…</div>
     <aside class="notes"><p><b>[16:15–18:00]</b> …</p></aside>
   </section>

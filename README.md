@@ -1,10 +1,10 @@
 # The End of Hand-Coding?
 
-**Spec-driven development in modern teams** — a talk from Brave AI Szczecin (October 2026), about 25 minutes. Author: Paul Rugała · [LinkedIn](https://www.linkedin.com/in/paul-rugala).
+**Spec-driven development in modern teams** — a ~25-minute talk from Brave AI Szczecin (October 2026). Author: Paul Rugała · [LinkedIn](https://www.linkedin.com/in/paul-rugala).
 
 > **Language:** English (this branch, `feat/eng-version`) · [Polski — „Koniec klepania kodu?”](https://github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-10/tree/main) (`main`)
 
-If you were at the talk: this is the whole repo, including the **AI factory** that built slides live from specs during the talk. You can run it yourself.
+If you were at the talk: this is the whole repo, including the **AI factory** that built slides from specs live on stage. You can run it yourself.
 
 ## What's in here
 
@@ -14,11 +14,11 @@ The repo contains **two versions of the same talk**:
 |---|---|---|
 | Where | `index.html` in the repo root | `demo/deck/` |
 | Who made the slides | all 22 slides by hand | slides 01–05 by hand, 06–22 **built live by AI agents** from the specs in `demo/specs/slides/` |
-| What for | a stable version for presenting and exporting to PDF | a demonstration of the talk's thesis: a human writes the spec, the factory delivers |
+| Purpose | a stable version for presenting and PDF export | demonstrates the talk's thesis: a human writes the spec, the factory delivers |
 | Start | `npm run dev` → http://localhost:5173 | `npm run demo` → http://localhost:5180/demo/dashboard/ |
-| Requires | just Node | Node, Claude Code, Chrome / Playwright |
+| Requires | Node only | Node, Claude Code, Chrome / Playwright |
 
-The full deck is also the safety net for the demo. If an agent fails to build a slide, the factory substitutes the hand-made slide from the backup and says so openly.
+The full deck is also the safety net for the demo. If an agent fails to build a slide, the factory swaps in the hand-made slide from the backup and says so openly.
 
 Also:
 - `talk.md` — my raw notes for the talk,
@@ -55,7 +55,7 @@ Everything (reveal.js, fonts) is local, so no internet connection is needed.
 
 The build has to be served (`npm run preview` or any static server). Opening `dist/index.html` straight from disk won't work, because Chrome blocks JS modules from `file://`.
 
-The PDF export uses your local Chrome (different path: `CHROME_PATH=... npm run export:pdf`). Manually: open `…/index.html?print-pdf` in Chrome → Print → Save as PDF (margins: none, background graphics: on).
+The PDF export uses your local Chrome (for a non-standard install: `CHROME_PATH=... npm run export:pdf`). Manually: open `…/index.html?print-pdf` in Chrome → Print → Save as PDF (margins: none, background graphics: on).
 
 ### 2. AI factory and demo deck
 
@@ -100,19 +100,19 @@ This is exactly the pattern from the talk: **spec → agent → gate → human**
 1. **HANDOVER** — a fresh, headless Claude Code session (`claude -p`, Opus 5.5 by default) gets the spec and the output path.
 2. **DISCOVER** — the agent reads the design system, the theme and the hand-made slides.
 3. **IMPLEMENT** — the agent writes `demo/deck/slides/NN.html`.
-4. **VERIFY** — the agent calls the `verify_slide` MCP tool itself, looks at the screenshot and fixes things until it passes.
-5. **REPORT** — the agent summarises what it did.
+4. **VERIFY** — the agent calls the `verify_slide` MCP tool itself, checks the screenshot and keeps fixing until it passes.
+5. **REPORT** — the agent summarizes what it did.
 
-**We don't trust the agent, we trust the gate.** After the report, the worker runs the gate once more itself (`demo/factory/verify.mjs`, Playwright). Among other things it checks:
+**We don't trust the agent, we trust the gate.** After the report, the worker runs the gate again on its own (`demo/factory/verify.mjs`, Playwright). Among other things it checks:
 - a single `<section class="s-NN">` root and the presence of speaker notes,
 - no `<script>` and no external URLs, CSS scoped to `.s-NN`,
 - no console or HTTP errors,
 - nothing sticks out of 1920×1080, no text is clipped,
 - all `must_include` phrases are visible.
 
-If the gate rejects a slide, the agent gets one fix round in the same session. If it fails a second time, the slide gets the `fallback` status and the deck shows the hand-made backup slide.
+If the gate rejects a slide, the agent gets one fix round in the same session. If it fails a second time, the slide is marked `fallback` and the deck shows the hand-made backup slide.
 
-**Limited permissions.** Agents only have `Read`/`Glob`/`Grep` and the `verify_slide` tool, and they may write only to their own slide file. They have no shell, no internet and no subagents. They also can't peek at the answer key, i.e. the full deck's `index.html`.
+**Limited permissions.** Agents only have `Read`/`Glob`/`Grep` and the `verify_slide` tool, and they may write only to their own slide file. They have no shell, no internet and no subagents. Nor can they peek at the answer key: the full deck's `index.html`.
 
 **Observability.** Every run stores events, state and reports in `demo/runs/<run>/`, and screenshots in `demo/shots/` (both directories are in `.gitignore`). The dashboard reads them live over SSE.
 

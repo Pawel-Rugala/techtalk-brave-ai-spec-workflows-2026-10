@@ -3,11 +3,11 @@ Slide 1:
 Hi. My name is Paul, and for the past year I haven't written any code. Agents did all of it.
 
 AI is changing how we work. AI is changing team dynamics.
-And that's what today's talk is about. How we can make that transformation in our own teams.
+That's what today's talk is about: how to make that shift in our own teams.
 
 About me:
 
-In the industry since 2012, at all kinds of companies, from small product companies and software houses to big corporations with around 100k people on board, in all kinds of roles from frontend, backend, solution architect and tech lead to even EMEA BI Director... not necessarily in that order, of course.
+In the industry since 2012, at all kinds of companies,, from small product companies and software houses to big corporations with around 100k people on board, in all kinds of roles from frontend, backend, solution architect and tech lead to even EMEA BI Director... not necessarily in that order, of course.
 
 Slide 2:
 
@@ -15,22 +15,22 @@ Slide 2:
 
 "The internal estimate at Anthropic: a team of three senior engineers, one year." Show the bars: the top one is three person-years, roughly 750 working person-days; the bottom one is 11 person-days. The bottom one barely exists: that's about 70× faster.
 
-"We can ignore it, we can nitpick it. But the best teams in the world are saying: what used to take three person-years now takes one person 11 days. Ignoring it looks like this: we play with AI instead of fighting for it."
+"We can ignore it, we can nitpick it. But the best teams in the world are saying: what used to take three person-years now takes one person 11 days. Ignoring that means we keep playing around with AI instead of going all in on it."
 
 Slide 3:
 
 Don't worry, this slide isn't another tip from an American productivity handbook.
 
-I was really looking for an analogy here so we'd all be on the same page.
+I really wanted an analogy here, so we're all on the same page.
 
 The harvest.
 
 Level 1: Every stalk passes through the farmer's hands. Just like we used to write every line of code.
 Level 2: The machine does the heaviest part, but a person guides every step. An order of magnitude more productivity. That's the AI assistant — and that's where most teams are today.
-Level 3: one machine cuts, threshes and cleans. The person steers, they don't do the work. Another order of magnitude. That's the AI agent.
+Level 3: one machine cuts, threshes and cleans. The person steers instead of doing the work. Another order of magnitude. That's the AI agent.
 Level 4: one operator supervises several machines at once, driving along planned paths on their own. That's the AI factory — and that's where we're heading.
 
-None of these leaps was about the farmer swinging the scythe faster. Each time the way of working changed — and you had to learn something. Anyone can cut with a scythe; managing a fleet of combines is a skill. It's the same with AI: everyone uses an assistant, a factory has to be designed.
+None of these leaps was about the farmer swinging the scythe faster. Each time, the way of working changed — and people had to learn something new. Anyone can cut with a scythe; managing a fleet of combines is a skill. It's the same with AI: everyone uses an assistant, a factory has to be designed.
 
 What's more, the farmers who adapted didn't lose their jobs; that person is still needed there. Probably the only job that disappeared completely is the lift operator.
 
@@ -42,19 +42,19 @@ Each bar is the whole team's effort on one feature. The proportions are illustra
 
 Before AI: the biggest chunk is coding. That's where the time went and that's where we sweated.
 
-In the AI era: everything comes down to what we want to build, what the requirements are, what should happen and what shouldn't. Writing code is cheap, and the agent does it, so the other part is how we verify that the agent delivered what we expected.
+In the AI era: it's all about what we want to build, what the requirements are, what should happen and what shouldn't. Writing code is cheap and the agent does it, so the rest of the effort goes into verifying that the agent delivered what we expected.
 
 Slide 5:
 
-Writing code is cheap and fast, but bad requirements and bad decisions haven't gotten any easier. AI can generate 10× more terrible code.
+Writing code is cheap and fast, but bad requirements and bad decisions haven't gotten any cheaper. AI can just generate 10× more terrible code.
 
-My point is that AI hasn't freed us from thinking. A human is still at the helm, just in a different place.
+My point: AI hasn't freed us from thinking. A human is still at the helm, just in a different place.
 
 Slide 6:
 
 Many teams still use AI by "prompting", chatting with it like: implement the specification pattern, now do this and that.
 
-Instead of defining a workflow where the agent implements, tests and fixes in a loop on its own.
+Instead of setting up a workflow where the agent implements, tests and fixes in a loop on its own.
 
 The human ends up as the agent's operator, and all they get out of it is faster typing.
 
@@ -66,12 +66,12 @@ The developer should focus on what they want to achieve and which rules must hol
 
 Slide 8:
 
-We'll talk about spec-driven development, and quickly, an example that will stay with us for a while.
+On to spec-driven development — starting with a quick example that will stay with us for a while.
 
-My made-up example. A typical ticket: add an endpoint for making payments.
+A made-up example. A typical ticket: add an endpoint for making payments.
 
-The agent implemented it. Opened a PR, and now what...
-Is it done well? Badly? Who can tell? Now you have to dig into the code and do a full code review to see whether what the agent did works or not.
+The agent implemented it, opened a PR, and now what...
+Is it done well? Badly? Who can tell? Now you have to dig into the code and do a full review to see whether what the agent built actually works.
 
 That's not the agent's fault. The problem is what it got as input.
 
@@ -87,7 +87,7 @@ Slide 10:
 
 Left side: what we usually throw at an agent today — "Add payment endpoint." And the agent guesses the rest.
 
-Right side: the same thing, but with nothing left unsaid. Each line closes one stamp from the example:
+Right side: the same thing, but with nothing left unsaid. Each line answers one of the stamps from the example:
 
 • Preconditions (status OPEN) → an already-paid invoice.
 • Idempotency (clientRequestId) → a double payment.
@@ -99,24 +99,24 @@ The punchline on the yellow card: AI doesn't need more creative prompts. It need
 
 Slide 11:
 
-This is more interesting than "let's write better prompts". One spec.md is the source for everything around it: implementation, code review, tests, QA and documentation. Product, the developer, AI, tests and QA all look at the same file.
+This goes further than "let's write better prompts". One spec.md is the source for everything around it: implementation, code review, tests, QA and documentation. Product, the developer, AI, tests and QA all look at the same file.
 
-The stamp in the corner: this is NOT "more documentation". Documentation used to be a by-product that nobody read. Now the spec is the input to a machine that produces software — write it badly and the machine produces badly.
+The stamp in the corner: this is NOT "more documentation". Documentation used to be a by-product that nobody read. Now the spec is the input to a machine that produces software — write it badly and the machine's output is bad too.
 
-Personally, specs are like database migrations to me. Or the git history log.
+To me, specs are like database migrations. Or the git log.
 
 Slide 12:
 
-We can sum up the whole of spec-driven development in a very simple way.
+We can sum up spec-driven development very simply.
 
-There's some intent; a human creates the specification together with AI. When the specification is OK, the human approves it. That triggers an agent that, in a loop, implements, tests, checks, fixes and opens a pull request. The human decides whether to merge.
+There's an intent; a human writes the specification together with AI. When the specification is OK, the human approves it. That triggers an agent that implements, tests, checks and fixes in a loop, then opens a pull request. The human decides whether to merge.
 
 Slide 13:
 
 The most common objections I hear about spec-driven development:
 
 "It's waterfall all over again." Yes — if you spend a week writing a spec before anyone sees working code.
-Again, agents write code 10× or more faster, so it's easier to build mocks, prototypes, PoCs etc., because, again, writing code is cheap and fast. Spec more often and ship code more often.
+Again, agents write code at least 10× faster, so mocks, prototypes, PoCs etc. are easy to build, because writing code is cheap and fast. Write specs more often and ship code more often.
 
 Spec drift: "the spec will drift from the code." Yes — if it lives outside the PR. We change the spec in the same PR as the code, and the review checks both.
 
@@ -126,9 +126,9 @@ Slide 14:
 
 LVL 1, assistant: ChatGPT, Claude, Copilot in the IDE. You drive the whole process, AI makes suggestions.
 
-LVL 2, agent: you give it a whole task. It reads the repo, changes the code, runs the tests, fixes errors and opens a PR on its own. That's where most teams that use AI seriously are today.
+LVL 2, agent: you give it a whole task. It reads the repo, changes the code, runs the tests, fixes errors and opens a PR on its own. That's where most teams that take AI seriously are today.
 
-LVL 3, factory: a ticket goes through specialised agents — spec, architect, backend and frontend in parallel, tests, review — and at the end a human approves. The developer no longer writes code; they design the system that delivers it.
+LVL 3, factory: a ticket goes through specialized agents — spec, architect, backend and frontend in parallel, tests, review — and at the end a human approves. The developer no longer writes code; they design the system that delivers it.
 
 Let's talk about AI factories now.
 
@@ -148,9 +148,9 @@ Slide 16:
 
 What does it look like in practice? The simplest factory you could set up tomorrow: GitHub as the source of truth, with GitHub Actions reacting to events.
 
-Walk through the top bar: the issue is the spec — the PO and dev refine it in the issue. The spec-ready label is a gate: a human says "the spec is ready" and an Action fires the implementer, which writes the code with tests and opens a PR. Opening the PR is another event — the reviewer starts and checks the code against the spec from the issue. The ready-for-qa label — a QA agent runs the e2e tests, takes screenshots and posts a report. A human always does the merge.
+Walk through the top bar: the issue is the spec — the PO and the dev refine it right there. The spec-ready label is a gate: a human says "the spec is ready" and an Action fires the implementer, which writes the code with tests and opens a PR. Opening the PR is another event — the reviewer starts and checks the code against the spec from the issue. The ready-for-qa label — a QA agent runs the e2e tests, takes screenshots and posts a report. The merge is always done by a human.
 
-There's no magic here: events, labels and jobs you all know.
+No magic here: just events, labels and jobs you all know.
 
 Other examples:
 • Team plugin — the dev calls /implement themselves; the safest first step.
@@ -159,7 +159,7 @@ Other examples:
 • Production loop — a Sentry alert creates an issue and a PR with the fix.
 • Your own orchestrator — agents take tasks from a queue.
 
-The limit is your imagination, but the pattern is always the same — event, agent, gate.
+The only limit is your imagination, but the pattern is always the same — event, agent, gate.
 
 Slide 17:
 
@@ -167,9 +167,9 @@ A factory scales code — and it scales bugs. That's why next to the code factor
 
 We build the pyramid from the bottom: first the deterministic, cheap things — types, lint, schemas. Then unit, contract and integration tests. Only at the top: AI review against the spec, and a human.
 
-I'll show you this in my demo at the end..
+I'll show you this in my demo at the end.
 
-The human only checks whether the verifications we've built make sense.
+The human only checks whether the checks we've built make sense.
 
 We don't trust the agent. We trust the verification system around the agent.
 
@@ -181,7 +181,7 @@ The spec is durable: the spec, architecture decisions, tests, constraints and ac
 
 Slide 19:
 
-AI raises the pace → the spec ends the guessing → agents take over execution → verification gives us trust.
+AI speeds things up → the spec ends the guessing → agents take over execution → verification gives us trust.
 
 Takeaway: don't optimize typing speed. It's no longer the bottleneck.
 
@@ -205,6 +205,6 @@ In my opinion...
 
 Slide 22:
 
-OK, and now, to show that it's possible: at the start of the talk I launched my AI factory.
+OK, and now, to prove it's possible: at the start of the talk I launched my AI factory.
 
-My AI factory received specifications, and an agent built the next slides on the fly. Of course I had a backup ready in case something went wrong. I built a small dashboard so everyone could see. And finally, so you don't think I'm lying, we'll build one slide together.
+It took the specs, and agents built the next slides on the fly. Of course I had a backup ready in case something went wrong. I built a small dashboard so you can all see what happened. And finally, so you know I'm not making this up, we'll build one slide together.

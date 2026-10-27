@@ -57,7 +57,7 @@ function renderKpis() {
     ['Cost (API)', usd(sum((j) => j.costUsd)), finished.length ? `${usd(sum((j) => j.costUsd) / Math.max(1, finished.length))} / slide` : '—', ''],
     ['Factory time', dur(wall), run?.startedAt ? `start ${clock(run.startedAt)}` : '—', 'blue'],
     ['Avg time / slide', dur(avg), `concurrency: ${state.concurrency}`, ''],
-    ['Gate on 1st try', finished.length ? `${Math.round((firstTry / finished.length) * 100)}%` : '—', `${sum((j) => j.toolCalls)} tool calls`, 'green'],
+    ['Passed 1st try', finished.length ? `${Math.round((firstTry / finished.length) * 100)}%` : '—', `${sum((j) => j.toolCalls)} tool calls`, 'green'],
   ];
   $('#kpis').innerHTML = tiles
     .map(([k, v, s, c]) => `<div class="kpi card ${c}"><span class="label">${k}</span><b>${v}</b><small>${esc(s)}</small></div>`)

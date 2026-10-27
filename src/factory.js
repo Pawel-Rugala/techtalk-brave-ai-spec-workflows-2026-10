@@ -16,11 +16,11 @@ const STATIONS = [
 
 // Caption shown in the HUD for each step
 const CAPTIONS = [
-  'INPUT: PAY-123 "Add endpoint allowing a user to pay an invoice"',
+  'INPUT: PAY-123 "Add an endpoint so users can pay an invoice"',
   'SPEC AGENT → the ticket becomes a spec',
   'ARCHITECT AGENT → decisions, contracts, plan',
   'BACKEND + FRONTEND AGENT → parallel implementation',
-  'TESTING AGENT → BUG REJECTED. Verified against the spec',
+  'TEST AGENT → BUG CAUGHT. Checked against the spec',
   'REVIEW AGENT → review against the spec, not the "vibe"',
   'PR → HUMAN APPROVAL ✓',
   'AI FACTORY = WORKFLOW, NOT A MODEL',
@@ -29,7 +29,7 @@ const CAPTIONS = [
 const r = (x, y, w, h, fill, extra = '') =>
   `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" ${extra}/>`;
 
-// 16x16 robot, body colour via currentColor
+// 16x16 robot, body color via currentColor
 const BOT = `
   <symbol id="px-bot" viewBox="0 0 16 16">
     ${r(7, 0, 2, 1, '#ffd23f')}${r(7, 1, 2, 2, '#111')}

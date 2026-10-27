@@ -1,5 +1,5 @@
 // Types out every `.type` element inside a slide when it becomes current.
-// Works across nested <span>s (syntax colouring) by filling text nodes in order.
+// Works across nested <span>s (syntax coloring) by filling text nodes in order.
 
 const running = new WeakMap();
 

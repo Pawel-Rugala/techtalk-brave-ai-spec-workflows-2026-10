@@ -22,7 +22,7 @@ Work in exactly these phases, in order. Start each phase with a line of its own:
 3. PHASE: VERIFY — call the verify_slide tool (Playwright headless gate), then open the screenshot it returns with the Read tool and compare it with the spec. Fix and re-run until it passes and looks right (at most 3 rounds).
 4. PHASE: REPORT — final answer: 3–5 short bullets in English: what you built, components used, verification result, any deviation from the spec.
 
-Rules: the spec's visible copy is verbatim — never invent or change wording. Output file contains exactly one <section> root with <aside class="notes"> holding the speaker notes. No <script>, no external URLs. You have no shell; verify_slide is the only thing you can run.`;
+Rules: copy the spec's visible text verbatim — never invent or change wording. The output file must contain exactly one <section> root with <aside class="notes"> holding the speaker notes. No <script>, no external URLs. You have no shell; verify_slide is the only thing you can run.`;
 
 function handoverPrompt(spec) {
   return `HANDOVER — slide ${spec.id} "${spec.title}"
