@@ -8,59 +8,56 @@ must_include:
   - "Spec-driven workflow"
   - "Problem"
   - "Build loop · agent"
-  - "powtarza, aż spec jest spełniony"
-  - "SPEC = źródło prawdy dla każdego kroku"
-  - "Człowiek nie wykonuje każdego kroku."
-  - "Człowiek pilnuje bramek."
+  - "repeats until the spec is met"
+  - "SPEC = source of truth for every step"
+  - "The human doesn't do every step."
+  - "The human guards the gates."
 ---
 
 # 12 · Spec-driven workflow
 
-## Cel
-Pokazać cały przepływ SDD: Problem → SPEC → build loop agenta → PR, z dwiema ludzkimi bramkami (zatwierdzenie specu i decyzja o PR) oraz specem jako szyną/źródłem prawdy dla każdego kroku. Człowiek nie wykonuje kroków — pilnuje bramek.
+## Goal
+Show the whole SDD flow: Problem → SPEC → the agent's build loop → PR, with two human gates (approving the spec and deciding on the PR) and the spec as the rail / source of truth for every step. The human doesn't perform the steps — the human guards the gates.
 
-## Treść
-**Tag:** `02 · Spec-driven development` (niebieski wariant)
+## Content
+**Tag:** `02 · Spec-driven development` (blue variant)
 
-**Nagłówek (h2):** `Spec-driven workflow`
+**Heading (h2):** `Spec-driven workflow`
 
-**Diagram — 4 kolumny połączone strzałkami (→) w poziomie:**
-1. Węzeł `Problem` z podpisem (mały tekst) `ticket / pomysł`. Pod spodem nic.
-2. Węzeł `SPEC` (wyróżniony, wariant „spec”). Pod nim bramka: `✋ człowiek` ⏎ `zatwierdza`
-3. Build loop (największy element): etykieta `↻ Build loop · agent` (symbol ↻ się obraca), w środku rząd chipów: `plan` → `kod` → `testy` → `review` → `poprawki`, pod chipami strzałka powrotu z tekstem `powtarza, aż spec jest spełniony`. Pod całym loopem łącznik `vs spec`.
-4. Węzeł `PR`. Pod nim bramka: `✋ człowiek` ⏎ `decyduje`
+**Diagram — 4 columns connected horizontally by arrows (→):**
+1. Node `Problem` with a caption (small text) `ticket / idea`. Nothing below it.
+2. Node `SPEC` (highlighted, "spec" variant). Below it a gate: `✋ human` ⏎ `approves`
+3. Build loop (the largest element): label `↻ Build loop · agent` (the ↻ symbol spins), inside it a row of chips: `plan` → `code` → `tests` → `review` → `fixes`, below the chips a return arrow with the text `repeats until the spec is met`. Below the whole loop, a connector `vs spec`.
+4. Node `PR`. Below it a gate: `✋ human` ⏎ `decides`
 
-**Szyna pod diagramem (żółta, na całą szerokość):** `SPEC = źródło prawdy dla każdego kroku`
+**Rail below the diagram (yellow, full width):** `SPEC = source of truth for every step`
 
-**Karta na dole (czarna, font nagłówkowy, ok. 42 px):**
-`Człowiek nie wykonuje każdego kroku.` ⏎ `Człowiek pilnuje bramek.` (druga linia żółta)
+**Bottom card (black, heading font, about 42 px):**
+`The human doesn't do every step.` ⏎ `The human guards the gates.` (second line in yellow)
 
-## Układ
-- Slajd „top”: tag, nagłówek, diagram (cała szerokość), żółta szyna, czarna karta wyrównana do lewej.
-- Diagram: górny rząd to węzły/loop, dolny rząd to elementy „pod spodem” (bramki i łącznik „vs spec”), które sięgają w dół do żółtej szyny — wizualnie każdy krok jest „przyklejony” do szyny specu. Bramki (✋) wyglądają inaczej niż zwykły łącznik (wyróżnione jako punkty kontroli człowieka).
-- Kolumna build loop jest najszersza; strzałki między kolumnami w pionie wyrównane do środka węzłów.
-- Element pod kolumną ma różne wysokości wysięgu (parametr `--up`: ok. 56 px pod SPEC, 24 px pod loopem, 64 px pod PR).
+## Layout
+- A "top" slide: tag, heading, diagram (full width), yellow rail, black card left-aligned.
+- Diagram: the top row holds the nodes / loop, the bottom row holds the elements "underneath" (gates and the "vs spec" connector), which reach down to the yellow rail — visually every step is "attached" to the spec rail. The gates (✋) look different from the plain connector (highlighted as human checkpoints).
+- The build loop column is the widest; the arrows between columns are vertically aligned with the middle of the nodes.
+- The element under each column has a different reach (the `--up` parameter: about 56 px under SPEC, 24 px under the loop, 64 px under PR).
 
-## Komponenty
+## Components
 - `section.top`, `span.tag.blue`, `h2`
-- `.sdd` z kolumnami `.sdd-col`, każda z `.sdd-top` i `.sdd-bot` (warianty `.gate` i `.link`, parametr `--up`); między kolumnami `.sdd-arrow` z `i.pipe-arrow`
-- `.pipe-node` (wariant `.spec`) z `small` na podpis
-- `.build-loop` z `span.label` (w środku `i.spin` dla ↻), `.loop-steps` (chipy `.chip` przedzielone `i` →), `.loop-back`
-- `.sdd-rail` (żółta szyna)
-- `.card.ink` (czarna karta), druga linia w kolorze `var(--yellow)`
+- `.sdd` with `.sdd-col` columns, each with `.sdd-top` and `.sdd-bot` (variants `.gate` and `.link`, parameter `--up`); between columns `.sdd-arrow` with `i.pipe-arrow`
+- `.pipe-node` (variant `.spec`) with `small` for the caption
+- `.build-loop` with `span.label` (containing `i.spin` for ↻), `.loop-steps` (`.chip` chips separated by `i` →), `.loop-back`
+- `.sdd-rail` (yellow rail)
+- `.card.ink` (black card), second line in `var(--yellow)`
 
-## Kryteria akceptacji
-- [ ] Kolejność: Problem → SPEC → Build loop → PR, ze strzałkami między.
-- [ ] Dokładnie dwie bramki „✋ człowiek” (pod SPEC i pod PR).
-- [ ] Build loop zawiera 5 chipów w kolejności plan, kod, testy, review, poprawki oraz tekst powrotu.
-- [ ] Żółta szyna widoczna pod diagramem na całą szerokość.
-- [ ] Mieści się w 1920×1080, brak overflow.
-- [ ] Notatki prelegenta obecne.
+## Acceptance criteria
+- [ ] Order: Problem → SPEC → Build loop → PR, with arrows between them.
+- [ ] Exactly two "✋ human" gates (under SPEC and under PR).
+- [ ] The build loop contains 5 chips in the order plan, code, tests, review, fixes, plus the return text.
+- [ ] The yellow rail is visible below the diagram across the full width.
+- [ ] Fits in 1920×1080, no overflow.
+- [ ] Speaker notes present.
 
-## Notatki prelegenta
-**[12:15–13:45]** Przejdź po diagramie od lewej.
-Problem — ticket albo pomysł. Z niego powstaje SPEC i tu jest pierwsza bramka: człowiek zatwierdza, CO budujemy, zanim powstanie linijka kodu. Błąd złapany tutaj kosztuje minuty, a nie dni.
-Potem build loop: agent sam planuje, koduje, pisze testy, robi review i poprawia — w pętli, aż spec jest spełniony. Nikt go nie prowadzi za rękę krok po kroku.
-Na końcu PR i druga bramka: człowiek decyduje, czy to wchodzi.
-Żółta szyna pod spodem: spec jest źródłem prawdy dla każdego kroku. Pętla sprawdza się względem specu, a nie względem własnego zdania.
-Czarna karta: człowiek nie wykonuje każdego kroku. Człowiek pilnuje bramek.
+## Speaker notes
+**[12:15–13:45]**
+You can show the whole of spec-driven development very simply.
+It starts with **intent**. A human, together with AI, turns it into a **spec**. When the spec is ready, the human **approves** it. That kicks off an agent that implements, tests, checks and fixes in a loop, and finally opens a pull request. **The human decides on the merge.**

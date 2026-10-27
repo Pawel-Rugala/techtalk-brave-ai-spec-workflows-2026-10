@@ -1,92 +1,92 @@
 ---
 id: "23"
 order: 23
-title: "Ta prezentacja z fabryki"
+title: "This deck, from the factory"
 section: "03 · AI Factory"
 tag: "green"
 must_include:
-  - "z fabryki"
+  - "from the factory"
   - "HANDOVER"
   - "DISCOVER"
   - "IMPLEMENT"
   - "VERIFY"
   - "REPORT"
   - "MODEL: OPUS 5.5"
-  - "Człowiek napisał specy. Fabryka zbudowała slajdy."
+  - "A human wrote the specs. The factory built the slides."
 must_animate: true
 ---
 
-# 23 · Ta prezentacja z fabryki (LIVE)
+# 23 · This deck, from the factory (LIVE)
 
-## Cel
-Slajd budowany na żywo, ręcznie odpalony przez prelegenta na końcu prezentacji. Pokazuje w pixel-arcie dokładnie ten pipeline, który przed chwilą zbudował resztę slajdów: spec wjeżdża taśmą do fabryki, przechodzi przez pięć stacji-robotów i wypada jako gotowy slajd na stos. Widz ma zrozumieć: to nie jest magia, to linia produkcyjna — a człowiek pisał specy.
+## Goal
+A slide built live, triggered manually by the speaker at the end of the talk. In pixel art it shows exactly the pipeline that just built the rest of the slides: a spec rides a conveyor belt into the factory, passes through five robot stations and drops out as a finished slide onto a stack. The audience should get it: this isn't magic, it's a production line — and a human wrote the specs.
 
-## Treść
+## Content
 **Tag:** `03 · AI Factory`
 
-**Nagłówek (h2):** Ta prezentacja **z fabryki** — „z fabryki” w zielonym markerze.
+**Heading (h2):** This deck, **from the factory** — “from the factory” in a green marker.
 
-**HUD nad sceną** (pixel font, mały, ~22–26px, jedna linia, ramka jak wyświetlacz):
-`MODEL: OPUS 5.5 · 1 SPEC → 1 SLAJD`
+**HUD above the scene** (pixel font, small, ~22–26px, one line, framed like a display):
+`MODEL: OPUS 5.5 · 1 SPEC → 1 SLIDE`
 
-**Scena pixel-art** — taśma produkcyjna od lewej do prawej, pięć stacji. Pod każdą stacją etykieta (pixel font, wielkie litery) i jednolinijkowy podpis po polsku (mały tekst):
+**Pixel-art scene** — a conveyor belt running left to right, five stations. Under each station a label (pixel font, uppercase) and a one-line caption in English (small text):
 
-| stacja | etykieta | podpis | kolor robota |
+| station | label | caption | robot color |
 |---|---|---|---|
-| 1 | HANDOVER | spec trafia do sesji | yellow |
-| 2 | DISCOVER | czyta design system i repo | blue |
-| 3 | IMPLEMENT | pisze slajd | pink |
+| 1 | HANDOVER | spec enters the session | yellow |
+| 2 | DISCOVER | reads the design system and repo | blue |
+| 3 | IMPLEMENT | writes the slide | pink |
 | 4 | VERIFY | Playwright · 1920×1080 | green |
-| 5 | REPORT | tokeny · czas · model | yellow |
+| 5 | REPORT | tokens · time · model | yellow |
 
-- Na początku taśmy karta specyfikacji z napisem `spec.md` (opcjonalnie ikona dokumentu narysowana pikselami — nie emoji).
-- Na końcu taśmy stos ukończonych slajdów (3–4 przesunięte prostokąty z grubą ramką), na który spada gotowy slajd.
+- At the start of the belt, a spec card labeled `spec.md` (optionally with a document icon drawn in pixels — not an emoji).
+- At the end of the belt, a stack of finished slides (3–4 offset rectangles with thick borders) onto which the finished slide drops.
 
-**Linia zamykająca pod sceną** (font nagłówkowy, ~40px, karta ink, druga część żółta):
-„Człowiek napisał specy. Fabryka zbudowała slajdy.”
-(możesz rozbić na dwa spany: pierwszy kremowy, drugi — „Fabryka zbudowała slajdy.” — żółty; cały tekst musi wystąpić dosłownie)
+**Closing line below the scene** (heading font, ~40px, ink card, second part in yellow):
+“A human wrote the specs. The factory built the slides.”
+(you may split it into two spans: the first cream, the second — “The factory built the slides.” — yellow; the full text must appear verbatim)
 
-## Animacja (sedno slajdu)
-Jedna pętla ok. 8–10 s, w nieskończoność (`animation-iteration-count: infinite`):
-1. Karta `spec.md` jedzie taśmą od lewej, zatrzymując się krótko pod każdą stacją.
-2. Gdy karta stoi pod stacją, robot tej stacji „pracuje”: miga mu ekran/oczy, podskakuje o 1 piksel, albo nad nim pojawia się iskra/dymek. Stacja aktywna dostaje podświetloną etykietę.
-3. Na stacji IMPLEMENT karta zmienia wygląd z dokumentu w slajd (inny kolor/ramka) — np. przez dwa nakładające się elementy z przełączaną widocznością.
-4. Na stacji VERIFY krótko pojawia się zielony znaczek ✓ (narysowany pikselami lub w pixel foncie).
-5. Po REPORT gotowy slajd spada na stos po prawej i pętla zaczyna się od nowa.
-- Taśma (pasy/rolki) przesuwa się ciągle — wzór pasków animowany `background-position` lub przesunięciem prostokątów SVG.
-- Wszystkie ruchy z `steps(n)` — skokowe, „8-bitowe”, nie płynne.
-- Animacja ma działać **zawsze**, także przy `prefers-reduced-motion: reduce` — prezentujemy z laptopa, który ma włączone „Reduce Motion”, a ruch to sedno slajdu. **Nie dodawaj** żadnego bloku `@media (prefers-reduced-motion …)` wyłączającego animację. Sekcja musi mieć atrybut `data-motion="always"` — bez niego motyw (`src/theme.css`) przy reduced motion zatrzymuje wszystkie animacje.
+## Animation (the point of the slide)
+One loop of about 8–10 s, repeating forever (`animation-iteration-count: infinite`):
+1. The `spec.md` card rides the belt from the left, pausing briefly under each station.
+2. While the card is under a station, that station's robot “works”: its screen/eyes blink, it hops by 1 pixel, or a spark/puff appears above it. The active station gets a highlighted label.
+3. At the IMPLEMENT station the card changes from a document into a slide (different color/border) — e.g. via two overlapping elements with toggled visibility.
+4. At the VERIFY station a green ✓ briefly appears (drawn in pixels or in the pixel font).
+5. After REPORT the finished slide drops onto the stack on the right and the loop starts over.
+- The belt (stripes/rollers) moves continuously — a stripe pattern animated via `background-position` or by shifting SVG rectangles.
+- All motion uses `steps(n)` — choppy, “8-bit”, not smooth.
+- The animation must **always** run, including under `prefers-reduced-motion: reduce` — we present from a laptop with “Reduce Motion” turned on, and motion is the point of the slide. **Do not add** any `@media (prefers-reduced-motion …)` block that disables the animation. The section must have the `data-motion="always"` attribute — without it, the theme (`src/theme.css`) stops all animations under reduced motion.
 
-## Układ
-- Sekcja `top`: tag → nagłówek → HUD → scena → karta zamykająca.
-- Scena na całą szerokość treści (~1660px), wysokość ok. 480–560px. Narysuj ją jako jeden inline `<svg>` z `viewBox` w małej siatce pikseli (np. `0 0 420 140`) skalowany w górę, z `shape-rendering="crispEdges"` — piksele mają być ostre.
-- Roboty: sprite 16×16 „pikseli” zbudowany z `<rect>` (głowa z antenką, oczy, korpus w kolorze stacji, czarne obrysy `#111`). Możesz zdefiniować go raz w `<symbol>` i użyć 5× przez `<use>` z różnym `color`/`fill`.
-- Etykiety stacji mogą być tekstem HTML pod SVG (pixel font) albo `<text>` w SVG — ważne, żeby były czytelne (min. ~20px po przeskalowaniu) i zawierały dokładne napisy z tabeli.
-- Paleta wyłącznie z tokenów motywu: `--ink`, `--paper`/`--cream`, `--yellow`, `--pink`, `--green`, `--blue` (w SVG wolno podać odpowiadające im wartości hex, sprawdź je w `src/theme.css`).
+## Layout
+- `top` section: tag → heading → HUD → scene → closing card.
+- Scene spans the full content width (~1660px), about 480–560px tall. Draw it as a single inline `<svg>` with a `viewBox` on a small pixel grid (e.g. `0 0 420 140`) scaled up, with `shape-rendering="crispEdges"` — pixels must be sharp.
+- Robots: a 16×16 “pixel” sprite built from `<rect>`s (head with an antenna, eyes, body in the station color, black `#111` outlines). You can define it once in a `<symbol>` and use it 5× via `<use>` with a different `color`/`fill`.
+- Station labels can be HTML text under the SVG (pixel font) or `<text>` inside the SVG — what matters is that they're legible (at least ~20px after scaling) and contain the exact strings from the table.
+- Palette only from the theme tokens: `--ink`, `--paper`/`--cream`, `--yellow`, `--pink`, `--green`, `--blue` (in the SVG you may use the corresponding hex values — look them up in `src/theme.css`).
 
-## Komponenty
-- `<section class="top s-23" data-motion="always">`, `.tag.green`, `h2` z `.mark.green`
-- HUD: element w `var(--font-pixel)` z obramowaniem `var(--border)` (wygląd wyświetlacza)
-- Scena: inline `<svg shape-rendering="crispEdges">` + własne klasy z prefiksem `.s-23`
-- Karta zamykająca: `.card.ink`, `p` w `var(--font-head)`, akcent `color: var(--yellow)`
-- Inspiracja sprite'ami: `src/factory.js` (pixel-art fabryka z wcześniejszej wersji prezentacji) — wolno podejrzeć, jak zbudowane są roboty z `<rect>`, ale NIE importuj tego pliku i nie wymagaj JS.
+## Components
+- `<section class="top s-23" data-motion="always">`, `.tag.green`, `h2` with `.mark.green`
+- HUD: an element in `var(--font-pixel)` with a `var(--border)` border (display look)
+- Scene: inline `<svg shape-rendering="crispEdges">` + custom classes prefixed with `.s-23`
+- Closing card: `.card.ink`, `p` in `var(--font-head)`, accent `color: var(--yellow)`
+- Sprite inspiration: `src/factory.js` (the pixel-art factory from an earlier version of the deck) — you may look at how its robots are built from `<rect>`s, but do NOT import that file and do not require JS.
 
-## Ograniczenia techniczne
-- **Bez `<script>`** — slajd jest wstrzykiwany przez `innerHTML`, skrypty się nie wykonają. Tylko HTML + CSS + inline SVG.
-- Wszystkie style w jednym `<style>` wewnątrz sekcji; każdy selektor zaczyna się od `.s-23` (żadnych globalnych selektorów, żadnych zmian w theme.css).
-- Nazwy `@keyframes` z prefiksem `s23-` (żeby nie kolidowały z innymi slajdami).
-- Żadnych zewnętrznych zasobów (obrazów, fontów, URL-i) — prezentacja działa offline.
+## Technical constraints
+- **No `<script>`** — the slide is injected via `innerHTML`, so scripts won't run. HTML + CSS + inline SVG only.
+- All styles in a single `<style>` inside the section; every selector starts with `.s-23` (no global selectors, no changes to theme.css).
+- `@keyframes` names prefixed with `s23-` (so they don't collide with other slides).
+- No external resources (images, fonts, URLs) — the deck works offline.
 
-## Kryteria akceptacji
-- [ ] Mieści się w 1920×1080 bez przewijania i bez ucinania tekstu.
-- [ ] Pięć stacji w kolejności HANDOVER → DISCOVER → IMPLEMENT → VERIFY → REPORT, każda z robotem i etykietą.
-- [ ] Animacja działa w pętli w czystym CSS (`steps()`), karta przejeżdża przez wszystkie stacje i trafia na stos. Pętla działa również przy `prefers-reduced-motion: reduce` (gate renderuje slajd z tym ustawieniem i sprawdza, że animacje w pętli są uruchomione).
-- [ ] Piksele ostre (`crispEdges`), font pikselowy w HUD i etykietach.
-- [ ] Brak `<script>`, wszystkie selektory z prefiksem `.s-23`, keyframes z prefiksem `s23-`.
-- [ ] HUD zawiera „MODEL: OPUS 5.5”, karta zamykająca zawiera „Człowiek napisał specy. Fabryka zbudowała slajdy.”
-- [ ] Notatki prelegenta w `<aside class="notes">`.
+## Acceptance criteria
+- [ ] Fits in 1920×1080 with no scrolling and no clipped text.
+- [ ] Five stations in the order HANDOVER → DISCOVER → IMPLEMENT → VERIFY → REPORT, each with a robot and a label.
+- [ ] The animation loops in pure CSS (`steps()`), the card travels through all stations and lands on the stack. The loop also runs under `prefers-reduced-motion: reduce` (the gate renders the slide with that setting and checks that the looping animations are running).
+- [ ] Sharp pixels (`crispEdges`), pixel font in the HUD and labels.
+- [ ] No `<script>`, all selectors prefixed with `.s-23`, keyframes prefixed with `s23-`.
+- [ ] HUD contains “MODEL: OPUS 5.5”, the closing card contains “A human wrote the specs. The factory built the slides.”
+- [ ] Speaker notes in `<aside class="notes">`.
 
-## Notatki prelegenta
-**[LIVE]** Ten slajd nie istniał, kiedy zaczynałem mówić. Odpaliłem go przed chwilą z dashboardu — jeden spec, jedna sesja Claude, Opus 5.5.
-Przejdź po stacjach: HANDOVER — spec trafia do sesji; DISCOVER — agent czyta design system i repo; IMPLEMENT — pisze slajd; VERIFY — Playwright renderuje go w 1920×1080 i sprawdza, czy nic nie wystaje; REPORT — tokeny, czas i model lądują na dashboardzie.
-Puenta: ja napisałem specy. Fabryka zbudowała slajdy. Dokładnie o tym była ta prezentacja.
+## Speaker notes
+**[LIVE]** This slide didn't exist when I started talking. I launched it a moment ago from the dashboard — one spec, one Claude session, Opus 5.5.
+Walk through the stations: HANDOVER — the spec enters the session; DISCOVER — the agent reads the design system and the repo; IMPLEMENT — it writes the slide; VERIFY — Playwright renders it at 1920×1080 and checks that nothing overflows; REPORT — tokens, time and model land on the dashboard.
+Punchline: I wrote the specs. The factory built the slides. That's exactly what this talk was about.

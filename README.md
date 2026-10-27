@@ -1,38 +1,40 @@
-# Koniec klepania kodu?
+# The End of Hand-Coding?
 
-**Spec-driven development w nowoczesnych zespołach** — prezentacja z Brave AI Szczecin (październik 2026), ok. 25 minut, po polsku. Autor: Paul Rugała · [LinkedIn](https://www.linkedin.com/in/paul-rugala).
+**Spec-driven development in modern teams** — a talk from Brave AI Szczecin (October 2026), about 25 minutes. Author: Paul Rugała · [LinkedIn](https://www.linkedin.com/in/paul-rugala).
 
-Jeśli byłeś na prezentacji: to jest całe repo, łącznie z **fabryką AI**, która w trakcie wystąpienia budowała slajdy na żywo ze specyfikacji. Możesz ją uruchomić u siebie.
+> This is the English version. The original Polish version ("Koniec klepania kodu?") lives on the `main` branch.
 
-## Co tu jest
+If you were at the talk: this is the whole repo, including the **AI factory** that built slides live from specs during the talk. You can run it yourself.
 
-W repo są **dwie wersje tej samej prezentacji**:
+## What's in here
 
-| | Pełna talia (backup) | Talia demo (fabryka AI) |
+The repo contains **two versions of the same talk**:
+
+| | Full deck (backup) | Demo deck (AI factory) |
 |---|---|---|
-| Gdzie | `index.html` w głównym katalogu | `demo/deck/` |
-| Kto zrobił slajdy | wszystkie 22 slajdy ręcznie | slajdy 01–05 ręcznie, 06–22 **budują agenci AI na żywo** ze specyfikacji w `demo/specs/slides/` |
-| Do czego | stabilna wersja do prezentowania i eksportu do PDF | pokaz tezy prezentacji: człowiek pisze spec, fabryka dostarcza |
+| Where | `index.html` in the repo root | `demo/deck/` |
+| Who made the slides | all 22 slides by hand | slides 01–05 by hand, 06–22 **built live by AI agents** from the specs in `demo/specs/slides/` |
+| What for | a stable version for presenting and exporting to PDF | a demonstration of the talk's thesis: a human writes the spec, the factory delivers |
 | Start | `npm run dev` → http://localhost:5173 | `npm run demo` → http://localhost:5180/demo/dashboard/ |
-| Wymaga | tylko Node | Node, Claude Code, Chrome / Playwright |
+| Requires | just Node | Node, Claude Code, Chrome / Playwright |
 
-Pełna talia jest też siatką bezpieczeństwa dla demo. Jeśli agent nie zbuduje slajdu, fabryka podstawia ręcznie zrobiony slajd z backupu i otwarcie to pokazuje.
+The full deck is also the safety net for the demo. If an agent fails to build a slide, the factory substitutes the hand-made slide from the backup and says so openly.
 
-Dodatkowo:
-- `talk.md` — moje surowe notatki do wystąpienia,
-- `talk-v2.md` — dopracowany tekst prelegenta; ten sam tekst jest w notatkach slajdów (`S` w prezentacji).
+Also:
+- `talk.md` — my raw notes for the talk,
+- `talk-v2.md` — the polished speaker script; the same text is in the slide notes (`S` in the presentation).
 
-## O czym jest prezentacja
+## What the talk is about
 
-- **00 · Punkt wyjścia** — Bun przepisany na Rusta w 11 dni zamiast 3 osobolat; od sierpa do floty kombajnów; gdzie dziś idzie wysiłek zespołu i czego AI nie potaniło.
-- **01 · Mindset** — AI to nie autocomplete; od pisania kodu do projektowania intencji.
-- **02 · Spec-driven development** — przykład PAY-123 (`POST /payments`), czym jest spec, spec vs prompt, spec jako kontrakt, workflow z bramkami człowieka i kiedy SDD boli.
-- **03 · AI Factory** — od asystenta do fabryki, co się zmienia przy skali, przykłady fabryk (GitHub Actions, plugin zespołowy, chat-ops, agenci cykliczni, pętla z produkcji, własny orkiestrator), piramida zaufania.
-- **Podsumowanie** — co optymalizować zamiast szybkości pisania.
+- **00 · Starting point** — Bun rewritten in Rust in 11 days instead of 3 person-years; from sickle to a fleet of combines; where a team's effort goes today and what AI hasn't made cheaper.
+- **01 · Mindset** — AI is not autocomplete; from writing code to designing intent.
+- **02 · Spec-driven development** — the PAY-123 example (`POST /payments`), what a spec is, spec vs prompt, the spec as a contract, a workflow with human gates, and when SDD hurts.
+- **03 · AI Factory** — from assistant to factory, what changes at scale, example factories (GitHub Actions, team plugin, chat-ops, scheduled agents, production loop, your own orchestrator), the trust pyramid.
+- **Recap** — what to optimize instead of typing speed.
 
-## Szybki start
+## Quick start
 
-Wymagania: **Node 20.19+** (albo 22.12+).
+Requirements: **Node 20.19+** (or 22.12+).
 
 ```bash
 git clone https://github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-10.git
@@ -40,123 +42,123 @@ cd techtalk-brave-ai-spec-workflows-2026-10
 npm install
 ```
 
-### 1. Pełna talia (ręcznie zrobiona)
+### 1. Full deck (hand-made)
 
 ```bash
-npm run dev         # http://localhost:5173 z hot reload
-npm run build       # statyczna wersja w dist/
-npm run preview     # podgląd builda (http://localhost:4173)
-npm run export:pdf  # build + PDF do export/ (1 strona = 1 slajd)
+npm run dev         # http://localhost:5173 with hot reload
+npm run build       # static version in dist/
+npm run preview     # preview the build (http://localhost:4173)
+npm run export:pdf  # build + PDF into export/ (1 page = 1 slide)
 ```
 
-Wszystko (reveal.js, fonty) jest lokalnie, więc internet nie jest potrzebny.
+Everything (reveal.js, fonts) is local, so no internet connection is needed.
 
-Build trzeba serwować (`npm run preview` albo dowolny serwer statyczny). Otwarcie `dist/index.html` prosto z dysku nie zadziała, bo Chrome blokuje moduły JS z `file://`.
+The build has to be served (`npm run preview` or any static server). Opening `dist/index.html` straight from disk won't work, because Chrome blocks JS modules from `file://`.
 
-Eksport PDF używa lokalnego Chrome (inna ścieżka: `CHROME_PATH=... npm run export:pdf`). Ręcznie: otwórz `…/index.html?print-pdf` w Chrome → Drukuj → Zapisz jako PDF (marginesy: brak, grafika tła: włączona).
+The PDF export uses your local Chrome (different path: `CHROME_PATH=... npm run export:pdf`). Manually: open `…/index.html?print-pdf` in Chrome → Print → Save as PDF (margins: none, background graphics: on).
 
-### 2. Fabryka AI i talia demo
+### 2. AI factory and demo deck
 
-Dodatkowe wymagania:
-- **[Claude Code](https://docs.claude.com/en/docs/claude-code)** zainstalowany (`claude` w `PATH`) i zalogowany. Fabryka uruchamia prawdziwe sesje agentów, więc **zużywa tokeny z Twojego konta**.
-- **Chrome** albo przeglądarka Playwrighta: `npx playwright install chromium`.
+Additional requirements:
+- **[Claude Code](https://docs.claude.com/en/docs/claude-code)** installed (`claude` on your `PATH`) and logged in. The factory runs real agent sessions, so it **uses tokens from your account**.
+- **Chrome** or Playwright's browser: `npx playwright install chromium`.
 
 ```bash
 npm run demo
 ```
 
-Jeden proces uruchamia serwer Vite i API fabryki:
+A single process runs the Vite server and the factory API:
 
-| Adres | Co to jest |
+| URL | What it is |
 |---|---|
-| http://localhost:5180/demo/dashboard/ | dashboard fabryki: start, status, koszty, logi |
-| http://localhost:5180/demo/deck/ | talia demo, która wypełnia się na żywo |
-| http://localhost:5180/ | pełna talia (backup) |
+| http://localhost:5180/demo/dashboard/ | factory dashboard: start, status, costs, logs |
+| http://localhost:5180/demo/deck/ | demo deck that fills in live |
+| http://localhost:5180/ | full deck (backup) |
 
-1. Otwórz dashboard i kliknij **▶ Start fabryki**.
-2. Otwórz talię demo w drugiej karcie. Slajdy, które jeszcze się budują, mają placeholder „w produkcji”. Gotowe podmieniają się same, bez przeładowania strony.
-3. Na dashboardzie dla każdego slajdu widać spec, model, tokeny, koszt, czas, screenshot z bramki jakości, log aktywności i raport agenta.
-4. Wiersz **23** to przykład na żywo: **▶ uruchom** buduje dodatkowy slajd z `demo/specs/live/23-pixel-factory.md`.
-5. **Reset** zatrzymuje wszystko i usuwa wygenerowane slajdy.
+1. Open the dashboard and click **▶ Start factory**.
+2. Open the demo deck in a second tab. Slides that are still being built show an "in production" placeholder. Finished ones swap in on their own, without reloading the page.
+3. For every slide the dashboard shows the spec, model, tokens, cost, time, the quality-gate screenshot, the activity log and the agent's report.
+4. Row **23** is the live example: **▶ run** builds an extra slide from `demo/specs/live/23-pixel-factory.md`.
+5. **Reset** stops everything and deletes the generated slides.
 
-Szczegóły (endpointy API, zmienne środowiskowe, dokładne reguły bramki) są w [`demo/README.md`](demo/README.md).
+Details (API endpoints, environment variables, the exact gate rules) are in [`demo/README.md`](demo/README.md).
 
-## Jak działa fabryka
+## How the factory works
 
-To jest dokładnie wzorzec z prezentacji: **spec → agent → bramka → człowiek**.
+This is exactly the pattern from the talk: **spec → agent → gate → human**.
 
 ```
- specs/slides/NN.md ──► kolejka ──► agent (claude -p) ──► slides/NN.html ──► bramka (Playwright) ──► talia demo
-        ▲                              │      ▲                                   │
-   człowiek pisze spec                 └──────┘ verify_slide w pętli          nie przeszło 2× → fallback
-                                                                              na ręczny slajd z backupu
+ specs/slides/NN.md ──► queue ──► agent (claude -p) ──► slides/NN.html ──► gate (Playwright) ──► demo deck
+        ▲                            │      ▲                                   │
+   a human writes the spec           └──────┘ verify_slide in a loop       failed 2× → fallback
+                                                                           to the hand-made backup slide
 ```
 
-**Wejście: spec, nie prompt.** Każdy slajd ma plik w `demo/specs/slides/` z sekcjami: Cel · Treść · Układ · Komponenty · Kryteria · Notatki. Do tego frontmatter z regułami do sprawdzenia maszynowo, np. `must_include` (frazy, które muszą być widoczne) i `must_animate`. Wszyscy agenci dostają też wspólny design system: `demo/specs/design-system.md`.
+**Input: a spec, not a prompt.** Every slide has a file in `demo/specs/slides/` with the sections: Goal · Content · Layout · Components · Acceptance criteria · Speaker notes. Plus frontmatter with machine-checkable rules, e.g. `must_include` (phrases that must be visible) and `must_animate`. All agents also get a shared design system: `demo/specs/design-system.md`.
 
-**Pipeline dla każdego speca** (`demo/factory/worker.mjs`, domyślnie 6 równolegle):
-1. **HANDOVER** — świeża, bezgłowa sesja Claude Code (`claude -p`, domyślnie Opus 5.5) dostaje spec i ścieżkę wyjściową.
-2. **DISCOVER** — agent czyta design system, motyw i ręcznie zrobione slajdy.
-3. **IMPLEMENT** — agent pisze `demo/deck/slides/NN.html`.
-4. **VERIFY** — agent sam wywołuje narzędzie MCP `verify_slide`, ogląda screenshot i poprawia, aż przejdzie.
-5. **REPORT** — agent podsumowuje, co zrobił.
+**The pipeline for each spec** (`demo/factory/worker.mjs`, 6 in parallel by default):
+1. **HANDOVER** — a fresh, headless Claude Code session (`claude -p`, Opus 5.5 by default) gets the spec and the output path.
+2. **DISCOVER** — the agent reads the design system, the theme and the hand-made slides.
+3. **IMPLEMENT** — the agent writes `demo/deck/slides/NN.html`.
+4. **VERIFY** — the agent calls the `verify_slide` MCP tool itself, looks at the screenshot and fixes things until it passes.
+5. **REPORT** — the agent summarises what it did.
 
-**Nie ufamy agentowi, ufamy bramce.** Po raporcie worker sam jeszcze raz uruchamia bramkę (`demo/factory/verify.mjs`, Playwright). Sprawdza ona między innymi:
-- jeden root `<section class="s-NN">` i obecność notatek prelegenta,
-- brak `<script>` i zewnętrznych URL-i, CSS ograniczony do `.s-NN`,
-- brak błędów w konsoli i HTTP,
-- nic nie wystaje poza 1920×1080, żaden tekst nie jest ucięty,
-- wszystkie frazy `must_include` są widoczne.
+**We don't trust the agent, we trust the gate.** After the report, the worker runs the gate once more itself (`demo/factory/verify.mjs`, Playwright). Among other things it checks:
+- a single `<section class="s-NN">` root and the presence of speaker notes,
+- no `<script>` and no external URLs, CSS scoped to `.s-NN`,
+- no console or HTTP errors,
+- nothing sticks out of 1920×1080, no text is clipped,
+- all `must_include` phrases are visible.
 
-Jeśli bramka odrzuci slajd, agent dostaje jedną rundę poprawek w tej samej sesji. Za drugim razem slajd dostaje status `fallback` i talia pokazuje ręczny slajd z backupu.
+If the gate rejects a slide, the agent gets one fix round in the same session. If it fails a second time, the slide gets the `fallback` status and the deck shows the hand-made backup slide.
 
-**Ograniczone uprawnienia.** Agenci mają tylko `Read`/`Glob`/`Grep` i narzędzie `verify_slide`, a pisać mogą wyłącznie do swojego pliku slajdu. Nie mają shella, internetu ani subagentów. Nie mogą też podejrzeć gotowej odpowiedzi, czyli `index.html` z pełnej talii.
+**Limited permissions.** Agents only have `Read`/`Glob`/`Grep` and the `verify_slide` tool, and they may write only to their own slide file. They have no shell, no internet and no subagents. They also can't peek at the answer key, i.e. the full deck's `index.html`.
 
-**Obserwowalność.** Każdy run zapisuje zdarzenia, stan i raporty w `demo/runs/<run>/`, a screenshoty w `demo/shots/` (oba katalogi są w `.gitignore`). Dashboard czyta je na żywo przez SSE.
+**Observability.** Every run stores events, state and reports in `demo/runs/<run>/`, and screenshots in `demo/shots/` (both directories are in `.gitignore`). The dashboard reads them live over SSE.
 
-## Prezentowanie
+## Presenting
 
-1. Uruchom `npm run dev` (albo `npm run demo` dla wersji z fabryką) i otwórz talię w Chrome.
-2. Projektor ustaw jako rozszerzony ekran (nie lustro).
-3. `S` otwiera speaker view z notatkami, timerem i następnym slajdem. Zostaw go na laptopie.
-4. Okno prezentacji przeciągnij na projektor i naciśnij `F`.
+1. Run `npm run dev` (or `npm run demo` for the factory version) and open the deck in Chrome.
+2. Set the projector as an extended display (not mirrored).
+3. `S` opens the speaker view with notes, a timer and the next slide. Keep it on the laptop.
+4. Drag the presentation window to the projector and press `F`.
 
-| Klawisz | Akcja |
+| Key | Action |
 |---|---|
-| `→` / `Space` | następny slajd |
-| `←` | poprzedni slajd |
-| `S` | speaker view (notatki + timer) |
+| `→` / `Space` | next slide |
+| `←` | previous slide |
+| `S` | speaker view (notes + timer) |
 | `F` | fullscreen |
-| `O` / `Esc` | przegląd wszystkich slajdów |
-| `B` / `.` | wygaszenie ekranu |
+| `O` / `Esc` | overview of all slides |
+| `B` / `.` | blank the screen |
 
-## Struktura repo
+## Repo structure
 
 ```
-index.html                 pełna talia: 22 slajdy + notatki prelegenta (<aside class="notes">)
-src/main.js                konfiguracja reveal.js (1920×1080, bez fragmentów) i dekoracje w tle
-src/theme.css              neobrutalny motyw i komponenty slajdów
-src/factory.js|.css        pixel-art AI Factory (obecnie nieużywana w pełnej talii)
-src/typewriter.js          efekt pisania kodu (obecnie niepodpięty)
-scripts/export-pdf.mjs     eksport PDF (puppeteer-core + lokalny Chrome)
-talk.md, talk-v2.md        notatki prelegenta: szkic i wersja finalna
+index.html                 full deck: 22 slides + speaker notes (<aside class="notes">)
+src/main.js                reveal.js config (1920×1080, no fragments) and background decorations
+src/theme.css              neobrutalist theme and slide components
+src/factory.js|.css        pixel-art AI Factory (currently unused in the full deck)
+src/typewriter.js          code-typing effect (currently not wired up)
+scripts/export-pdf.mjs     PDF export (puppeteer-core + local Chrome)
+talk.md, talk-v2.md        speaker notes: draft and final version
 
 demo/
-  specs/design-system.md   design system dla wszystkich agentów
-  specs/slides/NN-*.md     jeden spec na slajd (06–22)
-  specs/live/23-*.md       przykład na żywo, uruchamiany ręcznie
-  deck/                    talia demo: 5 ręcznych slajdów + miejsce na slajd z każdego speca
-  deck/slides/NN.html      tu (i tylko tu) piszą agenci
-  dashboard/               dashboard obserwowalności
-  factory/server.mjs       jeden proces: Vite + API fabryki (SSE)
-  factory/worker.mjs       kolejka → claude -p dla każdego speca, fazy, bramka, metryki
-  factory/verify.mjs       bramka jakości (Playwright)
-  factory/mcp.mjs          serwer MCP z narzędziem verify_slide dla agentów
+  specs/design-system.md   design system for all agents
+  specs/slides/NN-*.md     one spec per slide (06–22)
+  specs/live/23-*.md       live example, triggered manually
+  deck/                    demo deck: 5 hand-made slides + a slot for each spec's slide
+  deck/slides/NN.html      agents write here (and only here)
+  dashboard/               observability dashboard
+  factory/server.mjs       one process: Vite + factory API (SSE)
+  factory/worker.mjs       queue → claude -p per spec, phases, gate, metrics
+  factory/verify.mjs       quality gate (Playwright)
+  factory/mcp.mjs          MCP server with the verify_slide tool for the agents
 ```
 
-## Zdjęcia
+## Photos
 
-Slajd „Od sierpa do floty kombajnów” (`src/assets/harvest/`), wszystkie z Wikimedia Commons:
+The "From sickle to a fleet of combines" slide (`src/assets/harvest/`), all from Wikimedia Commons:
 
 - `sickle.jpg` — [Traditional fonio harvest with a sickle, Natitingou](https://commons.wikimedia.org/wiki/File:Traditional_fonio_harvest_with_a_sickle,_Natitingou,_northern_Benin.jpg) · Crop Trust · CC BY-SA 4.0
 - `reaper.jpg` — [Drie paarden trekken een maaimachine (zelfbinder)](https://commons.wikimedia.org/wiki/File:Drie_paarden_trekken_een_maaimachine_die_tevens_schoven_bindt_(zelfbinder),_Bestanddeelnr_190-1099.jpg) · Willem van de Poll / Nationaal Archief · CC0

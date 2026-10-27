@@ -10,16 +10,16 @@ import './dashboard.css';
 const TZ = 'Europe/Warsaw';
 const PHASES = ['handover', 'discover', 'implement', 'verify', 'report'];
 const STATUS = {
-  idle: ['czeka', ''], queued: ['w kolejce', 'muted'], running: ['buduje', 'yellow'], gate: ['bramka', 'blue'],
-  done: ['gotowe', 'green'], fallback: ['fallback', 'pink'], failed: ['błąd', 'red'], stopped: ['stop', 'muted'], interrupted: ['przerwane', 'muted'],
+  idle: ['waiting', ''], queued: ['queued', 'muted'], running: ['building', 'yellow'], gate: ['gate', 'blue'],
+  done: ['done', 'green'], fallback: ['fallback', 'pink'], failed: ['failed', 'red'], stopped: ['stopped', 'muted'], interrupted: ['interrupted', 'muted'],
 };
 
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-const timeFmt = new Intl.DateTimeFormat('pl-PL', { timeZone: TZ, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+const timeFmt = new Intl.DateTimeFormat('en-GB', { timeZone: TZ, hour: '2-digit', minute: '2-digit', second: '2-digit' });
 const tzName = () => new Intl.DateTimeFormat('en-GB', { timeZone: TZ, timeZoneName: 'short' }).formatToParts(new Date()).find((p) => p.type === 'timeZoneName').value;
 const clock = (iso) => (iso ? timeFmt.format(new Date(iso)) : '—');
-const num = (n) => (n ? n.toLocaleString('pl-PL') : '0');
+const num = (n) => (n ? n.toLocaleString('en-GB') : '0');
 const short = (n) => (n >= 1e6 ? `${(n / 1e6).toFixed(2)} M` : n >= 1e3 ? `${(n / 1e3).toFixed(1)} k` : String(n));
 const usd = (n) => `$${(n ?? 0).toFixed(2)}`;
 const dur = (ms) => {
@@ -52,19 +52,19 @@ function renderKpis() {
   const running = specs.filter((j) => ['running', 'gate'].includes(j.status)).length;
 
   const tiles = [
-    ['Slajdy gotowe', `${built}<small>/${specs.length}</small>`, fallback ? `${fallback} × fallback` : `${running} w produkcji`, 'yellow'],
-    ['Tokeny', short(tok), `out ${short(sum((j) => j.usage.output))} · cache ${short(sum((j) => j.usage.cacheRead))}`, ''],
-    ['Koszt (API)', usd(sum((j) => j.costUsd)), finished.length ? `${usd(sum((j) => j.costUsd) / Math.max(1, finished.length))} / slajd` : '—', ''],
-    ['Czas fabryki', dur(wall), run?.startedAt ? `start ${clock(run.startedAt)}` : '—', 'blue'],
-    ['Śr. czas / slajd', dur(avg), `równolegle: ${state.concurrency}`, ''],
-    ['Bramka za 1. razem', finished.length ? `${Math.round((firstTry / finished.length) * 100)}%` : '—', `${sum((j) => j.toolCalls)} wywołań narzędzi`, 'green'],
+    ['Slides done', `${built}<small>/${specs.length}</small>`, fallback ? `${fallback} × fallback` : `${running} in production`, 'yellow'],
+    ['Tokens', short(tok), `out ${short(sum((j) => j.usage.output))} · cache ${short(sum((j) => j.usage.cacheRead))}`, ''],
+    ['Cost (API)', usd(sum((j) => j.costUsd)), finished.length ? `${usd(sum((j) => j.costUsd) / Math.max(1, finished.length))} / slide` : '—', ''],
+    ['Factory time', dur(wall), run?.startedAt ? `start ${clock(run.startedAt)}` : '—', 'blue'],
+    ['Avg time / slide', dur(avg), `concurrency: ${state.concurrency}`, ''],
+    ['Gate on 1st try', finished.length ? `${Math.round((firstTry / finished.length) * 100)}%` : '—', `${sum((j) => j.toolCalls)} tool calls`, 'green'],
   ];
   $('#kpis').innerHTML = tiles
     .map(([k, v, s, c]) => `<div class="kpi card ${c}"><span class="label">${k}</span><b>${v}</b><small>${esc(s)}</small></div>`)
     .join('');
   $('#run-info').textContent = run
-    ? `run ${run.id} · ${state.model} · ${run.finishedAt ? `zakończony ${clock(run.finishedAt)}` : 'w toku'}`
-    : `gotowa · ${state.model} · ${state.specs.length} specyfikacji`;
+    ? `run ${run.id} · ${state.model} · ${run.finishedAt ? `finished ${clock(run.finishedAt)}` : 'in progress'}`
+    : `ready · ${state.model} · ${state.specs.length} specs`;
 }
 
 function renderRows() {
@@ -78,7 +78,7 @@ function renderRows() {
         return `<i class="${c}" title="${p}">${p[0].toUpperCase()}</i>`;
       }).join('');
       const run = j.kind === 'live' && !['running', 'gate', 'queued'].includes(j.status)
-        ? `<button class="btn tiny yellow" data-run="${j.id}">▶ uruchom</button>` : '';
+        ? `<button class="btn tiny yellow" data-run="${j.id}">▶ run</button>` : '';
       return `<tr data-id="${j.id}" class="${j.id === selected ? 'sel' : ''} ${j.kind}">
         <td class="mono">${j.id}</td>
         <td><b>${esc(j.title)}</b><small>${esc(j.file)}</small>${run}</td>
@@ -133,29 +133,29 @@ async function renderDetail() {
     body.innerHTML = `<div class="md">${md(specCache.get(j.id))}</div>`;
   } else if (tab === 'shot') {
     body.innerHTML = j.gate?.shot
-      ? `<img class="shot" src="/api/shot/${j.id}?t=${Date.parse(j.gate.at)}" alt="screenshot slajdu ${j.id}" />
-         <div class="gate ${j.gate.ok ? 'ok' : 'bad'}">${j.gate.ok ? '✅ Bramka Playwright: PASS' : `❌ Bramka: ${j.gate.problems.length} problem(y)`}</div>
+      ? `<img class="shot" src="/api/shot/${j.id}?t=${Date.parse(j.gate.at)}" alt="screenshot of slide ${j.id}" />
+         <div class="gate ${j.gate.ok ? 'ok' : 'bad'}">${j.gate.ok ? '✅ Playwright gate: PASS' : `❌ Gate: ${j.gate.problems.length} problem(s)`}</div>
          ${j.gate.ok ? '' : `<ul class="problems">${j.gate.problems.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>`}`
-      : `<p class="empty">Screenshot pojawi się po bramce jakości (Playwright, headless, 1920×1080).</p>`;
+      : `<p class="empty">The screenshot appears after the quality gate (Playwright, headless, 1920×1080).</p>`;
   } else if (tab === 'activity') {
     body.innerHTML = activity.length
       ? `<ol class="log">${activity.map((a) => `<li class="t-${a.type}"><time>${clock(a.ts)}</time><span>${esc(a.text)}</span></li>`).join('')}</ol>`
-      : `<p class="empty">Brak aktywności.</p>`;
+      : `<p class="empty">No activity yet.</p>`;
     body.scrollTop = body.scrollHeight;
   } else if (tab === 'report') {
     body.innerHTML = `
       <dl class="facts">
         <dt>Model</dt><dd>${esc(j.model)}</dd>
-        <dt>Sesja</dt><dd class="mono">${esc(j.sessionId ?? '—')}</dd>
-        <dt>Wywołano</dt><dd>${clock(j.triggeredAt)} ${tzName()}</dd>
-        <dt>Start → koniec</dt><dd>${clock(j.startedAt)} → ${clock(j.finishedAt)}</dd>
-        <dt>Czas całkowity</dt><dd>${dur(elapsed(j))} (API ${dur(j.apiMs)})</dd>
-        <dt>Tokeny</dt><dd>in ${num(j.usage.input)} · out ${num(j.usage.output)} · cache read ${num(j.usage.cacheRead)} · cache write ${num(j.usage.cacheWrite)}</dd>
-        <dt>Tury / narzędzia</dt><dd>${j.turns} / ${j.toolCalls}</dd>
-        <dt>Koszt (API)</dt><dd>${usd(j.costUsd)}</dd>
-        <dt>Próby</dt><dd>${j.attempts}</dd>
+        <dt>Session</dt><dd class="mono">${esc(j.sessionId ?? '—')}</dd>
+        <dt>Triggered</dt><dd>${clock(j.triggeredAt)} ${tzName()}</dd>
+        <dt>Start → finish</dt><dd>${clock(j.startedAt)} → ${clock(j.finishedAt)}</dd>
+        <dt>Total time</dt><dd>${dur(elapsed(j))} (API ${dur(j.apiMs)})</dd>
+        <dt>Tokens</dt><dd>in ${num(j.usage.input)} · out ${num(j.usage.output)} · cache read ${num(j.usage.cacheRead)} · cache write ${num(j.usage.cacheWrite)}</dd>
+        <dt>Turns / tools</dt><dd>${j.turns} / ${j.toolCalls}</dd>
+        <dt>Cost (API)</dt><dd>${usd(j.costUsd)}</dd>
+        <dt>Attempts</dt><dd>${j.attempts}</dd>
       </dl>
-      ${j.report ? `<div class="md report">${md(j.report)}</div>` : '<p class="empty">Raport pojawi się po fazie REPORT.</p>'}`;
+      ${j.report ? `<div class="md report">${md(j.report)}</div>` : '<p class="empty">The report appears after the REPORT phase.</p>'}`;
   }
 }
 
@@ -240,7 +240,7 @@ es.addEventListener('log', (e) => {
     if (tab === 'activity') renderDetail();
   }
 });
-es.onerror = () => ($('#run-info').textContent = 'brak połączenia z fabryką — czy działa `npm run demo`?');
+es.onerror = () => ($('#run-info').textContent = 'no connection to the factory — is `npm run demo` running?');
 
 setInterval(() => {
   $('#clock').textContent = timeFmt.format(new Date());

@@ -1,66 +1,65 @@
 ---
 id: "07"
 order: 7
-title: "Od pisania kodu → do projektowania intencji"
+title: "From writing code → to designing intent"
 section: "01 · Mindset"
 tag: "yellow"
 must_include:
-  - "projektowania intencji"
-  - "STARY MINDSET"
-  - "NOWY MINDSET"
-  - "Jak to zakodować?"
-  - "Jakich reguł nie wolno złamać?"
-  - "Jak szybko dostarczyliśmy poprawny system?"
-  - "Jednostka pracy:"
-  - "specyfikacja"
+  - "designing intent"
+  - "OLD MINDSET"
+  - "NEW MINDSET"
+  - "How do I code this?"
+  - "Which rules must never be broken?"
+  - "How fast did we ship a correct system?"
+  - "Unit of work:"
+  - "spec"
 ---
 
-# 07 · Od pisania kodu → do projektowania intencji
+# 07 · From writing code → to designing intent
 
-## Cel
-Zestawić pytania, które developer zadawał sobie „po staremu”, z pytaniami, które zadaje dziś. Wniosek: jednostką pracy przestaje być kod, staje się nią specyfikacja.
+## Goal
+Contrast the questions a developer used to ask "the old way" with the questions they ask today. The takeaway: code stops being the unit of work; the spec becomes the unit of work.
 
-## Treść
-**Tag:** `01 · Mindset` (żółty wariant)
+## Content
+**Tag:** `01 · Mindset` (yellow variant)
 
-**Nagłówek (h2, nieco mniejszy, ok. 68 px):** `Od pisania kodu → do` + `projektowania intencji` (to wyróżnione markerem — żółty highlight)
+**Heading (h2, slightly smaller, about 68 px):** `From writing code → to` + `designing intent` (highlighted with a marker — yellow highlight)
 
-**Tabela „vs” — nagłówek kolumn:**
-- lewa: `STARY MINDSET` (przygaszony)
-- środek: pusto
-- prawa: `NOWY MINDSET`
+**"vs" table — column headers:**
+- left: `OLD MINDSET` (dimmed)
+- middle: empty
+- right: `NEW MINDSET`
 
-**Wiersze (lewa → prawa, w środku strzałka `→`):**
-1. `Jak to zakodować?` → `Co dokładnie chcemy osiągnąć?`
-2. `Jak napisać tę klasę?` → `Jaki powinien być kontrakt?`
-3. `Jak zrobić endpoint?` → `Jakich reguł nie wolno złamać?`
-4. `Czy kod wygląda dobrze?` → `Czy rozwiązanie spełnia spec?`
-5. `Ile kodu napisałem?` → `Jak szybko dostarczyliśmy poprawny system?`
+**Rows (left → right, with a `→` arrow in the middle):**
+1. `How do I code this?` → `What exactly do we want to achieve?`
+2. `How do I write this class?` → `What should the contract be?`
+3. `How do I build this endpoint?` → `Which rules must never be broken?`
+4. `Does the code look good?` → `Does the solution meet the spec?`
+5. `How much code did I write?` → `How fast did we ship a correct system?`
 
-**Puenta pod tabelą (font nagłówkowy, ok. 50 px):**
-`Jednostka pracy:` `kod` (przekreślony) `→` `specyfikacja` (marker różowy)
+**Punchline below the table (heading font, about 50 px):**
+`Unit of work:` `code` (struck through) `→` `spec` (pink marker)
 
-## Układ
-- Slajd „top”: tag, nagłówek, tabela vs (~10 px pod nagłówkiem), puenta (~10 px pod tabelą).
-- Tabela w trzech kolumnach: stara (lewa), wąska kolumna ze strzałką (środek), nowa (prawa). Lewa kolumna wizualnie słabsza (stary sposób), prawa mocniejsza.
-- Każdy wiersz to osobny element (w deku pojawiał się kolejno), ale na slajdzie wszystkie wiersze są widoczne.
-- Puenta wyrównana do lewej, duża, w foncie nagłówkowym.
+## Layout
+- A "top" slide: tag, heading, vs table (~10 px below the heading), punchline (~10 px below the table).
+- The table has three columns: old (left), a narrow arrow column (middle), new (right). The left column is visually weaker (the old way), the right one stronger.
+- Each row is a separate element (in the deck they appeared one by one), but on the slide all rows are visible.
+- The punchline is left-aligned, large, in the heading font.
 
-## Komponenty
-- `section.top`, `span.tag.yellow`, `h2` z `span.mark`
-- `.vs` z wierszami `.vsrow`; w wierszu nagłówkowym `.head` (lewa `.head.muted`), w wierszach treści `.old`, `.to` (strzałka), `.new`
-- Puenta: akapit w `var(--font-head)`, `span.strike-line` dla „kod”, `span.mark.pink` dla „specyfikacja”
+## Components
+- `section.top`, `span.tag.yellow`, `h2` with `span.mark`
+- `.vs` with `.vsrow` rows; in the header row `.head` (left one `.head.muted`), in content rows `.old`, `.to` (arrow), `.new`
+- Punchline: a paragraph in `var(--font-head)`, `span.strike-line` for "code", `span.mark.pink` for "spec"
 
-## Kryteria akceptacji
-- [ ] Pięć wierszy w podanej kolejności, każdy ze strzałką `→` między kolumnami.
-- [ ] „STARY MINDSET” przygaszony, „NOWY MINDSET” wyraźny.
-- [ ] „kod” przekreślony, „specyfikacja” na różowym markerze.
-- [ ] Mieści się w 1920×1080, brak overflow.
-- [ ] Notatki prelegenta obecne.
+## Acceptance criteria
+- [ ] Five rows in the given order, each with a `→` arrow between the columns.
+- [ ] "OLD MINDSET" dimmed, "NEW MINDSET" prominent.
+- [ ] "code" struck through, "spec" on a pink marker.
+- [ ] Fits in 1920×1080, no overflow.
+- [ ] Speaker notes present.
 
-## Notatki prelegenta
+## Speaker notes
 **[6:15–7:30]**
-Przejdź przez wiersze — lewa kolumna to pytania, które zadawaliśmy sobie do tej pory, prawa to pytania, które zadajemy dziś.
-Przy „Jakich reguł nie wolno złamać?” daj przykład: płatność nigdy nie może przekroczyć kwoty, która została do zapłaty na fakturze.
-Kluczowe zdanie na koniec: „Jednostką pracy przestaje być kod. Staje się nią specyfikacja.”
-→ Przejście: „Pokażę to na przykładzie, który będzie nam towarzyszył do końca.”
+Developers no longer have to rack their brains over how to code something and whether the code follows every SOLID principle.
+They should focus on **what** they want to achieve and **which rules** have to hold.
+Code stops being the unit of work. **The spec becomes the unit of work.**

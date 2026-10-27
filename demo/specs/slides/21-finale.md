@@ -1,46 +1,46 @@
 ---
 id: "21"
 order: 21
-title: "Finał: przyszłość software developmentu"
-section: "Podsumowanie"
+title: "Finale: the future of software development"
+section: "Recap"
 tag: "none"
 must_include:
-  - "Przyszłość software developmentu"
-  - "to nie"
-  - "AI piszące kod."
-  - "To ludzie projektujący systemy, które niezawodnie produkują software."
+  - "The future of software development"
+  - "isn't"
+  - "AI writing code."
+  - "It's people designing systems that reliably produce software."
 ---
 
-# 21 · Finał
+# 21 · Finale
 
-## Cel
-Ostatni slajd treści — jedno zdanie-manifest na czarnym tle. Ma wybrzmieć w ciszy: pierwsza część obala oczekiwanie („AI piszące kod” przekreślone), druga daje odpowiedź w żółci.
+## Goal
+The last content slide — a single manifesto sentence on a black background. It should land in silence: the first part overturns the expectation (“AI writing code” struck through), the second gives the answer in yellow.
 
-## Treść
-**Brak taga i nagłówka.**
+## Content
+**No tag and no heading.**
 
-Dwa akapity, font nagłówkowy, ~84px:
+Two paragraphs, heading font, ~84px:
 
-1. „Przyszłość software developmentu⏎to nie ~~AI piszące kod.~~” — kolor kremowy (`var(--cream)`), „AI piszące kod.” przekreślone grubą linią.
-2. „To ludzie projektujący systemy, które niezawodnie produkują software.” — kolor żółty (`var(--yellow)`).
+1. “The future of software development⏎isn't ~~AI writing code.~~” — cream color (`var(--cream)`), “AI writing code.” struck through with a thick line.
+2. “It's people designing systems that reliably produce software.” — yellow (`var(--yellow)`).
 
-## Układ
-- Ciemny slajd: sekcja z klasą `dark`, tło `#111111` ustawione przez `data-background-color="#111111"`, oraz `data-state="no-floaters"` (wyłącza pływające dekoracje w marginesach).
-- Sekcja BEZ `top` — treść wyśrodkowana pionowo, wyrównana do lewej.
-- Dwa akapity jeden pod drugim, ogromne, dużo powietrza. Nic więcej na slajdzie.
+## Layout
+- Dark slide: section with class `dark`, background `#111111` set via `data-background-color="#111111"`, plus `data-state="no-floaters"` (turns off the floating decorations in the margins).
+- Section WITHOUT `top` — content vertically centered, left-aligned.
+- Two paragraphs one below the other, huge, lots of breathing room. Nothing else on the slide.
 
-## Komponenty
-- `section.dark` z atrybutami `data-background-color="#111111"` i `data-state="no-floaters"`
-- `p.huge` ×2 (rozmiar inline 84px), kolory przez `color: var(--cream)` i `color: var(--yellow)`
-- `span.strike-line` na „AI piszące kod.”
+## Components
+- `section.dark` with the attributes `data-background-color="#111111"` and `data-state="no-floaters"`
+- `p.huge` ×2 (inline size 84px), colors via `color: var(--cream)` and `color: var(--yellow)`
+- `span.strike-line` on “AI writing code.”
 
-## Kryteria akceptacji
-- [ ] Mieści się w 1920×1080 bez przewijania i bez ucinania tekstu.
-- [ ] Tło czarne (#111111), brak pływających dekoracji.
-- [ ] Pierwsze zdanie kremowe z przekreśleniem, drugie żółte.
-- [ ] Notatki prelegenta w `<aside class="notes">`.
+## Acceptance criteria
+- [ ] Fits in 1920×1080 with no scrolling and no clipped text.
+- [ ] Black background (#111111), no floating decorations.
+- [ ] First sentence cream with the strike-through, second in yellow.
+- [ ] Speaker notes in `<aside class="notes">`.
 
-## Notatki prelegenta
-**[24:30–25:00]** Ostatni slajd treści. Przeczytaj powoli, oba zdania naraz są na ekranie.
-„Przyszłość software developmentu to nie AI piszące kod. To ludzie projektujący systemy, które niezawodnie produkują software.”
-Pauza. Dziękuję.
+## Speaker notes
+**[24:30–25:00]**
+*[pause]*
+“The future of software development isn't AI writing code. It's people designing systems that reliably produce software.”

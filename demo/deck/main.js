@@ -20,7 +20,7 @@ function placeholder(job) {
     <span class="tag ${job.tag && job.tag !== 'default' ? esc(job.tag) : ''}">${esc(job.section)}</span>
     <h2>${esc(job.title)}</h2>
     <div class="ph-card card ink">
-      <div class="ph-head"><span class="ph-blink">■</span> SLAJD ${esc(job.id)} · <b class="ph-status"></b></div>
+      <div class="ph-head"><span class="ph-blink">■</span> SLIDE ${esc(job.id)} · <b class="ph-status"></b></div>
       <div class="ph-phases">${PHASES.map((p) => `<span data-phase="${p}">${p.toUpperCase()}</span>`).join('<i>→</i>')}</div>
       <div class="ph-meta"></div>
     </div>
@@ -29,10 +29,10 @@ function placeholder(job) {
   return sec;
 }
 
-const STATUS_PL = { idle: 'czeka', queued: 'w kolejce', running: 'w produkcji', gate: 'bramka jakości', done: 'gotowe', fallback: 'fallback', failed: 'błąd', stopped: 'zatrzymane', interrupted: 'przerwane' };
+const STATUS_LABELS = { idle: 'waiting', queued: 'queued', running: 'in production', gate: 'quality gate', done: 'done', fallback: 'fallback', failed: 'failed', stopped: 'stopped', interrupted: 'interrupted' };
 
 function updatePlaceholder(sec, job) {
-  sec.querySelector('.ph-status').textContent = (STATUS_PL[job.status] ?? job.status).toUpperCase();
+  sec.querySelector('.ph-status').textContent = (STATUS_LABELS[job.status] ?? job.status).toUpperCase();
   const cur = PHASES.indexOf(job.phase);
   sec.querySelectorAll('.ph-phases span').forEach((el, i) => {
     el.classList.toggle('done', i < cur || BUILT.includes(job.status));
@@ -40,7 +40,7 @@ function updatePlaceholder(sec, job) {
   });
   const u = job.usage ?? {};
   const tokens = (u.input ?? 0) + (u.output ?? 0) + (u.cacheRead ?? 0) + (u.cacheWrite ?? 0);
-  sec.querySelector('.ph-meta').textContent = `${job.model} · ${fmtK(tokens)} tokenów · ${job.toolCalls ?? 0} narzędzi${job.lastActivity ? ` · ${job.lastActivity.text}` : ''}`.slice(0, 120);
+  sec.querySelector('.ph-meta').textContent = `${job.model} · ${fmtK(tokens)} tokens · ${job.toolCalls ?? 0} tools${job.lastActivity ? ` · ${job.lastActivity.text}` : ''}`.slice(0, 120);
 }
 
 async function fetchSlide(id) {

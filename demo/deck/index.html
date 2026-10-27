@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="data:," />
-    <title>Koniec klepania kodu? · AI Factory demo</title>
-    <meta name="description" content="Spec-driven development i AI Factories w nowoczesnych zespołach — tech talk" />
+    <title>The End of Hand-Coding? · AI Factory demo</title>
+    <meta name="description" content="Spec-driven development and AI factories in modern teams — tech talk" />
   </head>
   <body>
     <div class="reveal">
@@ -17,13 +17,13 @@
         <section class="title-slide" data-state="title">
           <span class="tag">Brave AI Szczecin Oct'26</span>
           <div class="deco"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          <h1 class="enter slam-e">Koniec<br /><span class="mark">klepania</span><br />kodu?<span class="caret"></span></h1>
-          <p class="sub enter" style="--i: 4">Spec-driven development w nowoczesnych zespołach</p>
+          <h1 class="enter slam-e">The End<br />of <span class="mark">Hand-</span><br />Coding?<span class="caret"></span></h1>
+          <p class="sub enter" style="--i: 4">Spec-driven development in modern teams</p>
           <div class="speaker enter" style="--i: 6"><span class="avatar"></span> Paul Rugała</div>
           <aside class="notes">
             <p><b>[0:00–0:30]</b></p>
-            <p>Cześć, jestem Paul. Przez ostatni rok sporo kodu w moich projektach napisały agenty AI, a nie ja. Dziś opowiem, co to zmienia w naszej pracy.</p>
-            <p>Plan na 25 minut: najpierw punkt wyjścia i zmiana myślenia, potem spec-driven development, a na koniec — jak to przeskalować do „AI Factory”.</p>
+            <p>Hi, I'm Paul. Over the past year, a lot of the code in my projects was written by AI agents, not by me. Today I'll talk about what that changes in our work.</p>
+            <p>The plan for 25 minutes: first the starting point and the shift in thinking, then spec-driven development, and finally — how to scale it up to an “AI Factory”.</p>
           </aside>
         </section>
 
@@ -31,37 +31,37 @@
              01 · HOOK — Bun rewritten in Rust: 3 person-years → 11 days
              ============================================================ -->
         <section class="top">
-          <span class="tag">00 · Punkt wyjścia</span>
-          <h2>Bun przepisany na <span class="mark">Rusta</span></h2>
-          <p class="lead" style="margin-top: -20px">Jarred Sumner, twórca Bun (dziś w Anthropic)</p>
+          <span class="tag">00 · Starting point</span>
+          <h2>Bun rewritten in <span class="mark">Rust</span></h2>
+          <p class="lead" style="margin-top: -20px">Jarred Sumner, creator of Bun (now at Anthropic)</p>
           <div class="bun">
             <div class="bun-row">
-              <span class="bun-label">Szacunek w Anthropic</span>
-              <div class="bun-bar est"><b>3 senior engineerów × 1 rok ≈ 750 osobodni</b></div>
+              <span class="bun-label">Anthropic's estimate</span>
+              <div class="bun-bar est"><b>3 senior engineers × 1 year ≈ 750 person-days</b></div>
             </div>
             <div class="bun-row">
-              <span class="bun-label">Rzeczywistość</span>
+              <span class="bun-label">Reality</span>
               <div class="bun-track">
                 <div class="bun-bar real"></div>
-                <b class="bun-real-label">1 inżynier + AI × 11 dni = 11 osobodni</b>
-                <span class="stamp bun-stamp">70× szybciej</span>
+                <b class="bun-real-label">1 engineer + AI × 11 days = 11 person-days</b>
+                <span class="stamp bun-stamp">70× faster</span>
               </div>
             </div>
           </div>
           <div class="card ink" style="padding: 24px 34px">
             <p style="font-family: var(--font-head); font-size: 40px; line-height: 1.2">
-              Możemy to ignorować. Możemy szukać dziury w całym.<br />
-              <span style="color: var(--yellow)">Ignorowanie wygląda tak: bawisz się AI, zamiast o to walczyć.</span>
+              We can ignore it. We can pick holes in it.<br />
+              <span style="color: var(--yellow)">Ignoring it looks like this: playing with AI instead of fighting for it.</span>
             </p>
           </div>
           <aside class="notes">
-            <p><b>[0:30–1:30]</b> Zacznij od historii, nie od tezy.</p>
-            <p>„Kilka dni temu Jarred Sumner, twórca Bun — dziś pracuje w Anthropic — ogłosił, że przepisał cały Bun na Rusta. Sam. W 11 dni.”</p>
-            <p>„Wewnętrzny szacunek w Anthropic: zespół trzech senior engineerów, jeden rok.” Pokaż paski: górny to trzy osobolata, czyli ok. 750 osobodni roboczych, dolny — 11 osobodni. Ten dolny prawie nie istnieje: to ok. 70× szybciej.</p>
-            <p>„Możemy to ignorować, możemy szukać dziury w całym. Ale najlepsze zespoły na świecie mówią: to, co zajmowało trzy osobolata, dziś zajmuje jednej osobie 11 dni. Ignorowanie wygląda tak: bawimy się AI, zamiast o to walczyć.”</p>
-            <p>→ Przejście: „Takie skoki już kiedyś widzieliśmy. Nie w IT.”</p>
-            <p>[Liczby: 3 osoby × ~250 dni roboczych ≈ 750 osobodni; 750 / 11 ≈ 70×. Jeśli ktoś policzy dni kalendarzowe: 3 × 365 / 11 ≈ 100×. „70×” to ostrożna wersja.]</p>
-            <p>[Przed występem: sprawdź źródło i datę ogłoszenia, żeby móc odpowiedzieć na pytanie „skąd to wiesz?”.]</p>
+            <p><b>[0:30–1:30]</b> Open with the story, not the thesis.</p>
+            <p>“A few days ago Jarred Sumner, the creator of Bun — who now works at Anthropic — announced that he had rewritten all of Bun in Rust. On his own. In 11 days.”</p>
+            <p>“The internal estimate at Anthropic: a team of three senior engineers, one year.” Show the bars: the top one is three person-years, roughly 750 working days; the bottom one — 11 person-days. The bottom one barely exists: that's about 70× faster.</p>
+            <p>“We can ignore it, we can pick holes in it. But the best teams in the world are saying: what used to take three person-years now takes one person 11 days. Ignoring it looks like this: playing with AI instead of fighting for it.”</p>
+            <p>→ Transition: “We've seen leaps like this before. Just not in IT.”</p>
+            <p>[Numbers: 3 people × ~250 working days ≈ 750 person-days; 750 / 11 ≈ 70×. If someone counts calendar days: 3 × 365 / 11 ≈ 100×. “70×” is the conservative version.]</p>
+            <p>[Before the talk: check the source and the announcement date so you can answer “how do you know?”.]</p>
           </aside>
         </section>
 
@@ -69,8 +69,8 @@
              02 · HARVEST — productivity leaps: sickle → fleet of combines
              ============================================================ -->
         <section class="top">
-          <span class="tag">00 · Punkt wyjścia</span>
-          <h2 style="font-size: 72px">Od sierpa do <span class="mark green">floty kombajnów</span></h2>
+          <span class="tag">00 · Starting point</span>
+          <h2 style="font-size: 72px">From sickle to a <span class="mark green">fleet of combines</span></h2>
           <div class="hv">
             <svg class="hv-axes" viewBox="0 0 1660 760" fill="none">
               <g stroke="#111" stroke-opacity="0.16" stroke-width="2" stroke-dasharray="6 8">
@@ -83,37 +83,37 @@
               <path d="M1660 700 l-18 -10 v20 Z M120 20 l-10 18 h20 Z" fill="#111" />
               <g class="ylab" fill="#111" text-anchor="end">
                 <text x="104" y="68">1000</text><text x="104" y="228">100</text><text x="104" y="388">10</text>
-                <text x="104" y="548">1</text><text x="104" y="708">0,1</text>
+                <text x="104" y="548">1</text><text x="104" y="708">0.1</text>
               </g>
-              <text class="axis" transform="translate(34 360) rotate(-90)" text-anchor="middle" fill="#111">produktywność · ha / osobę / dzień</text>
-              <text class="axis" x="890" y="748" text-anchor="middle" fill="#111">wysiłek, żeby się nauczyć →</text>
+              <text class="axis" transform="translate(34 360) rotate(-90)" text-anchor="middle" fill="#111">productivity · ha / person / day</text>
+              <text class="axis" x="890" y="748" text-anchor="middle" fill="#111">effort to learn →</text>
             </svg>
             <figure class="hv-photo enter" style="--i: 1; left: 160px; top: 495px; width: 250px; height: 165px">
-              <img src="/src/assets/harvest/sickle.jpg" alt="Żniwa sierpem" style="object-position: 30% 60%" />
-              <figcaption>Sierp i kosa</figcaption>
+              <img src="/src/assets/harvest/sickle.jpg" alt="Harvesting with a sickle" style="object-position: 30% 60%" />
+              <figcaption>Sickle and scythe</figcaption>
             </figure>
             <figure class="hv-photo enter" style="--i: 2; left: 450px; top: 355px; width: 310px; height: 205px">
-              <img src="/src/assets/harvest/reaper.jpg" alt="Konna żniwiarka-snopowiązałka" style="object-position: 15% 70%" />
-              <figcaption>Żniwiarka i młockarnia</figcaption>
+              <img src="/src/assets/harvest/reaper.jpg" alt="Horse-drawn reaper-binder" style="object-position: 15% 70%" />
+              <figcaption>Reaper and thresher</figcaption>
             </figure>
             <figure class="hv-photo enter" style="--i: 3; left: 820px; top: 175px; width: 370px; height: 245px">
-              <img src="/src/assets/harvest/combine.jpg" alt="Kombajn w zbożu" style="object-position: 50% 45%" />
-              <figcaption>Kombajn</figcaption>
+              <img src="/src/assets/harvest/combine.jpg" alt="Combine harvester in a grain field" style="object-position: 50% 45%" />
+              <figcaption>Combine</figcaption>
             </figure>
             <figure class="hv-photo hv-fleet enter" style="--i: 4; left: 1200px; top: 10px; width: 460px; height: 255px">
-              <img src="/src/assets/harvest/fleet.jpg" alt="Kilkanaście kombajnów pracujących w szyku na polu pszenicy" />
-              <figcaption>Flota kombajnów</figcaption>
+              <img src="/src/assets/harvest/fleet.jpg" alt="A dozen combine harvesters working in formation across a wheat field" />
+              <figcaption>Fleet of combines</figcaption>
             </figure>
-            <div class="hv-credit">Zdjęcia: Crop Trust (CC BY-SA 4.0) · W. van de Poll / Nationaal Archief (CC0) · D. Kollmann (CC BY-SA 3.0) · skfo.gov.ru (CC BY 4.0) — Wikimedia Commons</div>
+            <div class="hv-credit">Photos: Crop Trust (CC BY-SA 4.0) · W. van de Poll / Nationaal Archief (CC0) · D. Kollmann (CC BY-SA 3.0) · skfo.gov.ru (CC BY 4.0) — Wikimedia Commons</div>
           </div>
           <aside class="notes">
-            <p><b>[1:30–3:00]</b> Taki skok produktywności to nie pierwszy raz w historii. Weźmy żniwa.</p>
-            <p>Sierp i kosa: jeden człowiek, ułamek hektara dziennie. Każde źdźbło przechodzi przez jego ręce. Tak wyglądało ręczne pisanie kodu.</p>
-            <p>Żniwiarka i młockarnia: maszyna robi najcięższą część, ale człowiek prowadzi każdy krok. Rząd wielkości więcej. To jest AI assistant — i tu jest dziś większość zespołów.</p>
-            <p>Kombajn: jedna maszyna kosi, młóci i czyści. Człowiek steruje, nie wykonuje. Kolejny rząd wielkości. To AI agent.</p>
-            <p>Flota kombajnów: jeden operator nadzoruje kilka maszyn naraz, które same jadą po zaplanowanych ścieżkach. To jest AI factory — i tam zmierzamy.</p>
-            <p>Ważne: żaden z tych skoków nie polegał na tym, że rolnik szybciej machał kosą. Za każdym razem zmieniał się sposób pracy — i za każdym razem trzeba było się więcej nauczyć. Kosą zetnie każdy, flotą kombajnów trzeba umieć zarządzać. Z AI jest tak samo: assistanta używa każdy, fabrykę trzeba zaprojektować.</p>
-            <p>→ Przejście: „Jak w takim razie wygląda ta zmiana w naszej pracy? Zobaczmy, gdzie dziś idzie nasz wysiłek.”</p>
+            <p><b>[1:30–3:00]</b> A productivity leap like this isn't a first in history. Take the harvest.</p>
+            <p>Sickle and scythe: one person, a fraction of a hectare a day. Every stalk passes through their hands. That's what writing code by hand looked like.</p>
+            <p>Reaper and thresher: the machine does the heaviest part, but a human guides every step. An order of magnitude more. That's an AI assistant — and that's where most teams are today.</p>
+            <p>Combine: one machine cuts, threshes and cleans. The human steers, but doesn't do the work. Another order of magnitude. That's an AI agent.</p>
+            <p>Fleet of combines: one operator supervises several machines at once, driving along planned routes on their own. That's an AI factory — and that's where we're heading.</p>
+            <p>Key point: none of these leaps came from the farmer swinging the scythe faster. Every time, the way of working changed — and every time there was more to learn. Anyone can cut grain with a scythe; running a fleet of combines takes skill. AI is the same: anyone can use an assistant, but a factory has to be designed.</p>
+            <p>→ Transition: “So what does this shift look like in our work? Let's see where our effort goes today.”</p>
           </aside>
         </section>
 
@@ -121,45 +121,45 @@
              02 · WHERE THE EFFORT GOES (before AI vs today)
              ============================================================ -->
         <section class="top">
-          <span class="tag">00 · Punkt wyjścia</span>
-          <h2>Gdzie idzie <span class="mark">nasz wysiłek?</span></h2>
+          <span class="tag">00 · Starting point</span>
+          <h2>Where does <span class="mark">our effort go?</span></h2>
           <div class="effort">
             <div class="effort-row">
-              <span class="effort-label">Przed AI</span>
+              <span class="effort-label">Before AI</span>
               <div class="effort-bar">
                 <div class="eseg intent" style="--w: 10%; --i: 0"><b>Ticket</b></div>
                 <div class="eseg " style="--w: 10%; --i: 1"><b>Design</b></div>
-                <div class="eseg code" style="--w: 55%; --i: 2"><b>Kodowanie</b></div>
+                <div class="eseg code" style="--w: 55%; --i: 2"><b>Coding</b></div>
                 <div class="eseg " style="--w: 12%; --i: 3"><b>Review</b></div>
-                <div class="eseg verify" style="--w: 13%; --i: 4"><b>Testy</b></div>
+                <div class="eseg verify" style="--w: 13%; --i: 4"><b>Testing</b></div>
               </div>
             </div>
             <div class="effort-row morph fragment rise">
-              <span class="effort-label">Dziś</span>
+              <span class="effort-label">Today</span>
               <div class="effort-bar">
-                <div class="eseg intent" style="--b: 10%; --t: 40%; --i: 0"><b>Intencja &amp; spec</b></div>
-                <div class="eseg " style="--b: 10%; --t: 18%; --i: 1"><b>Architektura</b></div>
-                <div class="eseg code" style="--b: 55%; --t: 7%; --i: 2"><b>Kod</b></div>
+                <div class="eseg intent" style="--b: 10%; --t: 40%; --i: 0"><b>Intent &amp; spec</b></div>
+                <div class="eseg " style="--b: 10%; --t: 18%; --i: 1"><b>Architecture</b></div>
+                <div class="eseg code" style="--b: 55%; --t: 7%; --i: 2"><b>Code</b></div>
                 <div class="eseg " style="--b: 12%; --t: 15%; --i: 3"><b>Review</b></div>
-                <div class="eseg verify" style="--b: 13%; --t: 20%; --i: 4"><b>Weryfikacja</b></div>
+                <div class="eseg verify" style="--b: 13%; --t: 20%; --i: 4"><b>Verification</b></div>
               </div>
               <div class="effort-brackets fragment rise">
-                <div style="--w: 58%"><span>przed kodem · <strong>myślenie</strong></span></div>
+                <div style="--w: 58%"><span>before code · <strong>thinking</strong></span></div>
                 <div class="gap" style="--w: 7%"></div>
-                <div style="--w: 35%"><span>po kodzie · <strong>sprawdzanie</strong></span></div>
+                <div style="--w: 35%"><span>after code · <strong>checking</strong></span></div>
               </div>
             </div>
           </div>
           <p class="huge fragment slam" style="font-size: 64px; line-height: 1.15">
-            Wysiłek przeniósł się z <span class="strike-line late">pisania kodu</span><br />
-            na <span class="mark">pisanie intencji</span> i <span class="mark green">weryfikację</span>.
+            The effort has moved from <span class="strike-line late">writing code</span><br />
+            to <span class="mark">writing intent</span> and <span class="mark green">verification</span>.
           </p>
           <aside class="notes">
             <p><b>[3:00–4:15]</b></p>
-            <p>Każdy pasek to cały wysiłek zespołu przy jednym feature. Proporcje są ilustracyjne — chodzi o kierunek, nie o procenty.</p>
-            <p>Przed AI: największy kawałek to kodowanie. Tam szedł czas i tam płaciliśmy seniorom.</p>
-            <p>Dziś: kod robi agent, więc ten kawałek się kurczy. Wysiłek ucieka w dwie strony — PRZED kod: intencja, spec, architektura, czyli myślenie. I PO kodzie: review i weryfikacja, czyli sprawdzanie.</p>
-            <p>Puenta z dołu slajdu: wysiłek przeniósł się z pisania kodu na pisanie intencji i weryfikację.</p>
+            <p>Each bar is the team's total effort on a single feature. The proportions are illustrative — it's about the direction, not the percentages.</p>
+            <p>Before AI: the biggest chunk was coding. That's where the time went and that's what we paid seniors for.</p>
+            <p>Today: the agent writes the code, so that chunk shrinks. The effort moves in two directions — BEFORE the code: intent, spec, architecture, in other words thinking. And AFTER the code: review and verification, in other words checking.</p>
+            <p>Punchline at the bottom of the slide: the effort has moved from writing code to writing intent and verification.</p>
           </aside>
         </section>
 
@@ -167,28 +167,28 @@
              03 · BUT NOT CHEAPER...
              ============================================================ -->
         <section class="top">
-          <span class="tag">00 · Punkt wyjścia</span>
-          <h2>AI obniżyło koszt implementacji.</h2>
-          <p class="lead">Ale <strong>nie</strong> obniżyło kosztu:</p>
+          <span class="tag">00 · Starting point</span>
+          <h2>AI has cut the cost of implementation.</h2>
+          <p class="lead">But it has <strong>not</strong> cut the cost of:</p>
           <div class="chips" style="gap: 26px">
-            <span class="chip fragment pop">złych wymagań</span>
-            <span class="chip fragment pop">złej architektury</span>
-            <span class="chip fragment pop">złych decyzji</span>
-            <span class="chip fragment pop">źle zdefiniowanych edge case'ów</span>
-            <span class="chip fragment pop">braku testów</span>
+            <span class="chip fragment pop">bad requirements</span>
+            <span class="chip fragment pop">bad architecture</span>
+            <span class="chip fragment pop">bad decisions</span>
+            <span class="chip fragment pop">poorly defined edge cases</span>
+            <span class="chip fragment pop">missing tests</span>
           </div>
           <div class="card ink fragment glitch" style="margin-top: 30px; align-self: flex-start">
             <p style="font-family: var(--font-head); font-size: 58px; line-height: 1.1">
-              Wręcz przeciwnie — AI pozwala produkować<br />
-              <span class="glitch-text" data-text="błędny kod szybciej" style="color: var(--pink)">błędny kod szybciej</span>
-              niż kiedykolwiek.
+              Quite the opposite — AI lets you produce<br />
+              <span class="glitch-text" data-text="wrong code faster" style="color: var(--pink)">wrong code faster</span>
+              than ever.
             </p>
           </div>
           <aside class="notes">
             <p><b>[4:15–5:00]</b></p>
-            <p>AI obniżyło koszt implementacji. Ale przejdź po kolei przez chipy — to koszty, które NIE spadły: złe wymagania, zła architektura, złe decyzje, źle zdefiniowane edge case'y, brak testów.</p>
-            <p>Puenta z czarnej karty: „Wręcz przeciwnie — AI pozwala produkować błędny kod szybciej niż kiedykolwiek.” Agent zaimplementuje źle zrozumiany wymóg szybko i bardzo pewnie siebie.</p>
-            <p>→ Przejście: „Więc problem nie leży w pisaniu. Leży w tym, jak z AI pracujemy.”</p>
+            <p>AI has cut the cost of implementation. But go through the chips one by one — these are the costs that did NOT go down: bad requirements, bad architecture, bad decisions, poorly defined edge cases, missing tests.</p>
+            <p>Punchline on the black card: “Quite the opposite — AI lets you produce wrong code faster than ever.” The agent will implement a misunderstood requirement quickly and with great confidence.</p>
+            <p>→ Transition: “So the problem isn't the writing. It's how we work with AI.”</p>
           </aside>
         </section>
 

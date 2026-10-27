@@ -10,66 +10,66 @@ must_include:
   - "= faster typing"
   - "defines intent"
   - "AI agent"
-  - "operatorem klawiatury"
+  - "keyboard operator"
   - "system orchestrator"
 ---
 
 # 06 · AI ≠ autocomplete
 
-## Cel
-Pokazać różnicę między używaniem AI jako „szybszego pisania” (autocomplete) a delegowaniem intencji agentowi, który sam pracuje w pętli. Widz ma poczuć, że rola developera się zmienia: z operatora klawiatury na projektanta i nadzorcę.
+## Goal
+Show the difference between using AI for "faster typing" (autocomplete) and delegating intent to an agent that works in a loop on its own. The audience should feel that the developer's role is changing: from keyboard operator to designer and supervisor.
 
-## Treść
-**Tag:** `01 · Mindset` (żółty wariant)
+## Content
+**Tag:** `01 · Mindset` (yellow variant)
 
-**Nagłówek (h2):** `AI ≠ autocomplete`
+**Heading (h2):** `AI ≠ autocomplete`
 
-**Lewa kolumna — stary sposób (pionowy flow, z góry na dół, strzałki między węzłami):**
+**Left column — the old way (vertical flow, top to bottom, arrows between nodes):**
 1. `Developer`
-2. `"write this function"` — węzeł „ghost” (przerywana ramka, przygaszony)
+2. `"write this function"` — a "ghost" node (dashed border, dimmed)
 3. `AI`
 4. `code`
 
-Pod flow pieczątka (stamp, czarny wariant, obrócona ok. −4°): `= faster typing`
+Below the flow, a stamp (ink variant, rotated about −4°): `= faster typing`
 
-**Prawa kolumna — nowy sposób (pionowy flow, wyrównany do lewej):**
+**Right column — the new way (vertical flow, left-aligned):**
 1. `Developer`
-2. `defines intent` — węzeł żółty
-3. `AI agent` — węzeł niebieski
-(po każdym węźle strzałka w dół, ostatnia strzałka prowadzi do chipów)
+2. `defines intent` — yellow node
+3. `AI agent` — blue node
+(an arrow down after each node; the last arrow leads to the chips)
 
-Pod flow rząd chipów: `plans` · `implements` · `tests` · `reviews` · `fixes` · `↻ loop` (ostatni chip różowy)
+Below the flow, a row of chips: `plans` · `implements` · `tests` · `reviews` · `fixes` · `↻ loop` (the last chip is pink)
 
-**Karta na dole (żółta, cała szerokość treści):**
-`Developer przestaje być` **operatorem klawiatury**`. Zaczyna być:` **architect · product engineer · reviewer · constraint designer · system orchestrator**
-(pogrubione: „operatorem klawiatury” oraz cała lista ról)
+**Bottom card (yellow, full content width):**
+`The developer stops being a` **keyboard operator** `and becomes:` **architect · product engineer · reviewer · constraint designer · system orchestrator**
+(bold: "keyboard operator" and the whole list of roles)
 
-## Układ
-- Slajd typu „top” (treść od góry): tag, nagłówek, potem rząd dwóch kolumn, na dole żółta karta.
-- Dwie kolumny obok siebie, odstęp ok. 90 px, wyrównane do góry, lekki margines nad rzędem (~10 px).
-- Lewa kolumna: stała szerokość ok. 560 px, elementy wyśrodkowane; pieczątka ~20 px pod flow.
-- Prawa kolumna: zajmuje resztę szerokości; strzałki w prawej kolumnie przesunięte w prawo (~90 px od lewej krawędzi), żeby wypadały pod środkiem węzłów wyrównanych do lewej.
-- Kontrast: lewa strona celowo „uboga” (ghost node, czarny stempel), prawa kolorowa (żółty, niebieski, różowy loop).
-- Żółta karta: padding ok. 22×32 px, tekst ok. 34 px.
+## Layout
+- A "top" slide (content starts at the top): tag, heading, then a row of two columns, yellow card at the bottom.
+- Two columns side by side, gap about 90 px, top-aligned, small margin above the row (~10 px).
+- Left column: fixed width about 560 px, items centered; stamp ~20 px below the flow.
+- Right column: takes the remaining width; arrows in the right column are shifted right (~90 px from the left edge) so they sit under the middle of the left-aligned nodes.
+- Contrast: the left side is deliberately "poor" (ghost node, ink stamp), the right side is colorful (yellow, blue, pink loop).
+- Yellow card: padding about 22×32 px, text about 34 px.
 
-## Komponenty
+## Components
 - `section.top`, `span.tag.yellow`, `h2`
-- `.row` (dwie kolumny), `.col`, `.col.center` dla lewej kolumny
-- `.flow` z `.node` (warianty `.ghost`, `.yellow`, `.blue`) i `.arrow` między węzłami
-- `.stamp.ink` z obrotem (`--rot: -4deg`)
-- `.chips` + `.chip` (ostatni `.chip.pink`)
-- `.card.yellow` na dole
+- `.row` (two columns), `.col`, `.col.center` for the left column
+- `.flow` with `.node` (variants `.ghost`, `.yellow`, `.blue`) and `.arrow` between nodes
+- `.stamp.ink` with rotation (`--rot: -4deg`)
+- `.chips` + `.chip` (the last one `.chip.pink`)
+- `.card.yellow` at the bottom
 
-## Kryteria akceptacji
-- [ ] Lewa i prawa kolumna czytelnie kontrastują: „faster typing” vs agent w pętli.
-- [ ] Węzeł `"write this function"` wygląda jak ghost (przygaszony / przerywana ramka).
-- [ ] Chip `↻ loop` jest różowy i jest ostatni w rzędzie.
-- [ ] Cała lista ról w żółtej karcie jest pogrubiona i mieści się bez ucinania.
-- [ ] Mieści się w 1920×1080, brak overflow.
-- [ ] Notatki prelegenta obecne.
+## Acceptance criteria
+- [ ] The left and right columns clearly contrast: "faster typing" vs an agent in a loop.
+- [ ] The `"write this function"` node looks like a ghost (dimmed / dashed border).
+- [ ] The `↻ loop` chip is pink and is the last one in the row.
+- [ ] The whole list of roles in the yellow card is bold and fits without being cut off.
+- [ ] Fits in 1920×1080, no overflow.
+- [ ] Speaker notes present.
 
-## Notatki prelegenta
+## Speaker notes
 **[5:00–6:15]**
-Lewa strona: tak wiele zespołów nadal używa AI — „napisz tę funkcję”. To jest autocomplete. Po prostu szybsze pisanie.
-Prawa strona: developer definiuje intencję, a agent sam planuje, implementuje, testuje, reviewuje i poprawia — w pętli.
-Żółta karta: developer przestaje być operatorem klawiatury. Nie czytaj całej listy ról — wybierz dwie, które są sednem: bliżej biznesu (product engineer) i bliżej weryfikacji (reviewer, constraint designer).
+A lot of teams still use AI like a chat: "implement the specification pattern", "now do this", "now fix that".
+In that setup the human is an **agent operator**, and the only gain is faster typing.
+Instead, it's worth defining a **workflow** where the agent implements, tests and fixes in a loop on its own, and the human steps in only where they're really needed.

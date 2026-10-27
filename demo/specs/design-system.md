@@ -1,10 +1,10 @@
-# Design system — „Koniec klepania kodu?”
+# Design system — “The End of Hand-Coding?”
 
 The source of truth for how every slide looks. You build **one slide** for an existing
 reveal.js deck. The design must be indistinguishable from the hand-made slides.
 
 - Styles: `src/theme.css` (loaded globally — every class below is already available).
-- Language on slides: **Polish**. Code, API names and English terms stay as written in the spec.
+- Language on slides: **English**. Code and API names stay as written in the spec.
 - Style: **neobrutalism** — cream dotted paper, thick ink borders, hard offset shadows,
   flat saturated colour blocks, chunky display type.
 
@@ -81,11 +81,11 @@ There is **no radius token** — corners are square. (Only decorative floaters a
 
 | Section | Tag markup |
 |---|---|
-| `00 · Punkt wyjścia` | `<span class="tag">` (pink shadow, default) |
+| `00 · Starting point` | `<span class="tag">` (pink shadow, default) |
 | `01 · Mindset` | `<span class="tag yellow">` |
 | `02 · Spec-driven development` | `<span class="tag blue">` |
 | `03 · AI Factory` | `<span class="tag green">` |
-| `Podsumowanie` | `<span class="tag">` (default) |
+| `Recap` | `<span class="tag">` (default) |
 
 ---
 
@@ -108,14 +108,14 @@ There is **no radius token** — corners are square. (Only decorative floaters a
 Inline emphasis:
 
 ```html
-<span class="mark">klepania</span>        <!-- yellow highlighter -->
+<span class="mark">Hand-Coding</span>        <!-- yellow highlighter -->
 <span class="mark green">factory</span>   <!-- also .pink, .blue -->
-<span class="strike-line auto">40-stronicowy Word</span>  <!-- red strike through -->
+<span class="strike-line auto">40-page Word doc</span>  <!-- red strike through -->
 <strong>…</strong>                          <!-- 700 weight -->
 ```
 
 Typical headline pattern: plain words + **one** `.mark` on the key phrase.
-`<h2>Spec to <span class="mark">kontrakt</span></h2>`
+`<h2>A spec is a <span class="mark">contract</span></h2>`
 
 Minimum readable size on a slide: **24px** (19–22px only for tiny labels/badges/credits).
 
@@ -137,11 +137,11 @@ slide — reuse them **only** when your spec asks for that slide.
 ```html
 <div class="card yellow">
   <span class="label">JIRA · PAY-123</span>
-  <p style="font-size: 36px">Treść karty.</p>
+  <p style="font-size: 36px">Card content.</p>
 </div>
 <div class="card ink" style="align-self: flex-start; padding: 22px 34px">
   <p style="font-family: var(--font-head); font-size: 44px; line-height: 1.15">
-    Zdanie puenty.<br /><span style="color: var(--yellow)">Druga linia w akcencie.</span>
+    Punchline sentence.<br /><span style="color: var(--yellow)">Second line in the accent colour.</span>
   </p>
 </div>
 ```
@@ -183,7 +183,7 @@ User can create a payment for an existing invoice.</div>
 
 **List** — bulleted list for cards: `.list` (▸), `.list.x` (red ✗), `.list.ok` (green ✓).
 ```html
-<ul class="list ok"><li>małe specy</li><li>review razem z kodem</li></ul>
+<ul class="list ok"><li>small specs</li><li>reviewed together with the code</li></ul>
 ```
 
 **Flow** — vertical mini-diagram of nodes with down arrows. Node variants `yellow|pink|blue|green|ghost` (dashed, muted).
@@ -198,7 +198,7 @@ User can create a payment for an existing invoice.</div>
 **Pipe node + arrow** — horizontal process boxes. Variants `spec` (yellow, larger), `agent` (blue), `human` (green); `<small>` subtitle. `.pipe-arrow` needs `--i` (it grows from 0 width).
 ```html
 <div class="pipe-row">
-  <div class="pipe-node">Problem<small>ticket / pomysł</small></div>
+  <div class="pipe-node">Problem<small>ticket / idea</small></div>
   <i class="pipe-arrow" style="--i: 0"></i>
   <div class="pipe-node spec">SPEC</div>
 </div>
@@ -207,8 +207,8 @@ User can create a payment for an existing invoice.</div>
 **Split2** — two equal cards side by side, with `.kicker` pixel label.
 ```html
 <div class="split2">
-  <div class="card"><span class="kicker">TANIE</span><h3>Kod</h3><p>…</p></div>
-  <div class="card yellow"><span class="kicker">DROGIE</span><h3>Decyzje</h3><p>…</p></div>
+  <div class="card"><span class="kicker">CHEAP</span><h3>Code</h3><p>…</p></div>
+  <div class="card yellow"><span class="kicker">EXPENSIVE</span><h3>Decisions</h3><p>…</p></div>
 </div>
 ```
 
@@ -223,115 +223,115 @@ User can create a payment for an existing invoice.</div>
 
 ### 4.2 Slide-specific families
 
-**`.vs` — old vs new table** (slide „Od pisania kodu → do projektowania intencji”). Grid `1fr 90px 1fr`.
+**`.vs` — old vs new table** (slide “From writing code → to designing intent”). Grid `1fr 90px 1fr`.
 ```html
 <div class="vs">
-  <div class="vsrow"><div class="head muted">STARY MINDSET</div><div></div><div class="head">NOWY MINDSET</div></div>
-  <div class="vsrow"><div class="old">Jak to zakodować?</div><div class="to">→</div><div class="new">Co dokładnie chcemy osiągnąć?</div></div>
+  <div class="vsrow"><div class="head muted">OLD MINDSET</div><div></div><div class="head">NEW MINDSET</div></div>
+  <div class="vsrow"><div class="old">How do I code this?</div><div class="to">→</div><div class="new">What exactly do we want to achieve?</div></div>
 </div>
 ```
 
-**`.radial` — hub and satellites** (slide „Spec to kontrakt”). 1660×520 box; SVG lines from centre (830,260); satellites positioned with `left/top` = line endpoints (they're centred via `translate`).
+**`.radial` — hub and satellites** (slide “A spec is a contract”). 1660×520 box; SVG lines from centre (830,260); satellites positioned with `left/top` = line endpoints (they're centred via `translate`).
 ```html
 <div class="radial" style="align-self: center">
   <svg viewBox="0 0 1660 520" class="draw" fill="none" stroke="#111" stroke-width="5">
     <line x1="830" y1="260" x2="250" y2="70" style="--i: 0; --len: 640" />
   </svg>
   <div class="hub card yellow">spec.md</div>
-  <div class="sat chip" style="left: 250px; top: 70px">implementacja</div>
+  <div class="sat chip" style="left: 250px; top: 70px">implementation</div>
 </div>
 ```
 
-**`.sdd` — spec-driven workflow** (slide „Spec-driven workflow”). Columns of `.sdd-top` (node) over `.sdd-bot` (`.gate` = green „✋ człowiek” badge on a stem, `.link` = dashed line labelled „vs spec”; `--up` extends the stem upward), separated by `.sdd-arrow > .pipe-arrow`, followed by the `.sdd-rail` yellow bar. The middle column holds a `.build-loop`.
+**`.sdd` — spec-driven workflow** (slide “Spec-driven workflow”). Columns of `.sdd-top` (node) over `.sdd-bot` (`.gate` = green “✋ human” badge on a stem, `.link` = dashed line labelled “vs spec”; `--up` extends the stem upward), separated by `.sdd-arrow > .pipe-arrow`, followed by the `.sdd-rail` yellow bar. The middle column holds a `.build-loop`.
 ```html
 <div class="sdd">
   <div class="sdd-col"><div class="sdd-top"><div class="pipe-node spec">SPEC</div></div>
-    <div class="sdd-bot gate" style="--up: 56px"><span>✋ człowiek<br />zatwierdza</span></div></div>
+    <div class="sdd-bot gate" style="--up: 56px"><span>✋ human<br />approves</span></div></div>
   <div class="sdd-arrow"><i class="pipe-arrow"></i></div>
   <div class="sdd-col"><div class="sdd-top"><div class="build-loop">
       <span class="label"><i class="spin">↻</i> Build loop · agent</span>
-      <div class="loop-steps"><span class="chip">plan</span><i>→</i><span class="chip">kod</span></div>
-      <div class="loop-back"><span>powtarza, aż spec jest spełniony</span></div>
+      <div class="loop-steps"><span class="chip">plan</span><i>→</i><span class="chip">code</span></div>
+      <div class="loop-back"><span>repeats until the spec is met</span></div>
     </div></div>
     <div class="sdd-bot link" style="--up: 24px"><span>vs spec</span></div></div>
 </div>
-<div class="sdd-rail">SPEC = źródło prawdy dla każdego kroku</div>
+<div class="sdd-rail">SPEC = source of truth for every step</div>
 ```
 
-**`.pitfalls` — 3 problem/solution cards** (slide „Kiedy SDD boli”). `.bad` (grey, problem) then `.good` (bold, dashed top, green „→”).
+**`.pitfalls` — 3 problem/solution cards** (slide “When SDD hurts”). `.bad` (grey, problem) then `.good` (bold, dashed top, green “→”).
 ```html
 <div class="pitfalls">
-  <div class="card"><h3>Spec drift</h3><p class="bad">Kod się zmienia, spec nie.</p><p class="good">Zmiana specu w tym samym PR.</p></div>
+  <div class="card"><h3>Spec drift</h3><p class="bad">The code changes, the spec doesn't.</p><p class="good">Change the spec in the same PR.</p></div>
 </div>
 ```
 
-**`.levels` — 3 level cards** (slide „Od assistant do factory”). `.lvl` pixel header with `.hp` health squares (`b.off` = empty), `.mono` pre-formatted tree, `.who` dashed footer.
+**`.levels` — 3 level cards** (slide “From assistant to factory”). `.lvl` pixel header with `.hp` health squares (`b.off` = empty), `.mono` pre-formatted tree, `.who` dashed footer.
 ```html
 <div class="levels">
   <div class="card level">
     <div class="lvl">LVL 1 <span class="hp"><b></b><b class="off"></b><b class="off"></b></span></div>
     <h3>AI Assistant</h3>
     <div class="mono">Developer → AI → Developer</div>
-    <p class="who">Developer prowadzi cały proces.</p>
+    <p class="who">The developer drives the whole process.</p>
   </div>
 </div>
 ```
 
-**`.scale` — 2×2 numbered cards** (slide „Co się zmienia przy skali?”). `.num` ink badge top-right.
+**`.scale` — 2×2 numbered cards** (slide “What changes at scale?”). `.num` ink badge top-right.
 ```html
 <div class="scale">
-  <div class="card yellow"><span class="num">01</span><h3>Wąskim gardłem jest człowiek</h3><p>… <strong>nie kod.</strong></p></div>
+  <div class="card yellow"><span class="num">01</span><h3>The bottleneck is people</h3><p>… <strong>not code.</strong></p></div>
 </div>
 ```
 
-**`.gh` + `.models` — GitHub event flow + example cards** (slide „Jak zbudować fabrykę?”). `.gh-step` variants `spec|agent|human`, `.ev` = ink event badge, `.gh-arr` arrows; `.models` 3-col grid of small cards with `h3`, `code`, `p`.
+**`.gh` + `.models` — GitHub event flow + example cards** (slide “How to build a factory?”). `.gh-step` variants `spec|agent|human`, `.ev` = ink event badge, `.gh-arr` arrows; `.models` 3-col grid of small cards with `h3`, `code`, `p`.
 ```html
 <div class="gh">
-  <span class="label">GitHub = źródło prawdy · Actions reagują na zdarzenia</span>
+  <span class="label">GitHub = source of truth · Actions react to events</span>
   <div class="gh-flow">
-    <div class="gh-step spec"><span class="ev">issue</span><b>Issue = spec</b><small>PO + dev dopracowują</small></div>
+    <div class="gh-step spec"><span class="ev">issue</span><b>Issue = spec</b><small>PO + dev refine it</small></div>
     <i class="gh-arr">→</i>
-    <div class="gh-step agent"><span class="ev">label: spec-ready</span><b>🤖 Implementer</b><small>kod + testy → PR</small></div>
+    <div class="gh-step agent"><span class="ev">label: spec-ready</span><b>🤖 Implementer</b><small>code + tests → PR</small></div>
   </div>
 </div>
 <div class="models">
-  <div class="card"><h3>Plugin zespołowy</h3><code>/implement PAY-123</code><p>…</p></div>
+  <div class="card"><h3>Team plugin</h3><code>/implement PAY-123</code><p>…</p></div>
 </div>
 ```
 
-**`.pyramid` — layered pyramid** (slide „10× więcej kodu…”). `column-reverse`: the **first** `.layer` is the **bottom**. Width and background set inline; `.ex` = example text.
+**`.pyramid` — layered pyramid** (slide “10× more code…”). `column-reverse`: the **first** `.layer` is the **bottom**. Width and background set inline; `.ex` = example text.
 ```html
 <div class="pyramid">
-  <div class="layer" style="width: 1560px; background: var(--paper)">Types · lint · schema<span class="ex">amount to liczba</span></div>
-  <div class="layer" style="width: 560px; background: var(--yellow)">Człowiek<span class="ex">czy to ma sens?</span></div>
+  <div class="layer" style="width: 1560px; background: var(--paper)">Types · lint · schema<span class="ex">amount is a number</span></div>
+  <div class="layer" style="width: 560px; background: var(--yellow)">Human<span class="ex">does it make sense?</span></div>
 </div>
 ```
 
-**`.slot` + `.durable-stack`** (slide „Agent jest wymienny / Spec jest trwały”). `.slot` cycles its `span`s (max 4).
+**`.slot` + `.durable-stack`** (slide “The agent is replaceable / The spec is durable”). `.slot` cycles its `span`s (max 4).
 ```html
-<p style="font-size: 40px; font-weight: 700">Dzisiaj implementuje
+<p style="font-size: 40px; font-weight: 700">Today it's implemented by
   <span class="slot"><span>Claude</span><span>Codex</span><span>Gemini</span><span>???</span></span></p>
-<div class="chips durable-stack"><span class="chip yellow">spec</span><span class="chip green">testy</span></div>
+<div class="chips durable-stack"><span class="chip yellow">spec</span><span class="chip green">tests</span></div>
 ```
 
-**`.arc` — recap chain of cards with arrows** (slide „Podsumowanie”). `.k2` pixel number; `.arc.three` = stretched variant.
+**`.arc` — recap chain of cards with arrows** (slide “Recap”). `.k2` pixel number; `.arc.three` = stretched variant.
 ```html
 <div class="arc">
-  <div class="card"><span class="k2">01</span><h3>AI</h3><p>zwiększa tempo</p></div>
+  <div class="card"><span class="k2">01</span><h3>AI</h3><p>raises the pace</p></div>
   <span class="arr">→</span>
-  <div class="card yellow"><span class="k2">02</span><h3>Spec</h3><p>kończy zgadywanie</p></div>
+  <div class="card yellow"><span class="k2">02</span><h3>Spec</h3><p>ends the guessing</p></div>
 </div>
 ```
 
-**`.optimize.v2` — 4 lever cards** (slide „Zamiast tego optymalizuj”). `.ico` pixel icon, `.q` question, `.ex` mono example pinned to the bottom with dashed rule.
+**`.optimize.v2` — 4 lever cards** (slide “Instead, optimize:”). `.ico` pixel icon, `.q` question, `.ex` mono example pinned to the bottom with dashed rule.
 ```html
 <div class="optimize v2">
-  <div class="card yellow"><span class="ico">&gt;_</span><h3>Intencję</h3>
-    <p class="q">Co i po co budujemy?</p><p class="ex">„Add payment endpoint” → spec PAY-123</p></div>
+  <div class="card yellow"><span class="ico">&gt;_</span><h3>Intent</h3>
+    <p class="q">What are we building, and why?</p><p class="ex">“Add payment endpoint” → spec PAY-123</p></div>
 </div>
 ```
 
-**Hand-made only (slides 1–5) — do not reuse:** `.title-slide` (+ `.deco`, `.speaker`, `.avatar`, `.thanks-slide`, `.repo-link`, `.qr-card`), `.bun*`, `.effort*` / `.eseg`, `.hv*` (harvest chart + photos), `.glitch-text` card on „AI obniżyło koszt…”.
+**Hand-made only (slides 1–5) — do not reuse:** `.title-slide` (+ `.deco`, `.speaker`, `.avatar`, `.thanks-slide`, `.repo-link`, `.qr-card`), `.bun*`, `.effort*` / `.eseg`, `.hv*` (harvest chart + photos), `.glitch-text` card on “AI lowered the cost…”.
 
 **Not available to you:** the JS pixel factory (`.factory*`, `data-factory`) — it needs JavaScript, and slides may not contain scripts. A pixel animation must be pure SVG/CSS (see rules).
 
@@ -344,7 +344,7 @@ User can create a payment for an existing invoice.</div>
 - Reuse existing classes first; inline `style` for one-off sizes/positions is normal in this deck.
 - One heading (`h2`) per `section.top` slide, one `.mark` in it, then a body, then (often) a punchline card.
 - At most ~**one accent per element** (a yellow card doesn't also get a pink mark *and* a stamp).
-- Polish typography: quotes „…”, en dash for ranges (`0:00–0:30`), em dash — as a pause, `·` as a separator, `→` for flow, `≠`, `≤`, `×` (not `x`).
+- English typography: quotes "…" or “…” (never „…”), en dash for ranges (`0:00–0:30`), em dash — as a pause, `·` as a separator, `→` for flow, `≠`, `≤`, `×` (not `x`).
 - Keep body text ≥ **24px**; titles must fit on ≤ 2 lines.
 - Images only from `/src/assets/…` (e.g. `/src/assets/harvest/fleet.jpg`).
 - Pixel art: `font-family: var(--font-pixel)`, SVG `rect`s with `shape-rendering="crispEdges"`, CSS `steps()` animations.
@@ -383,7 +383,7 @@ Only if existing classes are not enough:
   ```html
   <section class="top">
     <span class="tag green">03 · AI Factory</span>
-    <h2>Co się zmienia przy <span class="mark green">skali?</span></h2>
+    <h2>What changes at <span class="mark green">scale?</span></h2>
     <div class="scale">…</div>
     <aside class="notes"><p><b>[16:15–18:00]</b> …</p></aside>
   </section>

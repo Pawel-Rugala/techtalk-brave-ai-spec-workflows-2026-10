@@ -1,34 +1,34 @@
 ---
 id: "10"
 order: 10
-title: "Dobry spec vs zły prompt"
+title: "Good spec vs bad prompt"
 section: "02 · Spec-driven development"
 tag: "blue"
 must_include:
-  - "Dobry spec vs zły prompt"
+  - "Good spec vs bad prompt"
   - "Add payment endpoint."
-  - "…i agent zgaduje resztę."
+  - "…and the agent guesses the rest."
   - "payment.amount ≤ invoice.remainingAmount"
   - "optimistic lock on invoice"
   - "404 · 409 · 422 → retry only 5xx"
-  - "mniej zgadywania."
+  - "less guessing."
 ---
 
-# 10 · Dobry spec vs zły prompt
+# 10 · Good spec vs bad prompt
 
-## Cel
-Pokazać ten sam feature dwa razy: jako jednolinijkowy prompt (agent zgaduje) i jako zwięzły spec, w którym każdy wiersz zamyka jedną dziurę z przykładu PAY-123. Puenta: AI nie potrzebuje kreatywniejszych promptów, tylko mniej zgadywania.
+## Goal
+Show the same feature twice: as a one-line prompt (the agent guesses) and as a concise spec in which every line closes one gap from the PAY-123 example. Punchline: AI doesn't need more creative prompts, it needs less guessing.
 
-## Treść
-**Tag:** `02 · Spec-driven development` (niebieski wariant)
+## Content
+**Tag:** `02 · Spec-driven development` (blue variant)
 
-**Nagłówek (h2):** `Dobry spec vs zły prompt`
+**Heading (h2):** `Good spec vs bad prompt`
 
-**Lewa kolumna:**
-- Biała karta z etykietą `PROMPT`, a w niej (monospace, ok. 38 px, bold, bez zawijania): `Add payment endpoint.` — przekreślone
-- Pod kartą mały przygaszony tekst: `…i agent zgaduje resztę.`
+**Left column:**
+- A white card labelled `PROMPT`, containing (monospace, about 38 px, bold, no wrapping): `Add payment endpoint.` — struck through
+- Below the card, small dimmed text: `…and the agent guesses the rest.`
 
-**Prawa kolumna — niebieska karta z etykietą `SPEC` (monospace, ok. 30 px, interlinia ~1.45), wiersze:**
+**Right column — a blue card labelled `SPEC` (monospace, about 30 px, line height ~1.45), rows:**
 1. **`POST /payments`**
 2. **`Preconditions:`** `invoice exists · status = OPEN`
 3. **`Invariant:`** `payment.amount ≤ invoice.remainingAmount`
@@ -36,35 +36,35 @@ Pokazać ten sam feature dwa razy: jako jednolinijkowy prompt (agent zgaduje) i 
 5. **`Concurrency:`** `optimistic lock on invoice`
 6. **`Side effects:`** `PaymentCreated event`
 7. **`Failure modes:`** `404 · 409 · 422 → retry only 5xx`
-(etykiety przed dwukropkiem pogrubione)
+(the labels before the colon are bold)
 
-**Karta na dole (żółta, font nagłówkowy, ok. 48 px):**
-`AI nie potrzebuje bardziej kreatywnych promptów.` ⏎ `AI potrzebuje` `mniej zgadywania.` (różowy marker)
+**Bottom card (yellow, heading font, about 48 px):**
+`AI doesn't need more creative prompts.` ⏎ `AI needs` `less guessing.` (pink marker)
 
-## Układ
-- Slajd „top”: tag, nagłówek, rząd dwóch kolumn (odstęp ok. 60 px, wyrównanie do góry), żółta karta na dole wyrównana do lewej (nie na całą szerokość).
-- Lewa kolumna stała szerokość ok. 560 px; prawa niebieska karta rośnie na resztę szerokości.
-- Kontrast: lewa strona to jedna krótka, przekreślona linijka; prawa — gęsta, precyzyjna lista.
+## Layout
+- A "top" slide: tag, heading, a row of two columns (gap about 60 px, top-aligned), yellow card at the bottom, left-aligned (not full width).
+- Left column fixed width about 560 px; the blue card on the right grows to fill the remaining width.
+- Contrast: the left side is one short, struck-through line; the right side is a dense, precise list.
 
-## Komponenty
+## Components
 - `section.top`, `span.tag.blue`, `h2`
 - `.row`, `.col`
-- `.card` z `span.label` „PROMPT”, `span.strike-line` na prompt
+- `.card` with `span.label` "PROMPT", `span.strike-line` on the prompt
 - `p.muted.small`
-- `.card.blue.grow` z `span.label` „SPEC”, wiersze jako `div` ze `strong`
+- `.card.blue.grow` with `span.label` "SPEC", rows as `div` with `strong`
 - `.card.yellow` + `span.mark.pink`
 
-## Kryteria akceptacji
-- [ ] Prompt jest przekreślony i mieści się w jednej linii.
-- [ ] Spec ma 7 wierszy w podanej kolejności, wszystkie widoczne.
-- [ ] Symbole `≤`, `·`, `→` wyświetlają się poprawnie.
-- [ ] „mniej zgadywania.” na różowym markerze.
-- [ ] Mieści się w 1920×1080, brak overflow.
-- [ ] Notatki prelegenta obecne.
+## Acceptance criteria
+- [ ] The prompt is struck through and fits on one line.
+- [ ] The spec has 7 rows in the given order, all visible.
+- [ ] The symbols `≤`, `·`, `→` render correctly.
+- [ ] "less guessing." on a pink marker.
+- [ ] Fits in 1920×1080, no overflow.
+- [ ] Speaker notes present.
 
-## Notatki prelegenta
+## Speaker notes
 **[10:15–11:15]**
-Lewa strona: to, co dziś zwykle wrzucamy agentowi — „Add payment endpoint.” I agent zgaduje resztę.
-Prawa strona: to samo, ale bez niedomówień. Każdy wiersz zamyka jeden stempel z przykładu:
-• Preconditions (status OPEN) → opłacona faktura. • Idempotency (clientRequestId) → podwójna płatność. • Concurrency (optimistic lock) → równoległe płatności. • Side effects (PaymentCreated) → brak eventu. • Failure modes → co gdy się wywali.
-Puenta z żółtej karty: AI nie potrzebuje bardziej kreatywnych promptów. Potrzebuje mniej zgadywania. Każda luka w specu to miejsce, w którym agent zgaduje — i zgaduje pewnie siebie.
+On the left is what we usually throw at an agent today: "Add payment endpoint". The agent has to guess the rest.
+On the right is the same ticket, with nothing left unsaid. Each line closes one specific gap:
+• **Preconditions** (status OPEN) → we won't pay an invoice that's already paid. • **Idempotency** (clientRequestId) → no double payments. • **Concurrency** (optimistic lock) → concurrent payments won't overwrite each other. • **Side effects** (PaymentCreated) → the event is guaranteed to go out. • **Failure modes** → we know what should happen when something breaks.
+*[yellow card]* AI doesn't need more creative prompts. **It needs less guessing.** Every gap in the spec is a place where the agent guesses. And it guesses with total confidence.

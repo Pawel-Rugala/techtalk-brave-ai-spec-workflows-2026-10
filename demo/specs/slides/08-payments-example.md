@@ -1,7 +1,7 @@
 ---
 id: "08"
 order: 8
-title: "Przykład: POST /payments"
+title: "Example: POST /payments"
 section: "02 · Spec-driven development"
 tag: "blue"
 must_include:
@@ -11,27 +11,27 @@ must_include:
   - "no idempotency key"
   - "invoice already paid?"
   - "what if it fails?"
-  - "Kod jest sensowny."
+  - "The code looks reasonable."
 ---
 
-# 08 · Przykład: POST /payments
+# 08 · Example: POST /payments
 
-## Cel
-Wprowadzić przykład PAY-123, który przewija się przez resztę prezentacji. Jednozdaniowy ticket → agent generuje sensownie wyglądający endpoint → pieczątki pokazują dziury, o których nikt agentowi nie powiedział. Problem nie leży w modelu, tylko we wejściu.
+## Goal
+Introduce the PAY-123 example that runs through the rest of the talk. A one-sentence ticket → the agent generates a reasonable-looking endpoint → stamps reveal the gaps nobody told the agent about. The problem isn't the model, it's the input.
 
-## Treść
-**Tag:** `02 · Spec-driven development` (niebieski wariant)
+## Content
+**Tag:** `02 · Spec-driven development` (blue variant)
 
-**Nagłówek (h2):** `Przykład:` + `POST /payments` w formacie kodu (monospace, ok. 0.85 rozmiaru nagłówka)
+**Heading (h2):** `Example:` + `POST /payments` formatted as code (monospace, about 0.85 of the heading size)
 
-**Lewa karta (żółta) — ticket:**
-- etykieta: `JIRA · PAY-123`
-- treść (ok. 40 px, bold): `Add endpoint allowing a user to pay an invoice.`
-- mały tekst pod spodem: `Priority: High · Estimate: 1 SP 🙂`
+**Left card (yellow) — the ticket:**
+- label: `JIRA · PAY-123`
+- body (about 40 px, bold): `Add endpoint allowing a user to pay an invoice.`
+- small text below: `Priority: High · Estimate: 1 SP 🙂`
 
-**Prawa strona — terminal (ciemny) z kodem:**
-- tytuł paska terminala: `agent · payments.ts`
-- kod (z kolorowaniem: komentarz, słowa kluczowe, funkcje, stringi, liczby):
+**Right side — a (dark) terminal with code:**
+- terminal bar title: `agent · payments.ts`
+- code (syntax-highlighted: comment, keywords, functions, strings, numbers):
 ```
 // 🤖 agent: "Done! Endpoint ready ✅"
 router.post('/payments', async (req, res) => {
@@ -44,38 +44,39 @@ router.post('/payments', async (req, res) => {
 });
 ```
 
-**Pieczątki nałożone na terminal (5 sztuk, lekko obrócone, rozrzucone):**
-1. `no idempotency key` — prawy górny róg, wystaje nieco poza prawą krawędź terminala, obrót ~+5°
-2. `concurrent payments?` — środek-prawo, ~−4°
-3. `invoice already paid?` — niżej, bardziej w prawo, ~+3°
-4. `no event emitted` — jeszcze niżej, prawo, ~−5°
-5. `what if it fails?` — dół, lewa strona terminala, ~+4°
+**Stamps over the terminal (5 of them, slightly rotated, scattered):**
+1. `no idempotency key` — top-right corner, sticking out a little past the terminal's right edge, rotated ~+5°
+2. `concurrent payments?` — middle-right, ~−4°
+3. `invoice already paid?` — lower, further right, ~+3°
+4. `no event emitted` — lower still, right, ~−5°
+5. `what if it fails?` — bottom, left side of the terminal, ~+4°
 
-**Linia pod spodem (lead):** **`Kod jest sensowny.`** `Problem w tym, że nikt nie wie, czy jest` `poprawny` (różowy marker) `.`
+**Line below (lead):** **`The code looks reasonable.`** `The problem is, nobody knows if it's` `correct` (pink marker) `.`
 
-## Układ
-- Slajd „top”: tag, nagłówek, rząd (karta + terminal), lead na dole.
-- Rząd: odstęp ok. 60 px, wyrównanie do góry. Żółta karta stałej szerokości ok. 520 px, terminal zajmuje resztę szerokości.
-- Pieczątki to warstwa absolutna nad terminalem (kontener `position: relative` wokół terminala). Rozłożone schodkowo z góry na dół, żeby nie zasłaniały się nawzajem i nie zasłaniały całkowicie kodu. Muszą zmieścić się w slajdzie.
-- Terminal może mieć efekt pisania (typewriter), ale w stanie końcowym cały kod jest widoczny.
+## Layout
+- A "top" slide: tag, heading, row (card + terminal), lead at the bottom.
+- Row: gap about 60 px, top-aligned. The yellow card has a fixed width of about 520 px, the terminal takes the remaining width.
+- The stamps are an absolute layer over the terminal (a `position: relative` container around the terminal). Staggered from top to bottom so they don't cover each other or fully hide the code. They must stay inside the slide.
+- The terminal may have a typewriter effect, but in the final state all the code is visible.
 
-## Komponenty
-- `section.top`, `span.tag.blue`, `h2` z `code`
-- `.row`, `.card.yellow` z `span.label`, `p.small`
-- `.term` (ciemny terminal) z `span.title`; kolorowanie: `.c` (komentarz), `.k` (keyword), `.f` (funkcja), `.s` (string), `.n` (liczba/identyfikator). Opcjonalnie `.type` z `data-speed`.
-- `.stamp-layer` z kilkoma `.stamp` (obrót przez `--rot`)
+## Components
+- `section.top`, `span.tag.blue`, `h2` with `code`
+- `.row`, `.card.yellow` with `span.label`, `p.small`
+- `.term` (dark terminal) with `span.title`; highlighting: `.c` (comment), `.k` (keyword), `.f` (function), `.s` (string), `.n` (number/identifier). Optionally `.type` with `data-speed`.
+- `.stamp-layer` with several `.stamp` (rotation via `--rot`)
 - `p.lead` + `span.mark.pink`
 
-## Kryteria akceptacji
-- [ ] Ticket i kod są obok siebie; kod czytelny, z podświetlaniem składni.
-- [ ] Wszystkie 5 pieczątek widoczne, obrócone, nie wychodzą poza 1920×1080.
-- [ ] „poprawny” na różowym markerze.
-- [ ] Mieści się w 1920×1080, brak overflow.
-- [ ] Notatki prelegenta obecne.
+## Acceptance criteria
+- [ ] The ticket and the code are side by side; the code is readable and syntax-highlighted.
+- [ ] All 5 stamps visible, rotated, and inside 1920×1080.
+- [ ] "correct" on a pink marker.
+- [ ] Fits in 1920×1080, no overflow.
+- [ ] Speaker notes present.
 
-## Notatki prelegenta
-**[7:30–9:00]** To jest nasz przykład na resztę prezentacji: PAY-123.
-Typowy ticket — jedno zdanie, estymata 1 SP. Agent generuje endpoint i melduje „Done ✅”. Kod wygląda sensownie.
-Stemple wpadają same, po kolei. Skomentuj każdy:
-• no idempotency key — klient zrobi retry i zapłaci dwa razy. • concurrent payments — dwie płatności naraz na tę samą fakturę. • invoice already paid — nic nie blokuje płacenia opłaconej faktury. • no event emitted — reszta systemu nie wie, że była płatność. • what if it fails — co retryować, co zwrócić klientowi?
-Agent nie zgadł, bo NIKT mu tego nie powiedział. To nie jest problem modelu — to problem wejścia.
+## Speaker notes
+**[7:30–9:00]**
+Let's talk about spec-driven development. One example will stay with us for a while.
+It's a made-up but typical ticket: "Add an endpoint for making payments".
+The agent implemented it and opened a PR. Now what?
+Is it good or bad? Who decides? You have to dig into the code and do a full code review just to check whether what the agent built works at all.
+**It's not the agent's fault. The problem is what it got as input.**

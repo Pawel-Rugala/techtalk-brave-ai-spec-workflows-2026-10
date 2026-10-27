@@ -16,14 +16,14 @@ const STATIONS = [
 
 // Caption shown in the HUD for each step
 const CAPTIONS = [
-  'INPUT: PAY-123 „Add endpoint allowing a user to pay an invoice”',
-  'SPEC AGENT → ticket staje się specyfikacją',
-  'ARCHITECT AGENT → decyzje, kontrakty, plan',
-  'BACKEND + FRONTEND AGENT → implementacja równolegle',
-  'TESTING AGENT → BUG ODRZUCONY. Weryfikacja względem spec',
-  'REVIEW AGENT → review względem spec, nie „vibe”',
+  'INPUT: PAY-123 "Add endpoint allowing a user to pay an invoice"',
+  'SPEC AGENT → the ticket becomes a spec',
+  'ARCHITECT AGENT → decisions, contracts, plan',
+  'BACKEND + FRONTEND AGENT → parallel implementation',
+  'TESTING AGENT → BUG REJECTED. Verified against the spec',
+  'REVIEW AGENT → review against the spec, not the "vibe"',
   'PR → HUMAN APPROVAL ✓',
-  'AI FACTORY = WORKFLOW, NIE MODEL',
+  'AI FACTORY = WORKFLOW, NOT A MODEL',
 ];
 
 const r = (x, y, w, h, fill, extra = '') =>

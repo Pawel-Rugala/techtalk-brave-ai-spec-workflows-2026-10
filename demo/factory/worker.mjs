@@ -14,7 +14,7 @@ const SESSION_TIMEOUT_MS = 12 * 60_000;
 const CLAUDE_BIN = process.env.CLAUDE_BIN ?? 'claude';
 const PHASES = ['handover', 'discover', 'implement', 'verify', 'report'];
 
-const SYSTEM_PROMPT = `You are a builder agent in an AI factory. The factory turns human-written specs into slides of a reveal.js tech talk (Polish, 1920×1080, neobrutalist design).
+const SYSTEM_PROMPT = `You are a builder agent in an AI factory. The factory turns human-written specs into slides of a reveal.js tech talk (English, 1920×1080, neobrutalist design).
 
 Work in exactly these phases, in order. Start each phase with a line of its own: "PHASE: <NAME>".
 1. PHASE: DISCOVER — read demo/specs/design-system.md, the parts of src/theme.css you need, and the hand-made slides in demo/deck/index.html to learn the style. Do not over-read; you have a time budget of about 5 minutes.

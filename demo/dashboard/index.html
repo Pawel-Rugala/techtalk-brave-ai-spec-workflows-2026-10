@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,11 +12,11 @@
         <span class="logo">🏭</span>
         <div>
           <h1>AI FACTORY <span class="live"><i></i>LIVE</span></h1>
-          <div class="sub" id="run-info">brak uruchomienia</div>
+          <div class="sub" id="run-info">no run yet</div>
         </div>
       </div>
       <div class="actions">
-        <button id="btn-run" class="btn yellow">▶ Start fabryki</button>
+        <button id="btn-run" class="btn yellow">▶ Start factory</button>
         <button id="btn-stop" class="btn">■ Stop</button>
         <button id="btn-reset" class="btn ghost">⟲ Reset</button>
         <div class="clock"><b id="clock">--:--:--</b><small id="tz">CET</small></div>
@@ -30,29 +30,29 @@
         <table>
           <thead>
             <tr>
-              <th>#</th><th>Spec / slajd</th><th>Status</th><th>Pipeline</th><th>Model</th>
-              <th class="num">Tokeny in</th><th class="num">out</th><th class="num">cache</th>
-              <th class="num">Koszt*</th><th class="num">Czas</th><th>Start</th><th>Koniec</th><th class="num">Próby</th>
+              <th>#</th><th>Spec / slide</th><th>Status</th><th>Pipeline</th><th>Model</th>
+              <th class="num">Tokens in</th><th class="num">out</th><th class="num">cache</th>
+              <th class="num">Cost*</th><th class="num">Time</th><th>Start</th><th>Finish</th><th class="num">Attempts</th>
             </tr>
           </thead>
           <tbody id="rows"></tbody>
         </table>
-        <p class="foot">* koszt w cenach API (tokeny × cennik modelu) · czasy w strefie Europe/Warsaw</p>
+        <p class="foot">* cost at API prices (tokens × model pricing) · times in Europe/Warsaw</p>
       </div>
 
       <aside class="detail card" id="detail">
         <div class="detail-head">
           <div>
             <span class="label" id="d-id">—</span>
-            <h2 id="d-title">Wybierz spec z tabeli</h2>
+            <h2 id="d-title">Pick a spec from the table</h2>
           </div>
-          <a id="d-open" class="btn small" target="_blank" hidden>Otwórz slajd ↗</a>
+          <a id="d-open" class="btn small" target="_blank" hidden>Open slide ↗</a>
         </div>
         <nav class="tabs" id="tabs">
           <button data-tab="spec" class="on">Spec</button>
           <button data-tab="shot">Screenshot</button>
-          <button data-tab="activity">Aktywność</button>
-          <button data-tab="report">Raport</button>
+          <button data-tab="activity">Activity</button>
+          <button data-tab="report">Report</button>
         </nav>
         <div class="tab-body" id="tab-body"></div>
       </aside>

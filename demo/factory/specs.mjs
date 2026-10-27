@@ -39,7 +39,7 @@ export function parseSpec(file, kind) {
     kind,
     file: rel(file),
     raw,
-    notes: sectionOf(body, 'Notatki prelegenta'),
+    notes: sectionOf(body, 'Speaker notes'),
   };
 }
 

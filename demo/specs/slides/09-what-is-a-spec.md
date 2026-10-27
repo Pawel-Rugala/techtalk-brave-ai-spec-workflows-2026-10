@@ -1,13 +1,13 @@
 ---
 id: "09"
 order: 9
-title: "Co to właściwie jest spec?"
+title: "So what exactly is a spec?"
 section: "02 · Spec-driven development"
 tag: "blue"
 must_include:
-  - "Co to właściwie jest spec?"
-  - "40-stronicowy Word"
-  - "bez zadawania 20 pytań."
+  - "So what exactly is a spec?"
+  - "a 40-page Word doc"
+  - "without asking 20 questions."
   - "specs/create-payment.md"
   - "# Create Payment"
   - "## Business rules"
@@ -15,22 +15,22 @@ must_include:
   - "duplicate clientRequestId → same payment"
 ---
 
-# 09 · Co to właściwie jest spec?
+# 09 · So what exactly is a spec?
 
-## Cel
-Odczarować słowo „spec”: to nie jest 40-stronicowy dokument w Wordzie, tylko krótki markdown w repo. Kryterium: inny developer albo agent może zaimplementować feature bez zadawania 20 pytań. Po prawej konkretny przykład specu dla PAY-123.
+## Goal
+Demystify the word "spec": it isn't a 40-page Word document, it's a short markdown file in the repo. The test: another developer or an agent can implement the feature without asking 20 questions. On the right, a concrete spec example for PAY-123.
 
-## Treść
-**Tag:** `02 · Spec-driven development` (niebieski wariant)
+## Content
+**Tag:** `02 · Spec-driven development` (blue variant)
 
-**Lewa kolumna:**
-- Nagłówek (h2, duży, ok. 84 px): `Co to właściwie jest spec?`
-- Linia w foncie nagłówkowym (ok. 44 px): `Spec ≠` `40-stronicowy Word` (przekreślone)
-- Żółta karta (tekst ok. 36 px): `Spec jest wystarczająco konkretny, żeby` **inny developer albo agent** `zaimplementował feature` **bez zadawania 20 pytań.**
+**Left column:**
+- Heading (h2, large, about 84 px): `So what exactly is a spec?`
+- A line in the heading font (about 44 px): `Spec ≠` `a 40-page Word doc` (struck through)
+- Yellow card (text about 36 px): `A spec is concrete enough for` **another developer or an agent** `to implement the feature` **without asking 20 questions.**
 
-**Prawa kolumna — jasny terminal z plikiem markdown:**
-- tytuł paska: `specs/create-payment.md`
-- treść (nagłówki markdown wyróżnione kolorem; `#` mocniej, `##` słabiej):
+**Right column — a light terminal with a markdown file:**
+- bar title: `specs/create-payment.md`
+- content (markdown headings highlighted in color; `#` stronger, `##` weaker):
 ```
 # Create Payment
 
@@ -56,28 +56,28 @@ PaymentCreated · PaymentFailed
 - [ ] duplicate clientRequestId → same payment
 ```
 
-## Układ
-- Slajd „top”. Tag u góry, potem rząd dwóch kolumn (odstęp ok. 70 px, wyrównane do góry). Nagłówek h2 jest WEWNĄTRZ lewej kolumny (nie nad rzędem).
-- Lewa kolumna: stała szerokość ok. 700 px, pionowy stos z odstępami ok. 36 px: h2 → linia „Spec ≠ …” → żółta karta.
-- Prawa kolumna: jasny terminal zajmuje resztę szerokości; font ok. 25 px, interlinia ok. 1.42 — cały spec musi się zmieścić w pionie bez przewijania.
-- Terminal może mieć efekt pisania (typewriter, szybki), ale w stanie końcowym cały tekst widoczny.
+## Layout
+- A "top" slide. Tag at the top, then a row of two columns (gap about 70 px, top-aligned). The h2 heading is INSIDE the left column (not above the row).
+- Left column: fixed width about 700 px, a vertical stack with gaps of about 36 px: h2 → the "Spec ≠ …" line → yellow card.
+- Right column: the light terminal takes the remaining width; font about 25 px, line height about 1.42 — the whole spec must fit vertically without scrolling.
+- The terminal may have a (fast) typewriter effect, but in the final state all the text is visible.
 
-## Komponenty
+## Components
 - `section.top`, `span.tag.blue`
-- `.row`, `.col` (lewa, stała szerokość)
-- `h2`, akapit w `var(--font-head)` z `span.strike-line`
-- `.card.yellow` ze `strong`
-- `.term.light` z `span.title`; nagłówki markdown jako `span.h1md` i `span.h2md`. Opcjonalnie `.type` z `data-speed`.
+- `.row`, `.col` (left, fixed width)
+- `h2`, a paragraph in `var(--font-head)` with `span.strike-line`
+- `.card.yellow` with `strong`
+- `.term.light` with `span.title`; markdown headings as `span.h1md` and `span.h2md`. Optionally `.type` with `data-speed`.
 
-## Kryteria akceptacji
-- [ ] „40-stronicowy Word” jest przekreślony.
-- [ ] Spec w terminalu zawiera wszystkie sekcje: Goal, API, Business rules, Events, Error cases, Acceptance criteria — cały widoczny, nic nie ucięte.
-- [ ] `clientRequestId` widoczne w linii API.
-- [ ] Mieści się w 1920×1080, brak overflow.
-- [ ] Notatki prelegenta obecne.
+## Acceptance criteria
+- [ ] "a 40-page Word doc" is struck through.
+- [ ] The spec in the terminal contains all sections: Goal, API, Business rules, Events, Error cases, Acceptance criteria — all visible, nothing cut off.
+- [ ] `clientRequestId` visible in the API line.
+- [ ] Fits in 1920×1080, no overflow.
+- [ ] Speaker notes present.
 
-## Notatki prelegenta
+## Speaker notes
 **[9:00–10:15]**
-Od razu zaznacz: spec to NIE 40-stronicowy dokument w Wordzie. To krótki markdown w repo, obok kodu, z review jak kod.
-Test z żółtej karty: czy inny developer albo agent zrobi to bez zadawania 20 pytań?
-Pokaż sekcje po prawej: Goal, API, reguły biznesowe, eventy, przypadki błędów, acceptance criteria. Zwróć uwagę na clientRequestId w API — to jest odpowiedź na pierwszy stempel.
+A spec is **not** a 40-page Word document. It's a short markdown file in the repo, next to the code, and it goes through review just like code does.
+It has to be concrete enough that another developer or an agent can deliver it **without asking twenty questions**.
+*[point at the right side]* On the right is an example generated by an agent. I'm not saying it's perfect, but it's still far more concrete than "add a new endpoint".

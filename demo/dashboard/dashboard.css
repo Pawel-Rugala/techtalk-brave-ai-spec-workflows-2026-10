@@ -64,7 +64,7 @@ h1 { margin: 0; font-family: var(--font-head); font-size: 34px; font-weight: 400
 .btn.yellow { background: var(--yellow); }
 .btn.ghost { background: transparent; box-shadow: none; }
 .btn.armed { background: var(--red); color: var(--paper); }
-.btn.armed::after { content: ' — kliknij ponownie'; }
+.btn.armed::after { content: ' — click again'; }
 .btn.small { font-size: 13px; padding: 6px 10px; }
 .btn.tiny { font-size: 12px; padding: 3px 8px; margin-top: 6px; box-shadow: 3px 3px 0 var(--ink); display: inline-block; }
 

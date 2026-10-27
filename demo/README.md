@@ -6,7 +6,7 @@ headless Claude Code sessions (Opus 5.5) while the talk runs. The full deck in t
 ```
 demo/
   specs/design-system.md   design documentation every builder gets
-  specs/slides/NN-*.md     one spec per slide (06–22): Cel · Treść · Układ · Komponenty · Kryteria · Notatki
+  specs/slides/NN-*.md     one spec per slide (06–22): Goal · Content · Layout · Components · Acceptance criteria · Speaker notes
   specs/live/23-*.md       the live example, triggered manually from the dashboard
   deck/                    demo deck: 5 hand-made slides + one slot per spec
   deck/slides/NN.html      ← builder agents write only here
@@ -46,9 +46,9 @@ The gate checks:
 npm run demo          # http://localhost:5180/demo/dashboard/  ·  /demo/deck/  ·  / (backup deck)
 ```
 
-- **Start** the factory with **▶ Start fabryki** on the dashboard (or `curl -XPOST localhost:5180/api/run`). Do it at 0:00; slide 06 is needed at ~5:00.
+- **Start** the factory with **▶ Start factory** on the dashboard (or `curl -XPOST localhost:5180/api/run`). Do it at 0:00; slide 06 is needed at ~5:00.
 - **Present** from `/demo/deck/` (`S` opens speaker view).
-  - Unbuilt slides show a live "w produkcji" placeholder that still carries the speaker notes.
+  - Unbuilt slides show a live "in production" placeholder that still carries the speaker notes.
   - Built slides swap in place without a page reload.
 - **Show observability** at the end on the dashboard:
   - the spec
@@ -60,7 +60,7 @@ npm run demo          # http://localhost:5180/demo/dashboard/  ·  /demo/deck/  
   - Playwright screenshot
   - full activity log
   - the agent's report
-- **Live example:** press **▶ uruchom** on row 23 (or `curl -XPOST localhost:5180/api/run/23`). The pixel-factory slide appears at the end of the demo deck.
+- **Live example:** press **▶ run** on row 23 (or `curl -XPOST localhost:5180/api/run/23`). The pixel-factory slide appears at the end of the demo deck.
 - **If anything goes wrong**, switch to `/`, the full hand-made deck.
 
 Other endpoints:

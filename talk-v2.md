@@ -1,266 +1,266 @@
-# Koniec klepania kodu? — notatki prelegenta (v2)
+# The End of Hand-Coding? — speaker notes (v2)
 
-> Tekst do mówienia, nie do czytania z kartki. Pogrubienia = akcent głosem. `[w nawiasach]` = wskazówki sceniczne.
-
----
-
-## Slajd 1 — Otwarcie i o mnie
-
-Cześć, nazywam się Paweł. Przez ostatni rok **nie napisałem ani jednej linijki kodu**. Cały kod pisali agenci.
-
-AI zmienia to, jak pracujemy. Zmienia też dynamikę zespołów. I o tym dziś porozmawiamy: jak przeprowadzić taką zmianę we własnym zespole.
-
-Kilka słów o mnie. W branży jestem od 2012 roku. Pracowałem w małych firmach produktowych, w software house'ach i w korporacjach zatrudniających około 100 tysięcy osób. Byłem frontendowcem, backendowcem, solution architectem, tech leadem, a nawet EMEA BI Directorem. Niekoniecznie w tej kolejności.
+> Text for speaking, not for reading off a page. Bold = vocal emphasis. `[in brackets]` = stage directions.
 
 ---
 
-## Slajd 2 — Bun w 11 dni
+## Slide 1 — Opening and about me
 
-W lipcu tego roku Jarred Sumner, twórca Buna, który dziś pracuje w Anthropic, ogłosił, że przepisał całego Buna na Rusta. **Sam. W 11 dni.**
+Hi, I'm Paul. Over the past year **I haven't written a single line of code**. Agents wrote all of it.
 
-Wewnętrzny szacunek w Anthropic mówił, że takie zadanie to praca dla trzech senior engineerów na rok.
+AI is changing how we work. It's also changing how teams work together. And that's what we'll talk about today: how to make that shift in your own team.
 
-`[wskaż paski]` Górny pasek to trzy osobolata, czyli około 750 osobodni roboczych. Dolny to 11 osobodni. Prawie go nie widać. To mniej więcej **70 razy szybciej**.
-
-Możemy to zignorować. Możemy szukać dziury w całym. Ale najlepsze zespoły na świecie pokazują, że to, co zajmowało trzy osobolata, dziś jedna osoba robi w 11 dni. A ignorowanie tego wygląda tak: **bawimy się AI, zamiast na serio o nie walczyć.**
+A few words about me. I've been in the industry since 2012. I've worked at small product companies, at software houses and at corporations with around 100,000 employees. I've been a frontend dev, a backend dev, a solution architect, a tech lead and even an EMEA BI Director. Not necessarily in that order.
 
 ---
 
-## Slajd 3 — Analogia: żniwa
+## Slide 2 — Bun in 11 days
 
-Spokojnie, to nie jest kolejna rada z amerykańskiego poradnika o produktywności. Szukałem analogii, dzięki której wszyscy będziemy mówić o tym samym. Padło na **żniwa**.
+In July this year Jarred Sumner, the creator of Bun, who now works at Anthropic, announced that he had rewritten all of Bun in Rust. **On his own. In 11 days.**
 
-- **Poziom 1:** każde źdźbło przechodzi przez ręce rolnika. Tak jak kiedyś my pisaliśmy każdą linijkę kodu.
-- **Poziom 2:** maszyna robi najcięższą robotę, ale człowiek prowadzi każdy krok. Wydajność rośnie o rząd wielkości. To jest **AI assistant** i tu dziś jest większość zespołów.
-- **Poziom 3:** jedna maszyna kosi, młóci i czyści. Człowiek steruje, ale już nie wykonuje. Kolejny rząd wielkości. To jest **AI agent**.
-- **Poziom 4:** jeden operator nadzoruje kilka maszyn naraz, a one same jeżdżą po zaplanowanych trasach. To jest **AI factory** i właśnie tam zmierzamy.
+The internal estimate at Anthropic said a job like that was a year of work for three senior engineers.
 
-Żaden z tych skoków nie polegał na tym, że rolnik szybciej machał kosą. Za każdym razem zmieniał się **sposób pracy** i za każdym razem trzeba było się czegoś nauczyć. Kosą zetnie każdy, ale flotą kombajnów trzeba umieć zarządzać. Z AI jest tak samo: **asystenta używa każdy, fabrykę trzeba zaprojektować.**
+`[point at the bars]` The top bar is three person-years, roughly 750 working days. The bottom one is 11 person-days. You can barely see it. That's about **70 times faster**.
 
-I jeszcze jedno: rolnicy, którzy się dostosowali, nie stracili pracy. Człowiek dalej jest tam potrzebny, tylko robi coś innego. Chyba jedyny zawód, który zniknął kompletnie, to operator windy.
+We can ignore this. We can pick holes in it. But the best teams in the world are showing that what used to take three person-years, one person now does in 11 days. And ignoring that looks like this: **we play with AI instead of seriously fighting for it.**
 
 ---
 
-## Slajd 4 — Gdzie idzie nasz wysiłek
+## Slide 3 — The analogy: the harvest
 
-To gdzie dziś idzie cały nasz wysiłek?
+Don't worry, this isn't another tip from an American productivity book. I was looking for an analogy that would get us all talking about the same thing. I went with **the harvest**.
 
-Każdy pasek to cała praca zespołu nad jednym featurem. Proporcje są poglądowe. Chodzi o kierunek, nie o procenty.
+- **Level 1:** every stalk passes through the farmer's hands. Just like we used to write every line of code.
+- **Level 2:** the machine does the heaviest work, but a human guides every step. Output goes up by an order of magnitude. That's an **AI assistant**, and that's where most teams are today.
+- **Level 3:** one machine cuts, threshes and cleans. The human steers but no longer does the work. Another order of magnitude. That's an **AI agent**.
+- **Level 4:** one operator supervises several machines at once, and they drive along planned routes on their own. That's an **AI factory**, and that's where we're heading.
 
-**Przed AI** największym kawałkiem było kodowanie. Tam szedł czas i tam się pociliśmy.
+None of these leaps came from the farmer swinging the scythe faster. Every time, **the way of working** changed, and every time people had to learn something new. Anyone can cut grain with a scythe, but running a fleet of combines takes skill. AI is the same: **anyone can use an assistant, but a factory has to be designed.**
 
-**W erze AI** wszystko rozbija się o to, **co** chcemy zbudować: jakie są wymagania, co ma się dziać, a czego nie wolno. Pisanie kodu jest tanie i robi je agent. Druga duża część pracy to **weryfikacja**: czy agent zbudował dokładnie to, czego oczekiwaliśmy.
-
----
-
-## Slajd 5 — AI nie zwalnia z myślenia
-
-Pisanie kodu jest tanie i szybkie. Ale złe wymagania i złe decyzje wcale nie stały się tańsze. AI potrafi wygenerować **dziesięć razy więcej beznadziejnego kodu**, i to bardzo szybko.
-
-AI nie zwolniło nas z myślenia. Człowiek nadal jest u steru, tylko stoi w innym miejscu.
+And one more thing: the farmers who adapted didn't lose their jobs. Humans are still needed there, they just do something different. I think the only job that disappeared completely is the elevator operator.
 
 ---
 
-## Slajd 6 — Promptowanie to nie workflow
+## Slide 4 — Where does our effort go
 
-Wiele zespołów wciąż używa AI na zasadzie rozmowy: „wdróż specification pattern”, „a teraz zrób to”, „a teraz popraw tamto”.
+So where does all our effort go today?
 
-W takim układzie człowiek jest **operatorem agenta**, a jedyny zysk to szybsze pisanie.
+Each bar is the whole team's work on a single feature. The proportions are illustrative. It's about the direction, not the percentages.
 
-Zamiast tego warto zdefiniować **workflow**, w którym agent sam implementuje, testuje i poprawia w pętli, a człowiek wchodzi tylko tam, gdzie naprawdę jest potrzebny.
+**Before AI** the biggest chunk was coding. That's where the time went and that's where we sweated.
 
----
-
-## Slajd 7 — Nowa jednostka pracy
-
-Developer nie musi już łamać sobie głowy, jak coś zakodować i czy kod spełnia wszystkie zasady SOLID.
-
-Powinien się skupić na tym, **co** chce osiągnąć i **jakie reguły** muszą być spełnione.
-
-Jednostką pracy przestaje być kod. **Staje się nią specyfikacja.**
+**In the AI era** everything comes down to **what** we want to build: what the requirements are, what should happen and what must never happen. Writing code is cheap, and the agent does it. The other big part of the work is **verification**: did the agent build exactly what we expected?
 
 ---
 
-## Slajd 8 — Przykład: endpoint płatności
+## Slide 5 — AI doesn't free us from thinking
 
-Porozmawiajmy o spec-driven development. Przez chwilę będzie nam towarzyszył jeden przykład.
+Writing code is cheap and fast. But bad requirements and bad decisions haven't got any cheaper. AI can generate **ten times more terrible code**, and do it very quickly.
 
-To zmyślony, ale typowy ticket: „Dodaj endpoint do wykonywania płatności”.
-
-Agent go zaimplementował i wystawił PR-a. I co teraz?
-
-Jest dobrze czy źle? Kto to oceni? Musisz zagłębić się w kod i zrobić pełne code review, żeby sprawdzić, czy to, co zrobił agent, w ogóle działa.
-
-**To nie jest wina agenta. Problemem jest to, co dostał na wejściu.**
+AI hasn't freed us from thinking. The human is still at the helm, just standing in a different place.
 
 ---
 
-## Slajd 9 — Czym jest spec
+## Slide 6 — Prompting is not a workflow
 
-Spec to **nie** 40-stronicowy dokument w Wordzie. To krótki plik markdown w repo, obok kodu, który przechodzi review tak samo jak kod.
+A lot of teams still use AI like a chat: “implement the specification pattern”, “now do this”, “now fix that”.
 
-Musi być na tyle konkretny, żeby inny developer albo agent mógł go zrealizować **bez zadawania dwudziestu pytań**.
+In that setup the human is an **agent operator**, and the only gain is faster typing.
 
-`[wskaż prawą stronę]` Po prawej przykład wygenerowany przez agenta. Nie twierdzę, że jest idealny, ale i tak jest dużo bardziej konkretny niż „dodaj nowy endpoint”.
-
----
-
-## Slajd 10 — Mniej zgadywania
-
-Po lewej to, co dziś zwykle wrzucamy agentowi: „Add payment endpoint”. Resztę agent musi zgadnąć.
-
-Po prawej ten sam ticket, ale bez niedomówień. Każdy wiersz zamyka jedną konkretną lukę:
-
-- **Preconditions** (status OPEN) → nie zapłacimy faktury, która jest już opłacona.
-- **Idempotency** (clientRequestId) → nie będzie podwójnej płatności.
-- **Concurrency** (optimistic lock) → równoległe płatności się nie nadpiszą.
-- **Side effects** (PaymentCreated) → event na pewno zostanie wysłany.
-- **Failure modes** → wiemy, co ma się stać, gdy coś się wywali.
-
-`[żółta karta]` AI nie potrzebuje bardziej kreatywnych promptów. **Potrzebuje mniej zgadywania.** Każda luka w specu to miejsce, w którym agent zgaduje. I robi to z pełną pewnością siebie.
+Instead, it's worth defining a **workflow** where the agent implements, tests and fixes in a loop on its own, and the human steps in only where they're really needed.
 
 ---
 
-## Slajd 11 — Jeden spec, wiele zastosowań
+## Slide 7 — The new unit of work
 
-To jest ciekawsze niż „piszmy lepsze prompty”. Jeden plik `spec.md` jest źródłem dla wszystkiego dookoła: implementacji, code review, testów, QA i dokumentacji. Product, developer, AI, testy i QA patrzą na ten sam plik.
+Developers no longer have to rack their brains over how to code something and whether the code follows every SOLID principle.
 
-`[stempel w rogu]` To **nie** jest „więcej dokumentacji”. Kiedyś dokumentacja była efektem ubocznym, którego nikt nie czytał. Dziś spec jest **wejściem do maszyny, która produkuje software**. Jak źle go napiszesz, maszyna wyprodukuje coś złego.
+They should focus on **what** they want to achieve and **which rules** have to hold.
 
-Ja osobiście myślę o specach jak o migracjach bazy danych albo o historii w gicie: to zapis tego, **jak i dlaczego** system doszedł do obecnego stanu.
-
----
-
-## Slajd 12 — Spec-driven development w pigułce
-
-Cały spec-driven development da się pokazać bardzo prosto.
-
-Na początku jest **intencja**. Człowiek razem z AI zamienia ją w **specyfikację**. Kiedy spec jest gotowy, człowiek go **zatwierdza**. To uruchamia agenta, który w pętli implementuje, testuje, sprawdza, poprawia i na końcu wystawia pull request. **O merge'u decyduje człowiek.**
+Code stops being the unit of work. **The spec becomes the unit of work.**
 
 ---
 
-## Slajd 13 — Najczęstsze zarzuty
+## Slide 8 — Example: a payments endpoint
 
-Trzy zarzuty, które słyszę najczęściej:
+Let's talk about spec-driven development. One example will stay with us for a while.
 
-**„To waterfall od nowa”.** Tak, jeśli przez tydzień piszesz spec, zanim ktokolwiek zobaczy działający kod. Ale agenci piszą kod dziesięć razy szybciej albo jeszcze szybciej, więc mocki, prototypy i PoC są dziś bardzo tanie. Odpowiedź jest prosta: **małe specy, często, i często wdrażaj kod.**
+It's a made-up but typical ticket: “Add an endpoint for making payments”.
 
-**„Spec rozjedzie się z kodem”.** Tak, jeśli żyje poza PR-em. Spec zmieniamy w tym samym PR co kod, a review sprawdza jedno i drugie.
+The agent implemented it and opened a PR. Now what?
 
-**„Spec na wszystko?”** Nie. Literówka w labelu nie potrzebuje specu. Płatności tak. Spec piszemy tam, gdzie są reguły biznesowe albo ryzyko.
+Is it good or bad? Who decides? You have to dig into the code and do a full code review just to check whether what the agent built works at all.
 
----
-
-## Slajd 14 — Trzy poziomy pracy z AI
-
-Wróćmy do poziomów, tym razem w języku narzędzi.
-
-**Poziom 1, asystent:** ChatGPT, Claude, Copilot w IDE. Ty prowadzisz cały proces, AI podpowiada.
-
-**Poziom 2, agent:** dajesz mu całe zadanie. Sam czyta repo, zmienia kod, puszcza testy, poprawia błędy i otwiera PR. Tu jest dziś większość zespołów, które na serio używają AI.
-
-**Poziom 3, fabryka:** ticket przechodzi przez wyspecjalizowanych agentów: od specu, przez architekta, backend i frontend równolegle, testy i review, aż po zatwierdzenie przez człowieka na końcu. Developer nie pisze już kodu. **Projektuje system, który ten kod dostarcza.**
-
-To porozmawiajmy o fabrykach AI.
+**It's not the agent's fault. The problem is what it got as input.**
 
 ---
 
-## Slajd 15 — Co się zmienia przy skali
+## Slide 9 — What is a spec
 
-Kiedy przechodzimy na fabrykę, zmieniają się cztery rzeczy.
+A spec is **not** a 40-page Word document. It's a short markdown file in the repo, next to the code, and it goes through review just like code does.
 
-**01. Wąskim gardłem jest człowiek.** Agenci produkują więcej PR-ów, niż zespół jest w stanie przeczytać. Limitem są spec i review, nie kod. Dlatego bramek ma być niewiele, ale mają być mocne.
+It has to be concrete enough that another developer or an agent can deliver it **without asking twenty questions**.
 
-**02. Separacja ról.** Agent, który sam pisze kod i sam go reviewuje, zawsze powie „looks good”. Reviewer to osobny agent, z osobnym kontekstem, który sprawdza kod względem specu, a nie własnych założeń.
-
-**03. Fabryka to też kod.** Prompty, skille, CLAUDE.md, checklisty: wszystko w repo, wersjonowane, z review. Kiedy agent trzeci raz popełnia ten sam błąd, nie poprawiasz PR-a. **Poprawiasz fabrykę.**
-
-**04. Mierzysz linię produkcyjną.** Ile PR-ów przechodzi bez poprawek, ile jest reworku, ile bugów trafia na produkcję, ile trwa droga od ticketu do merge'a i ile kosztuje feature. Jeśli tego nie wiesz, to nie wiesz, czy twoja fabryka działa.
-
-`[TODO: 1–2 krótkie historie z innych projektów. Najlepiej konkretna liczba albo wpadka, która ilustruje któryś z punktów.]`
+`[point at the right side]` On the right is an example generated by an agent. I'm not saying it's perfect, but it's still far more concrete than “add a new endpoint”.
 
 ---
 
-## Slajd 16 — Najprostsza fabryka: GitHub + Actions
+## Slide 10 — Less guessing
 
-Jak to wygląda w praktyce? Oto najprostsza fabryka, którą możecie postawić jutro: GitHub jako źródło prawdy i GitHub Actions, które reagują na zdarzenia.
+On the left is what we usually throw at an agent today: “Add payment endpoint”. The agent has to guess the rest.
 
-`[przejdź po górnym pasku]`
-1. **Issue to spec.** PO i developer dopracowują go w issue.
-2. **Label `spec-ready` to bramka.** Człowiek mówi „spec gotowy”, a Action odpala agenta-implementera, który pisze kod z testami i otwiera PR.
-3. **Otwarcie PR-a** to kolejne zdarzenie. Startuje agent-reviewer i sprawdza kod względem specu z issue.
-4. **Label `ready-for-qa`.** Agent QA puszcza testy e2e, robi screenshoty i wrzuca raport.
-5. **Merge zawsze robi człowiek.**
+On the right is the same ticket, with nothing left unsaid. Each line closes one specific gap:
 
-Nie ma tu żadnej magii: zdarzenia, labele i joby, które wszyscy znacie.
+- **Preconditions** (status OPEN) → we won't pay an invoice that's already paid.
+- **Idempotency** (clientRequestId) → no double payments.
+- **Concurrency** (optimistic lock) → concurrent payments won't overwrite each other.
+- **Side effects** (PaymentCreated) → the event is guaranteed to go out.
+- **Failure modes** → we know what should happen when something breaks.
 
-Inne warianty:
-- **Plugin zespołowy:** developer sam wywołuje `/implement`. To najbezpieczniejszy pierwszy krok.
-- **Chat-ops:** PO pisze na Slacku, agent zakłada issue, a emoji oznacza akceptację.
-- **Agenci cykliczni:** cron do prac utrzymaniowych, takich jak zależności, flaky testy czy nocne QA.
-- **Pętla z produkcji:** alert z Sentry tworzy issue i PR z poprawką.
-- **Własny orkiestrator:** agenci biorą zadania z kolejki.
-
-Granicą jest wyobraźnia, ale wzorzec jest zawsze ten sam: **zdarzenie → agent → bramka.**
+`[yellow card]` AI doesn't need more creative prompts. **It needs less guessing.** Every gap in the spec is a place where the agent guesses. And it guesses with total confidence.
 
 ---
 
-## Slajd 17 — Fabryka weryfikacji
+## Slide 11 — One spec, many uses
 
-Fabryka skaluje kod, ale skaluje też bugi. Dlatego obok fabryki kodu potrzebujecie **fabryki weryfikacji**.
+This is more interesting than “let's write better prompts”. A single `spec.md` file is the source for everything around it: implementation, code review, tests, QA and documentation. Product, developers, AI, tests and QA all look at the same file.
 
-Piramidę budujemy od dołu. Najpierw rzeczy deterministyczne i tanie: typy, linter, schematy. Wyżej testy jednostkowe, kontraktowe i integracyjne. Dopiero na samej górze AI review względem specu i człowiek.
+`[stamp in the corner]` This is **not** “more documentation”. Documentation used to be a by-product nobody read. Today the spec is **the input to a machine that produces software**. Write it badly and the machine will produce something bad.
 
-Rola człowieka się zmienia: nie sprawdza każdej linijki, tylko to, **czy te zabezpieczenia mają sens**.
-
-**Nie ufamy agentowi. Ufamy systemowi weryfikacji wokół agenta.**
-
-Pokażę wam to na demo na koniec.
+Personally, I think of specs like database migrations or git history: a record of **how and why** the system got to where it is now.
 
 ---
 
-## Slajd 18 — Inwestuj w to, co trwałe
+## Slide 12 — Spec-driven development in a nutshell
 
-Agent jest wymienny. Dziś implementuje Claude, jutro Codex, pojutrze coś, czego jeszcze nie ma.
+You can show the whole of spec-driven development very simply.
 
-Trwałe jest coś innego: spec, decyzje architektoniczne, testy, ograniczenia i kryteria akceptacji. Zostają niezależnie od modelu. **To jest prawdziwy kapitał zespołu.** Inwestujcie w to, co trwałe.
-
----
-
-## Slajd 19 — Podsumowanie
-
-AI zwiększa tempo → spec kończy zgadywanie → agenci przejmują wykonanie → weryfikacja daje zaufanie.
-
-Wniosek: **nie optymalizujcie szybkości pisania kodu.** To już nie jest wąskie gardło.
+It starts with **intent**. A human, together with AI, turns it into a **spec**. When the spec is ready, the human **approves** it. That kicks off an agent that implements, tests, checks and fixes in a loop, and finally opens a pull request. **The human decides on the merge.**
 
 ---
 
-## Slajd 20 — Cztery rzeczy, które mają wartość
+## Slide 13 — The most common objections
 
-**Intencja:** co budujemy i po co? To różnica między „add payment endpoint” a specem PAY-123.
+Three objections I hear most often:
 
-**Ograniczenia:** czego nie wolno złamać? Kwota nie większa niż kwota do zapłaty, idempotencja, jedna płatność naraz.
+**“This is waterfall all over again.”** Yes, if you spend a week writing a spec before anyone sees working code. But agents write code ten times faster or more, so mocks, prototypes and PoCs are very cheap today. The answer is simple: **small specs, often, and ship code often.**
 
-**Pętle feedbacku:** jak szybko agent dowie się, że się myli? Test, który pada po minucie, jest wart więcej niż komentarz w review po dwóch dniach.
+**“The spec will drift from the code.”** Yes, if it lives outside the PR. We change the spec in the same PR as the code, and review checks both.
 
-**Weryfikacja:** skąd wiemy, że to działa? Od typów, przez testy, po AI review względem specu i człowieka na końcu.
-
-Pisanie kodu jest dziś prawie darmowe. **Te cztery rzeczy nie są.** I tu jest wasza wartość.
+**“A spec for everything?”** No. A typo in a label doesn't need a spec. Payments do. We write specs where there are business rules or risk.
 
 ---
 
-## Slajd 21 — Moim zdaniem
+## Slide 14 — Three levels of working with AI
 
-`[pauza]`
+Let's go back to the levels, this time in terms of tools.
 
-„Przyszłość software developmentu to nie AI piszące kod. To ludzie projektujący systemy, które niezawodnie produkują software.”
+**Level 1, the assistant:** ChatGPT, Claude, Copilot in your IDE. You run the whole process, AI makes suggestions.
+
+**Level 2, the agent:** you hand it the whole task. It reads the repo, changes the code, runs the tests, fixes errors and opens a PR on its own. That's where most teams that take AI seriously are today.
+
+**Level 3, the factory:** a ticket goes through specialised agents: from the spec, through the architect, backend and frontend in parallel, testing and review, all the way to human approval at the end. The developer no longer writes code. **They design the system that delivers that code.**
+
+So let's talk about AI factories.
 
 ---
 
-## Slajd 22 — Demo: fabryka na żywo
+## Slide 15 — What changes at scale
 
-A teraz dowód, że to naprawdę działa. Na początku prezentacji uruchomiłem swoją fabrykę AI.
+When we move to a factory, four things change.
 
-Przez cały ten czas fabryka dostawała specyfikacje, a agenci budowali kolejne slajdy na żywo. Oczywiście miałem backup na wypadek wpadki. Zbudowałem też mały dashboard, żebyście wszyscy widzieli, co się dzieje.
+**01. The human is the bottleneck.** Agents produce more PRs than the team can read. The limit is spec and review, not code. That's why there should be few gates, but strong ones.
 
-I na koniec, żeby nie było, że kłamię: **zrobimy jeden slajd razem.**
+**02. Separation of roles.** An agent that writes the code and reviews it itself will always say “looks good”. The reviewer is a separate agent, with its own context, checking the code against the spec rather than its own assumptions.
+
+**03. The factory is code too.** Prompts, skills, CLAUDE.md, checklists: all in the repo, versioned, reviewed. When an agent makes the same mistake for the third time, you don't fix the PR. **You fix the factory.**
+
+**04. Measure the production line.** How many PRs get through without fixes, how much rework there is, how many bugs reach production, how long it takes from ticket to merge and how much a feature costs. If you don't know that, you don't know whether your factory works.
+
+`[TODO: 1–2 short stories from other projects. Ideally a concrete number or a mishap that illustrates one of the points.]`
+
+---
+
+## Slide 16 — The simplest factory: GitHub + Actions
+
+What does it look like in practice? Here's the simplest factory you can set up tomorrow: GitHub as the source of truth and GitHub Actions reacting to events.
+
+`[walk through the top strip]`
+1. **The issue is the spec.** The PO and a developer refine it in the issue.
+2. **The `spec-ready` label is the gate.** A human says “spec ready”, and an Action fires the implementer agent, which writes the code with tests and opens a PR.
+3. **Opening the PR** is the next event. The reviewer agent starts and checks the code against the spec in the issue.
+4. **The `ready-for-qa` label.** The QA agent runs the e2e tests, takes screenshots and posts a report.
+5. **A human always does the merge.**
+
+There's no magic here: events, labels and jobs you all already know.
+
+Other variants:
+- **Team plugin:** the developer invokes `/implement` themselves. That's the safest first step.
+- **Chat-ops:** the PO writes on Slack, the agent creates an issue, and an emoji means approval.
+- **Scheduled agents:** cron for maintenance work like dependencies, flaky tests or nightly QA.
+- **Production loop:** a Sentry alert creates an issue and a PR with the fix.
+- **Custom orchestrator:** agents pick up tasks from a queue.
+
+The only limit is your imagination, but the pattern is always the same: **event → agent → gate.**
+
+---
+
+## Slide 17 — The verification factory
+
+A factory scales code, but it scales bugs too. That's why, next to the code factory, you need a **verification factory**.
+
+We build the pyramid from the bottom. First the deterministic, cheap stuff: types, linter, schemas. Above that, unit, contract and integration tests. Only at the very top, AI review against the spec, and the human.
+
+The human's role changes: they don't check every line, they check **whether these safeguards make sense**.
+
+**We don't trust the agent. We trust the verification system around the agent.**
+
+I'll show you this in the demo at the end.
+
+---
+
+## Slide 18 — Invest in what lasts
+
+The agent is replaceable. Today Claude implements, tomorrow Codex, the day after something that doesn't exist yet.
+
+What lasts is something else: the spec, architecture decisions, tests, constraints and acceptance criteria. They stay no matter which model you use. **That's the team's real capital.** Invest in what lasts.
+
+---
+
+## Slide 19 — Recap
+
+AI speeds things up → the spec ends the guessing → agents take over execution → verification gives us trust.
+
+The takeaway: **don't optimize how fast you write code.** That's no longer the bottleneck.
+
+---
+
+## Slide 20 — Four things that hold the value
+
+**Intent:** what are we building, and why? That's the difference between “add payment endpoint” and the PAY-123 spec.
+
+**Constraints:** what must never break? The amount can't exceed what's still due, idempotency, one payment at a time.
+
+**Feedback loops:** how fast does the agent find out it's wrong? A test that fails after a minute is worth more than a review comment two days later.
+
+**Verification:** how do we know it works? From types, through tests, to AI review against the spec and a human at the end.
+
+Writing code is almost free today. **These four things aren't.** And that's where your value is.
+
+---
+
+## Slide 21 — My take
+
+`[pause]`
+
+“The future of software development isn't AI writing code. It's people designing systems that reliably produce software.”
+
+---
+
+## Slide 22 — Demo: the factory live
+
+And now, proof that this actually works. At the start of this talk I launched my AI factory.
+
+The whole time, the factory has been receiving specs and agents have been building the next slides live. Of course I had a backup in case something went wrong. I also built a small dashboard so you can all see what's going on.
+
+And finally, so you know I'm not lying: **we'll build one slide together.**

@@ -1,43 +1,43 @@
 ---
 id: "14"
 order: 14
-title: "Od assistant do factory"
+title: "From assistant to factory"
 section: "03 · AI Factory"
 tag: "green"
 must_include:
-  - "Od assistant do"
+  - "From assistant to"
   - "factory"
   - "AI Assistant"
   - "AI Agent"
   - "AI Factory"
-  - "Developer prowadzi cały proces."
-  - "Developer deleguje całe zadanie."
-  - "Developer projektuje system, który dostarcza."
+  - "The developer runs the whole process."
+  - "The developer delegates the whole task."
+  - "The developer designs the system that delivers."
 ---
 
-# 14 · Od assistant do factory
+# 14 · From assistant to factory
 
-## Cel
-Pokazać trzy poziomy pracy z AI jak poziomy w grze: asystent (LVL 1), agent (LVL 2), fabryka (LVL 3). Na każdym poziomie inna rola developera — od prowadzenia procesu, przez delegowanie zadania, po projektowanie systemu, który dostarcza.
+## Goal
+Show three levels of working with AI as levels in a game: assistant (LVL 1), agent (LVL 2), factory (LVL 3). Each level gives the developer a different role — from running the process, through delegating a task, to designing the system that delivers.
 
-## Treść
-**Tag:** `03 · AI Factory` (zielony wariant)
+## Content
+**Tag:** `03 · AI Factory` (green variant)
 
-**Nagłówek (h2):** `Od assistant do` + `factory` (zielony marker)
+**Heading (h2):** `From assistant to` + `factory` (green marker)
 
-**Trzy karty-poziomy obok siebie:**
+**Three level cards side by side:**
 
-1. **Karta LVL 1** (biała)
-   - pasek poziomu: `LVL 1` + wskaźnik HP 1/3 (jeden pełny segment, dwa wyłączone)
+1. **LVL 1 card** (white)
+   - level bar: `LVL 1` + HP indicator 1/3 (one full segment, two off)
    - h3: `AI Assistant`
-   - blok monospace: `Developer → AI → Developer`
-   - mały przygaszony tekst: `ChatGPT · Claude · Copilot`
-   - rola: `Developer prowadzi cały proces.`
+   - monospace block: `Developer → AI → Developer`
+   - small dimmed text: `ChatGPT · Claude · Copilot`
+   - role: `The developer runs the whole process.`
 
-2. **Karta LVL 2** (biała)
+2. **LVL 2 card** (white)
    - `LVL 2` + HP 2/3
    - h3: `AI Agent`
-   - blok monospace (drzewko, zachować wcięcia i znaki):
+   - monospace block (a tree — keep indentation and characters):
 ```
 Task → Agent
   ├─ reads repository
@@ -46,12 +46,12 @@ Task → Agent
   ├─ fixes errors
   └─ creates PR
 ```
-   - rola: `Developer deleguje całe zadanie.`
+   - role: `The developer delegates the whole task.`
 
-3. **Karta LVL 3** (żółta — najważniejsza)
-   - `LVL 3` + HP 3/3 (wszystkie pełne)
+3. **LVL 3 card** (yellow — the most important)
+   - `LVL 3` + HP 3/3 (all full)
    - h3: `AI Factory`
-   - blok monospace (zachować wcięcia):
+   - monospace block (keep indentation):
 ```
 Jira → Spec Agent
      → Architect Agent
@@ -60,31 +60,32 @@ Jira → Spec Agent
      → Review Agent
      → Human approval
 ```
-   - rola: `Developer projektuje system, który dostarcza.`
+   - role: `The developer designs the system that delivers.`
 
-## Układ
-- Slajd „top”: tag, nagłówek, rząd trzech kart (~20 px pod nagłówkiem).
-- Trzy karty równej szerokości, wyrównane do góry; rosnąca „moc” od lewej do prawej (HP bar, żółte wyróżnienie LVL 3).
-- Pasek LVL w stylu gry (pixel font), segmenty HP jako małe kwadraty; wyłączone segmenty przygaszone.
-- Bloki monospace z zachowaniem białych znaków (pre-wrap), żeby drzewka się nie rozjechały.
-- Linia roli na dole każdej karty, wyróżniona (np. pogrubiona), najlepiej wyrównana na tej samej wysokości we wszystkich kartach.
+## Layout
+- A "top" slide: tag, heading, a row of three cards (~20 px below the heading).
+- Three cards of equal width, top-aligned; "power" grows from left to right (HP bar, yellow highlight on LVL 3).
+- Game-style LVL bar (pixel font), HP segments as small squares; off segments dimmed.
+- Monospace blocks preserve whitespace (pre-wrap) so the trees don't fall apart.
+- The role line at the bottom of each card is emphasised (e.g. bold), ideally aligned at the same height in all cards.
 
-## Komponenty
+## Components
 - `section.top`, `span.tag.green`, `h2` + `span.mark.green`
-- `.levels` z trzema `.card.level` (trzecia `.card.level.yellow`)
-- `.lvl` z `span.hp` zawierającym `b` (pełny) i `b.off` (wyłączony)
+- `.levels` with three `.card.level` (the third one `.card.level.yellow`)
+- `.lvl` with `span.hp` containing `b` (full) and `b.off` (off)
 - `h3`, `div.mono`, `p.small.muted`, `p.who`
 
-## Kryteria akceptacji
-- [ ] Trzy poziomy w kolejności LVL 1 → LVL 2 → LVL 3, HP odpowiednio 1/3, 2/3, 3/3.
-- [ ] Karta LVL 3 jest żółta.
-- [ ] Drzewka w blokach monospace zachowują wcięcia i znaki `├─`, `└─`, `∥`.
-- [ ] Mieści się w 1920×1080, brak overflow.
-- [ ] Notatki prelegenta obecne.
+## Acceptance criteria
+- [ ] Three levels in order LVL 1 → LVL 2 → LVL 3, with HP 1/3, 2/3, 3/3 respectively.
+- [ ] The LVL 3 card is yellow.
+- [ ] The trees in the monospace blocks keep their indentation and the `├─`, `└─`, `∥` characters.
+- [ ] Fits in 1920×1080, no overflow.
+- [ ] Speaker notes present.
 
-## Notatki prelegenta
-**[15:00–16:15]** Trzy poziomy pracy z AI.
-LVL 1, asystent: ChatGPT, Claude, Copilot w IDE. Ty prowadzisz cały proces, AI podpowiada.
-LVL 2, agent: dajesz mu całe zadanie. Sam czyta repo, zmienia kod, puszcza testy, poprawia błędy i otwiera PR. Tu jest dziś większość zespołów, które na serio używają AI.
-LVL 3, fabryka: ticket przechodzi przez wyspecjalizowanych agentów — spec, architekt, backend i frontend równolegle, testy, review — a na końcu człowiek zatwierdza. Developer nie pisze już kodu, tylko projektuje system, który go dostarcza.
-Ważne: AI Factory to workflow, nie model. Modele będą się zmieniać, workflow zostaje.
+## Speaker notes
+**[15:00–16:15]**
+Let's go back to the levels, this time in terms of tools.
+**Level 1, the assistant:** ChatGPT, Claude, Copilot in your IDE. You run the whole process, AI makes suggestions.
+**Level 2, the agent:** you hand it the whole task. It reads the repo, changes the code, runs the tests, fixes errors and opens a PR on its own. That's where most teams that take AI seriously are today.
+**Level 3, the factory:** a ticket goes through specialised agents: from the spec, through the architect, backend and frontend in parallel, testing and review, all the way to human approval at the end. The developer no longer writes code. **They design the system that delivers that code.**
+So let's talk about AI factories.
