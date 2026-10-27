@@ -10,7 +10,7 @@ const CHROME =
   process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
 const DECKS = [
-  { page: 'index.html', out: 'export/koniec-klepania-kodu-PL.pdf' },
+  { page: 'index.html', out: 'export/the-end-of-hand-coding-EN.pdf' },
 ];
 
 const server = await preview({ preview: { port: 4174, strictPort: true } });
