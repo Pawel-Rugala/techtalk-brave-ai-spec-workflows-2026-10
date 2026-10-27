@@ -2,7 +2,7 @@
 
 **Spec-driven development in modern teams** — a talk from Brave AI Szczecin (October 2026), about 25 minutes. Author: Paul Rugała · [LinkedIn](https://www.linkedin.com/in/paul-rugala).
 
-> This is the English version. The original Polish version ("Koniec klepania kodu?") lives on the `main` branch.
+> **Language:** English (this branch, `feat/eng-version`) · [Polski — „Koniec klepania kodu?”](https://github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-10/tree/main) (`main`)
 
 If you were at the talk: this is the whole repo, including the **AI factory** that built slides live from specs during the talk. You can run it yourself.
 
@@ -37,7 +37,7 @@ Also:
 Requirements: **Node 20.19+** (or 22.12+).
 
 ```bash
-git clone https://github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-10.git
+git clone -b feat/eng-version https://github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-10.git
 cd techtalk-brave-ai-spec-workflows-2026-10
 npm install
 ```

@@ -9,7 +9,7 @@ must_include:
   - "Questions?"
   - "Paul Rugała"
   - "Full deck:"
-  - "github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-10"
+  - "github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-10/tree/feat/eng-version"
   - "LinkedIn · /in/paul-rugala"
 ---
 
@@ -23,7 +23,7 @@ Closing slide for Q&A: a thank-you, the speaker's name, a link to the full deck 
 
 - **Title (h1, huge):** “Thanks!⏎**Questions?**” — “Questions?” in a pink marker.
 - **Speaker:** avatar (square placeholder) + “Paul Rugała”.
-- **Repo link:** label “Full deck:” + code in a yellow box: `github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-10`
+- **Repo link:** label “Full deck:” + code in a yellow box: `github.com/Pawel-Rugala/techtalk-brave-ai-spec-workflows-2026-10/tree/feat/eng-version`
 - **QR card (top-right corner):** image `/src/assets/linkedin-qr.svg` (alt: “QR code: linkedin.com/in/paul-rugala”) + caption “LinkedIn · /in/paul-rugala”.
 
 ## Layout
